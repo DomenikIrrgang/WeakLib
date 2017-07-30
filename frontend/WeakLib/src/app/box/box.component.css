@@ -1,0 +1,21 @@
+.box {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    background-color: white;
+    margin-top: 5px;
+}
+
+.box-heading {
+    padding-left: 5px;
+    font-size: 28px;
+    background-color: lightslategray;
+    color: white;
+}
+
+.box-content {
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    font-size: 16px;
+}
