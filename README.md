@@ -1,0 +1,2 @@
+# WeakLib
+Weakaura string libary
