@@ -6,12 +6,14 @@ import { BoxComponent } from './box/box.component';
 
 import { RoutingModule } from './routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BoxComponent,
     DashboardComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
