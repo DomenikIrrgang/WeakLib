@@ -3,10 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BoxComponent } from './box/box.component';
-
-import { RoutingModule } from './routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ContactComponent } from './contact/contact.component';
+import { PageHeadingComponent } from './pageheading/pageheading.component';
+
+import { RoutingModule } from './routing.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ContactComponent } from './contact/contact.component';
     BoxComponent,
     DashboardComponent,
     ContactComponent,
+    PageHeadingComponent,
   ],
   imports: [
     BrowserModule,
