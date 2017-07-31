@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {PageFooterComponent} from './pagefooter/pagefooter.component'
 import { AppComponent } from './app.component';
 import { BoxComponent } from './box/box.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -16,6 +16,7 @@ import { RoutingModule } from './routing.module';
     DashboardComponent,
     ContactComponent,
     PageHeadingComponent,
+    PageFooterComponent,
   ],
   imports: [
     BrowserModule,
