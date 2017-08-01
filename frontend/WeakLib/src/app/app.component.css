@@ -1,0 +1,31 @@
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 0.5fr 6fr 0.5fr;
+    grid-gap: 10px;
+    grid-template-areas: "header"
+    "navigation"
+    "content"
+    "footer";
+    height: calc(100vh - 20px);
+}
+
+.header {
+    background-color: blue;
+    grid-area: header;
+}
+
+.navigation {
+    background-color: red;
+    grid-area: navigation;
+}
+
+.content {
+    background-color: cyan;
+    grid-area: content;
+}
+
+.footer {
+    background-color: yellow;
+    grid-area: footer;
+}

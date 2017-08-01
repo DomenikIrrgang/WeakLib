@@ -1,12 +1,16 @@
-<pageheading></pageheading>
+<div class="grid">
+    <pageheading class="header"></pageheading>
 
-<nav>
-    <a routerLink="/dashboard">DASHBOARD</a>
-    <a routerLink="/contact">CONTACT</a>
-</nav>
+    <div class="navigation">
+        <nav>
+            <a routerLink="/dashboard">DASHBOARD</a>
+            <a routerLink="/contact">CONTACT</a>
+        </nav>
+    </div>
 
-<div class="content">
-    <router-outlet></router-outlet>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+
+    <pagefooter class="footer"></pagefooter>
 </div>
-
-<pagefooter></pagefooter>
