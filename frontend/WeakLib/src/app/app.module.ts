@@ -8,6 +8,7 @@ import { ContactComponent } from './contact/contact.component';
 import { PageHeadingComponent } from './pageheading/pageheading.component';
 import { NavigationComponent } from './navigation/navigation.component';
 
+import {WeakauraBoxComponent} from './weakaurabox/weakaurabox.component';
 import { RoutingModule } from './routing.module';
 
 @NgModule({
@@ -19,6 +20,7 @@ import { RoutingModule } from './routing.module';
     PageHeadingComponent,
     PageFooterComponent,
     NavigationComponent,
+    WeakauraBoxComponent,
   ],
   imports: [
     BrowserModule,
