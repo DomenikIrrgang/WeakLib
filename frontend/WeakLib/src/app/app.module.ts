@@ -6,6 +6,7 @@ import { BoxComponent } from './box/box.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ContactComponent } from './contact/contact.component';
 import { PageHeadingComponent } from './pageheading/pageheading.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 import { RoutingModule } from './routing.module';
 
@@ -17,6 +18,7 @@ import { RoutingModule } from './routing.module';
     ContactComponent,
     PageHeadingComponent,
     PageFooterComponent,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,
