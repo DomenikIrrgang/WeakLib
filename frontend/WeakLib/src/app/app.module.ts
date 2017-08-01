@@ -6,7 +6,7 @@ import { BoxComponent } from './box/box.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ContactComponent } from './contact/contact.component';
 import { PageHeadingComponent } from './pageheading/pageheading.component';
-
+import {WeakauraBoxComponent} from './weakaurabox/weakaurabox.component';
 import { RoutingModule } from './routing.module';
 
 @NgModule({
@@ -17,6 +17,7 @@ import { RoutingModule } from './routing.module';
     ContactComponent,
     PageHeadingComponent,
     PageFooterComponent,
+    WeakauraBoxComponent,
   ],
   imports: [
     BrowserModule,
