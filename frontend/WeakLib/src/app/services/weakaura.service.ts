@@ -8,4 +8,10 @@ export class WeakauraService {
     getWeakauras(): Promise<Weakaura[]> {
         return Promise.resolve(WEAKAURAS);
     }
+
+    getWeakaurasWithLatency(): Promise<Weakaura[]> {
+        return new Promise(resolve => {
+            setTimeout(() => resolve(this.getWeakauras()), 2000);
+        });
+    }
 }
