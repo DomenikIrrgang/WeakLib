@@ -1,5 +1,11 @@
-<div *ngIf="weakauras">
-<div *ngFor="let weakaura of weakauras">
-{{weakaura.name}}
-</div>
-</div>
+<box [heading]="heading">
+    <div *ngIf="weakauras">
+        <div *ngFor="let weakaura of weakauras">
+            <span class="weakauraName"><a href="/weakaura/{{ weakaura.name }}">{{weakaura.name}}</a></span>
+            <span class="weakauraTime">{{ weakaura.uploadTime }}</span>
+        </div>
+        <div class="more">
+            <a href="{{ searchURL }}">more...</a>
+        </div>
+    </div>
+</box>
