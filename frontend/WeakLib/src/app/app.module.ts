@@ -7,6 +7,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ContactComponent } from './contact/contact.component';
 import { PageHeadingComponent } from './pageheading/pageheading.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { NewsComponent} from "./news/news.component";
+import { NotificationsBoxComponent } from "./notificationsbox/notificationsbox.component";
+
+import { WeakauraService } from "./services/weakaura.service";
 
 import {WeakauraBoxComponent} from './weakaurabox/weakaurabox.component';
 import { RoutingModule } from './routing.module';
@@ -21,12 +25,14 @@ import { RoutingModule } from './routing.module';
     PageFooterComponent,
     NavigationComponent,
     WeakauraBoxComponent,
+    NewsComponent,
+    NotificationsBoxComponent,
   ],
   imports: [
     BrowserModule,
     RoutingModule,
   ],
-  providers: [],
+  providers: [WeakauraService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

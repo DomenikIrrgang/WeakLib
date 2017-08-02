@@ -1,16 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Weakaura } from '../util/Weakaura';
-
-const WEAKAURAS: Weakaura[] = [
-    { name: 'Test1', author: 'author1', uploadTime: Date.now() },
-    { name: 'Test2', author: 'author2', uploadTime: Date.now() },
-];
+import { WeakauraService } from "../services/weakaura.service";
 
 @Component({
     selector: 'dashboard',
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.css'],
 })
-export class DashboardComponent {
-    weakauras: Weakaura[] = WEAKAURAS;
+export class DashboardComponent implements OnInit {
+    latestWeakauras: Weakaura[];
+    mostPopularWeakauras: Weakaura[];
+    bestRatedWeakauras: Weakaura[];
+
+    constructor(private weakauraService: WeakauraService) {}
+
+    ngOnInit(): void {
+        this.weakauraService.getWeakauras().then(weakauras => this.latestWeakauras = weakauras);
+        this.weakauraService.getWeakauras().then(weakauras => this.mostPopularWeakauras = weakauras);
+        this.weakauraService.getWeakauras().then(weakauras => this.bestRatedWeakauras = weakauras);
+    }
 }
