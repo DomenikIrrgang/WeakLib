@@ -11,6 +11,8 @@
     "image time"
     "image content";
     margin-bottom: 10px;
+    border: 1px dotted gray;
+    margin-right: 5px;
 }
 
 .news-image {
