@@ -35,4 +35,4 @@ import { RoutingModule } from './routing.module';
   providers: [WeakauraService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
