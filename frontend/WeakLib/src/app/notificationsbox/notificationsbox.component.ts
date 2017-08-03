@@ -1,6 +1,6 @@
-import { Component,OnInit } from '@angular/core';
-import {NotificationService} from '../services/notification.service';
-import {Notification} from '../util/notification';
+import { Component, OnInit } from '@angular/core';
+import { NotificationService } from '../services/notification.service';
+import { Notification } from '../util/notification';
 
 
 @Component({
@@ -9,14 +9,14 @@ import {Notification} from '../util/notification';
     styleUrls: ['./notificationsbox.component.css'],
 })
 export class NotificationsBoxComponent implements OnInit {
-notification: Notification[];
+    notification: Notification[];
 
-constructor(private notificationService: NotificationService) {}
+    constructor(private notificationService: NotificationService) { }
 
 
-ngOnInit(): void {
-this.notificationService.getNotifications().then(notifications => this.notification= notifications);
+    ngOnInit(): void {
+        this.notificationService.getNotifications().then(notifications => this.notification = notifications);
 
-}
+    }
 }
 
