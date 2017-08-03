@@ -9,7 +9,7 @@ import { PageHeadingComponent } from './pageheading/pageheading.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { NewsComponent} from "./news/news.component";
 import { NotificationsBoxComponent } from "./notificationsbox/notificationsbox.component";
-
+import { NotificationService} from "./services/notification.service";
 import { WeakauraService } from "./services/weakaura.service";
 import { NewsService } from "./services/news.service";
 
@@ -36,6 +36,7 @@ import { RoutingModule } from './routing.module';
   providers: [
     WeakauraService,
     NewsService,
+    NotificationService,
   ],
   bootstrap: [AppComponent]
 })
