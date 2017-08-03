@@ -11,7 +11,7 @@ export class NewsComponent implements OnInit {
     news: News[];
 
     constructor(private newsService: NewsService) {
-
+        
     }
 
     ngOnInit(): void {

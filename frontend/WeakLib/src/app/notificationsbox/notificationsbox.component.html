@@ -1,1 +1,20 @@
-<box heading="Notifications">Info: You are stupid!</box>
+<box heading="Notifications">
+    <div *ngIf="notifications; else noNotifications">
+        <div *ngFor="let notification of notifications">
+            <div *ngIf="notification.type==NotificationType.WEAKAURA_UPDATE">
+                The Weakaura <a href="weakaura/{{ notification.weakaura.name }}">{{ notification.weakaura.name }}</a> has
+                been updated!
+            </div>
+
+            <div *ngIf="notification.type==NotificationType.WEAKAURA_VERSION">
+                A new version for <a href="weakaura/{{ notification.weakaura.name }}">{{ notification.weakaura.name }}</a> is available!
+            </div>
+
+            <div *ngIf="notification.type==NotificationType.USER_NEW_WEAKAURA">
+                <a href="user/{{ notification.actor1.name }}">{{ notification.actor1.name }}</a> has uploaded a new Weakaura:
+                <a href="weakaura/{{ notification.weakaura.name }}">{{ notification.weakaura.name }}</a>!
+            </div>
+        </div>
+    </div>
+    <ng-template #noNotifications>You have no notifications :(</ng-template>
+</box>
