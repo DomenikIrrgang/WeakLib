@@ -9,7 +9,7 @@ import { PageHeadingComponent } from './pageheading/pageheading.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { NewsComponent} from "./news/news.component";
 import { NotificationsBoxComponent } from "./notificationsbox/notificationsbox.component";
-
+import { NotificationService} from "./services/notification.service";
 import { WeakauraService } from "./services/weakaura.service";
 
 import {WeakauraBoxComponent} from './weakaurabox/weakaurabox.component';
@@ -32,7 +32,7 @@ import { RoutingModule } from './routing.module';
     BrowserModule,
     RoutingModule,
   ],
-  providers: [WeakauraService],
+  providers: [WeakauraService,NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
