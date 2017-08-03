@@ -1,0 +1,39 @@
+.news {
+    overflow: auto;
+    max-height: 571px;
+}
+
+.news-entry {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr;
+    grid-template-rows: 0.1fr 0.1fr 1fr;
+    grid-template-areas: "image title"
+    "image time"
+    "image content";
+    margin-bottom: 10px;
+}
+
+.news-image {
+    grid-area: image;
+    text-align: center;
+    padding: 10px;
+}
+
+.news-image > img {
+    max-width: 1fr;
+}
+
+.news-title {
+    grid-area: title;
+    font-size: 28px;
+}
+
+.news-time {
+    grid-area: time;
+    color: gray;
+}
+
+.news-content {
+    grid-area: content;
+    padding-top: 5px;
+}

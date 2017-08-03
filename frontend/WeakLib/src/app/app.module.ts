@@ -11,6 +11,7 @@ import { NewsComponent} from "./news/news.component";
 import { NotificationsBoxComponent } from "./notificationsbox/notificationsbox.component";
 
 import { WeakauraService } from "./services/weakaura.service";
+import { NewsService } from "./services/news.service";
 
 import {WeakauraBoxComponent} from './weakaurabox/weakaurabox.component';
 import { RoutingModule } from './routing.module';
@@ -32,7 +33,10 @@ import { RoutingModule } from './routing.module';
     BrowserModule,
     RoutingModule,
   ],
-  providers: [WeakauraService],
+  providers: [
+    WeakauraService,
+    NewsService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

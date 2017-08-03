@@ -1,1 +1,18 @@
-<box heading="News">This is fake News</box>
+<box heading="News">
+    <div class="news" *ngIf="news">
+        <div class="news-entry" *ngFor="let newsEntry of news">
+            <div class="news-title">
+                <a href="/news/{{ newsEntry.title }}">{{ newsEntry.title }}</a>
+            </div>
+            <div class="news-time">
+                {{ newsEntry.uploadTime }}
+            </div>
+            <div class="news-image">
+                <img src="{{ newsEntry.imageURL }}"/>
+            </div>
+            <div class="news-content">
+                {{ newsEntry.content }}
+            </div>
+        </div>
+    </div>
+</box>
