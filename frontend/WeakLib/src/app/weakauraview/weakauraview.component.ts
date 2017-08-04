@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 
 import { Weakaura } from '../util/weakaura';
 import { WeakauraService } from '../services/weakaura.service';
@@ -14,8 +13,7 @@ import { WeakauraService } from '../services/weakaura.service';
 export class WeakauraViewComponent implements OnInit {
     weakaura: Weakaura;
 
-    constructor(private weakauraService: WeakauraService, private route: ActivatedRoute,
-        private location: Location) { }
+    constructor(private weakauraService: WeakauraService, private route: ActivatedRoute) { }
 
     ngOnInit() {
         this.route.params.subscribe(params => {
