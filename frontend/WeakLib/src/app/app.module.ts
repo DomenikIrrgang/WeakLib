@@ -14,6 +14,7 @@ import { WeakauraService } from "./services/weakaura.service";
 import { NewsService } from "./services/news.service";
 import { WeakauraViewComponent } from './weakauraview/weakauraview.component';
 import { ClickablePanelComponent } from './clickablepanel/clickablepanel.component';
+import { TitlebarComponent } from './weakauraview/titlebar/titlebar.component';
 
 import { WeakauraBoxComponent } from './weakaurabox/weakaurabox.component';
 import { RoutingModule } from './routing.module';
@@ -32,6 +33,7 @@ import { RoutingModule } from './routing.module';
     NotificationsBoxComponent,
     WeakauraViewComponent,
     ClickablePanelComponent,
+    TitlebarComponent,
   ],
   imports: [
     BrowserModule,
