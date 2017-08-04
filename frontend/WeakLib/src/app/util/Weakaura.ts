@@ -3,4 +3,5 @@ export class Weakaura {
     author: String;
     uploadTime: number;
     hash: String;
+    description: String;
 }
