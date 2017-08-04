@@ -1,3 +1,5 @@
 <div class="weakaura-view">
-    {{ weakaura.name }} , {{weakaura.author}}, {{weakaura.uploadTime}}
+    <div *ngIf="weakaura">
+        {{ weakaura.name }} , {{weakaura.author}}, {{weakaura.uploadTime}}
+    </div>
 </div>
