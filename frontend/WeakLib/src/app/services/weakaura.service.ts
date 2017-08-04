@@ -14,4 +14,13 @@ export class WeakauraService {
             setTimeout(() => resolve(this.getWeakauras()), 2000);
         });
     }
+
+    getWeakauraWithHash(hash: String) {
+        for (let weakaura of WEAKAURAS) {
+            if (weakaura.hash == hash) {
+                return weakaura;
+            }
+        }
+        return null;
+    }
 }

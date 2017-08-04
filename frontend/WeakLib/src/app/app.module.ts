@@ -12,6 +12,7 @@ import { NotificationsBoxComponent } from "./notificationsbox/notificationsbox.c
 import { NotificationService} from "./services/notification.service";
 import { WeakauraService } from "./services/weakaura.service";
 import { NewsService } from "./services/news.service";
+import { WeakauraViewComponent } from './weakauraview/weakauraview.component';
 
 import {WeakauraBoxComponent} from './weakaurabox/weakaurabox.component';
 import { RoutingModule } from './routing.module';
@@ -28,6 +29,7 @@ import { RoutingModule } from './routing.module';
     WeakauraBoxComponent,
     NewsComponent,
     NotificationsBoxComponent,
+    WeakauraViewComponent,
   ],
   imports: [
     BrowserModule,

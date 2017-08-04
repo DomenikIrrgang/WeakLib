@@ -1,7 +1,7 @@
 <box [heading]="heading">
     <div *ngIf="weakauras">
         <div *ngFor="let weakaura of weakauras">
-            <span class="weakauraName"><a href="/weakaura/{{ weakaura.name }}">{{weakaura.name}}</a></span>
+            <span class="weakauraName"><a href="/weakaura/{{ weakaura.hash }}">{{weakaura.name}}</a></span>
             <span class="weakauraTime">{{ weakaura.uploadTime }}</span>
         </div>
         <div class="more">
