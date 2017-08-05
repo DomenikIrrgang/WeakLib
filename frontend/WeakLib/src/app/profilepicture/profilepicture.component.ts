@@ -4,8 +4,8 @@ import { Component,Input } from '@angular/core';
 
 @Component ({
     selector:'profilepicture',
-    templateUrl: './profielpicture.html',
-    styleUrls: ['./profilepicture.css'],
+    templateUrl: './profilepicture.component.html',
+    styleUrls: ['./profilepicture.component.css'],
 
 })
 export class ProfilepictureComponent {

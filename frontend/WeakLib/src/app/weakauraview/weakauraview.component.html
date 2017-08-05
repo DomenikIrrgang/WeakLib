@@ -1,26 +1,29 @@
 <div class="weakaura-view">
-    <div class="titlebar">
-        <titlebar [weakaura]="weakaura"></titlebar>
-    </div>
-    <div class="description">
-        <clickablepanel heading="Description">
-            {{ weakaura.description }}
-        </clickablepanel>
-    </div>
-    <div class="Images">
-        <clickablepanel heading="Images">
-        </clickablepanel>
-    </div>
-    <div class="strings">
-        <clickablepanel heading="Strings">
-        </clickablepanel>
-    </div>
-    <div class="Code Viewer">
-        <clickablepanel heading="Code Viewer">
-        </clickablepanel>
-    </div>
-    <div class="Comments">
-        <clickablepanel heading="Comments">
-        </clickablepanel>
+    <div class="content">
+        <div class="titlebar">
+            <titlebar [weakaura]="weakaura"></titlebar>
+        </div>
+        <div class="description">
+            <clickablepanel heading="Description">
+                {{ weakaura.description }}
+            </clickablepanel>
+        </div>
+        <div class="images">
+            <clickablepanel heading="Images">
+            </clickablepanel>
+        </div>
+        <div class="strings">
+            <clickablepanel heading="Strings">
+                <strings [weakaura]="weakaura"></strings>
+            </clickablepanel>
+        </div>
+        <div class="code-viewer">
+            <clickablepanel heading="Code Viewer">
+            </clickablepanel>
+        </div>
+        <div class="comments">
+            <clickablepanel heading="Comments">
+            </clickablepanel>
+        </div>
     </div>
 </div>

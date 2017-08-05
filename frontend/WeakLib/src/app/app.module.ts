@@ -15,9 +15,10 @@ import { NewsService } from "./services/news.service";
 import { WeakauraViewComponent } from './weakauraview/weakauraview.component';
 import { ClickablePanelComponent } from './clickablepanel/clickablepanel.component';
 import { TitlebarComponent } from './weakauraview/titlebar/titlebar.component';
-import {ProfilepictureComponent} from './profilepicture/profilepicture.component';
+import { ProfilepictureComponent } from './profilepicture/profilepicture.component';
 import { WeakauraBoxComponent } from './weakaurabox/weakaurabox.component';
 import { RoutingModule } from './routing.module';
+import { StringsComponent } from './weakauraview/strings/strings.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { RoutingModule } from './routing.module';
     ClickablePanelComponent,
     TitlebarComponent,
     ProfilepictureComponent,
+    StringsComponent,
   ],
   imports: [
     BrowserModule,

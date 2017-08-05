@@ -1,0 +1,13 @@
+<div class="strings">
+    <div *ngIf="weakaura">
+        <div *ngFor="let string of weakaura.strings">
+            <div class="string">
+                <clickablepanel heading="{{ string.version }}">
+                    <textarea class="string-area">
+                        {{ string.string }}
+                    </textarea>
+                </clickablepanel>
+            </div>
+        </div>
+    </div>
+</div>
