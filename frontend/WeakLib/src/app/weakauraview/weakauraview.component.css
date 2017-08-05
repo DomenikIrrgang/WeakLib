@@ -4,6 +4,11 @@
     grid-template-areas: "left content right";
 }
 
+.profilepicture {
+    grid-area: right;
+    text-align: center;
+}
+
 .content {
     grid-area: content;
 }

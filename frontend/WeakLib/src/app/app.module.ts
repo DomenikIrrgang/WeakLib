@@ -19,6 +19,7 @@ import { ProfilepictureComponent } from './profilepicture/profilepicture.compone
 import { WeakauraBoxComponent } from './weakaurabox/weakaurabox.component';
 import { RoutingModule } from './routing.module';
 import { StringsComponent } from './weakauraview/strings/strings.component';
+import { StringComponent } from "./weakauraview/string/string.component";
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { StringsComponent } from './weakauraview/strings/strings.component';
     TitlebarComponent,
     ProfilepictureComponent,
     StringsComponent,
+    StringComponent,
   ],
   imports: [
     BrowserModule,
