@@ -4,4 +4,5 @@ export class Weakaura {
     uploadTime: number;
     hash: String;
     description: String;
+    profilePicutre: String;
 }
