@@ -1,6 +1,7 @@
 <div class="weakaura-view">
-    <div class="profilepicture">
-        <profilepicture profilePicture="{{ weakaura.profilePicture }}"></profilepicture>
+    <div class="profilePicture">
+        <profilepicture profilePicture="{{ weakaura.profilePicture }}">
+        </profilepicture>
     </div>
     <div class="content">
         <div class="titlebar">
@@ -11,8 +12,11 @@
                 {{ weakaura.description }}
             </clickablepanel>
         </div>
-        <div class="images">
+        <div class="Images">
             <clickablepanel heading="Images">
+                <div *ngFor="let images of weakaura.images">
+                    <img src={ {images}}>
+                </div>
             </clickablepanel>
         </div>
         <div class="strings">
