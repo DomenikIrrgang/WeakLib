@@ -10,6 +10,6 @@ import { Component,Input } from '@angular/core';
 })
 export class ProfilepictureComponent {
 
-  @Input()  profilepicture: String;
+  @Input()  profilePicture: String;
 
 }
