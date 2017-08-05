@@ -8,4 +8,5 @@ export class Weakaura {
     description: String;
     profilePicture: String;
     strings: WeakauraVersion[];
+    images: String[];
 }
