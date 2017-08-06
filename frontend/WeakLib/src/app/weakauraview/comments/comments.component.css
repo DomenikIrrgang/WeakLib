@@ -20,11 +20,12 @@
 
 .comment {
     display: grid;
-    grid-template-columns: 150px 4fr;
-    grid-template-rows: 30px 120px;
+    grid-template-columns: 140px 4fr;
+    grid-template-rows: 20px 120px;
     grid-template-areas: "profilePicture title"
     "profilePicture comment";
     grid-gap: 5px;
+    margin-bottom: 5px;
 }
 
 .comment-profile-picture {
@@ -32,12 +33,13 @@
 }
 
 .comment-profile-picture > img {
-    height: 100%;
+    width: 100%;
 }
 
 .comment-title {
     grid-area: title;
     text-align: left;
+    font-size: 16px;
 }
 
 .comment-content {
@@ -51,4 +53,5 @@
 
 .timestamp {
     color: gray;
+    font-size: 14px;
 }

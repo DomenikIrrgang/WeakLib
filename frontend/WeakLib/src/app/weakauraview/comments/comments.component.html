@@ -12,7 +12,7 @@
                         <img src="{{ comment.author.profilePicture }}" />
                     </div>
                     <div class="comment-title">
-                        {{ comment.author.name }}
+                        <a href="/user/{{ comment.author.name }}">{{ comment.author.name }}</a>
                         <span class="timestamp">{{ comment.timestamp }}</span>
                     </div>
                     <div class="comment-content">
