@@ -1,5 +1,7 @@
+import { User } from "./user";
+
 export class Comment {
-    author: String;
+    author: User;
     comment: String;
     timestamp: number;
 }
