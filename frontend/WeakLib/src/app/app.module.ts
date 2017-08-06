@@ -20,6 +20,7 @@ import { WeakauraBoxComponent } from './weakaurabox/weakaurabox.component';
 import { RoutingModule } from './routing.module';
 import { StringsComponent } from './weakauraview/strings/strings.component';
 import { StringComponent } from "./weakauraview/string/string.component";
+import {CommentService} from "./services/comment.service";
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { StringComponent } from "./weakauraview/string/string.component";
     WeakauraService,
     NewsService,
     NotificationService,
+    CommentService,
   ],
   bootstrap: [AppComponent]
 })

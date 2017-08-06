@@ -1,5 +1,5 @@
 export class Comment {
-author: String;
-comment: String;
-timestamp: number;
+    author: String;
+    comment: String;
+    timestamp: number;
 }
