@@ -1,6 +1,9 @@
-.comments {
+
+
+.comments-grid {
     text-align: center;
     padding: 5px;
+    grid-template-columns: 2fr, 3fr;
 }
 
 .textarea {

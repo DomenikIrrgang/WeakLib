@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Comment } from '../../util/Comment';
+import { Weakaura } from '../../util/weakaura';
 
 @Component({
     selector: 'comments',
