@@ -1,0 +1,16 @@
+<div class="comments">
+    <textarea class="textarea" placeholder="Write your comment here..."></textarea>
+    <div class="sendbutton">
+        <button class="btn btn-primary btn-sm send-button" (click)="sendComment()">Send</button>
+    </div>
+
+    <div class="comments-box">
+        <div *ngIf="comments; else noComments">
+            <div *ngFor="let comment of comments">
+                <div class="comment">
+                </div>
+            </div>
+        </div>
+        <ng-template #noComments>There are no comments for this weakaura yet. Be the first to write one!</ng-template>
+    </div>
+</div>

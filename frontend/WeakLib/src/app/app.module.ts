@@ -20,6 +20,7 @@ import { WeakauraBoxComponent } from './weakaurabox/weakaurabox.component';
 import { RoutingModule } from './routing.module';
 import { StringsComponent } from './weakauraview/strings/strings.component';
 import { StringComponent } from "./weakauraview/string/string.component";
+import { CommentsComponent } from "./weakauraview/comments/comments.component";
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { StringComponent } from "./weakauraview/string/string.component";
     ProfilepictureComponent,
     StringsComponent,
     StringComponent,
+    CommentsComponent,
   ],
   imports: [
     BrowserModule,
