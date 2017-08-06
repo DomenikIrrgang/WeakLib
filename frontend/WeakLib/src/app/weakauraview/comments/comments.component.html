@@ -8,6 +8,16 @@
         <div *ngIf="comments; else noComments">
             <div *ngFor="let comment of comments">
                 <div class="comment">
+                    <div class="comment-profile-picture">
+                        <img src="{{ comment.author.profilePicture }}" />
+                    </div>
+                    <div class="comment-title">
+                        {{ comment.author.name }}
+                        <span class="timestamp">{{ comment.timestamp }}</span>
+                    </div>
+                    <div class="comment-content">
+                        {{ comment.comment }}
+                    </div>
                 </div>
             </div>
         </div>

@@ -19,9 +19,36 @@
 }
 
 .comment {
-    grid-template-columns: 2fr, 3fr;
+    display: grid;
+    grid-template-columns: 150px 4fr;
+    grid-template-rows: 30px 120px;
+    grid-template-areas: "profilePicture title"
+    "profilePicture comment";
+    grid-gap: 5px;
+}
+
+.comment-profile-picture {
+    grid-area: profilePicture;
+}
+
+.comment-profile-picture > img {
+    height: 100%;
+}
+
+.comment-title {
+    grid-area: title;
+    text-align: left;
+}
+
+.comment-content {
+    grid-area: comment;
+    text-align: left;
 }
 
 .comments-box {
     margin-top: 5px;
+}
+
+.timestamp {
+    color: gray;
 }
