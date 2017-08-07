@@ -20,6 +20,32 @@
     padding: 5px;
 }
 
-.picture {
+.weakaura {
+    display: grid;
+    grid-template-rows: 140px 20px 18px;
+    grid-template-areas: "picture"
+    "title"
+    "date";
     border: 1px dotted gray;
+    padding: 5px;
+}
+
+.picture {
+    grid-area: picture;
+    text-align: center;
+}
+
+.picture > a > img {
+    height: 100%;
+}
+
+.title {
+    grid-area: title;
+    text-align: center;
+}
+
+.weakaura-date {
+    grid-area: date;
+    text-align: center;
+    color: grey;
 }

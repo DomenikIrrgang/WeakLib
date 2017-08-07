@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class ClickablePanelComponent implements OnInit {
     @Input() heading: String;
-    contentVisible: boolean = false;
+    @Input() contentVisible: boolean;
 
     constructor() { }
 

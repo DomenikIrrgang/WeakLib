@@ -16,12 +16,18 @@
 .image-grid {
     display: grid;
     grid-gap: 5px;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     padding: 5px;
 }
 
 .picture {
     border: 1px dotted gray;
+    text-align: center;
+    padding: 5px;
+}
+
+.picture > img{
+    height: 140px;
 }
 
 .images {

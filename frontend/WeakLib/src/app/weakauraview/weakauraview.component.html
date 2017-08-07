@@ -8,12 +8,12 @@
             <titlebar [weakaura]="weakaura"></titlebar>
         </div>
         <div class="description">
-            <clickablepanel heading="Description">
+            <clickablepanel heading="Description" [contentVisible]="true">
                 {{ weakaura.description }}
             </clickablepanel>
         </div>
         <div class="images">
-            <clickablepanel heading="Images">
+            <clickablepanel heading="Images" [contentVisible]="true">
                 <div class="image-grid">
                     <div *ngFor="let images of weakaura.images" class="picture">
                         <img src="{{images}}" />
@@ -31,7 +31,7 @@
             </clickablepanel>
         </div>
         <div class="comments">
-            <clickablepanel heading="Comments">
+            <clickablepanel heading="Comments" [contentVisible]="true">
                 <comments [weakaura]="weakaura"></comments>
             </clickablepanel>
         </div>
