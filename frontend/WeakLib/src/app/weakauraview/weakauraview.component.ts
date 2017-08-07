@@ -21,4 +21,8 @@ export class WeakauraViewComponent implements OnInit {
             this.weakaura = this.weakauraService.getWeakauraWithHash(hash);
         });
     }
+
+    follow(): void {
+        
+    }
 }

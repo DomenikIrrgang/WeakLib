@@ -2,6 +2,22 @@
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-areas: "left content right";
+    grid-gap: 10px;
+}
+
+.icon {
+    width: 20px;
+    height: auto;
+    padding-right: 5px;
+}
+
+.follow-button {
+    width: 140px;
+    margin-bottom: 5px;
+}
+
+.heading {
+    color:#4099FF;
 }
 
 .profilepicture {

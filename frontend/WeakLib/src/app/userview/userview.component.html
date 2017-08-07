@@ -1,19 +1,19 @@
 <div class="user-view">
     <div class="profilepicture">
         <profilepicture profilePicture="{{ user.profilePicture }}">
+                <div><h1 class="heading">{{ user.name }}</h1></div>
+                <input type="button" class="btn btn-primary btn-sm follow-button" value="Follow" (click)="follow()"/>
+                <div><img src="assets/img/clock.png" class="icon"/><b>Joined: </b>{{ user.joined }}</div>
         </profilepicture>
     </div>
     <div class="content">
-        <div class="titlebar">
-            {{ user.name }}
-        </div>
         <div class="description">
-            <clickablepanel heading="Description">
+            <clickablepanel heading="Description" [contentVisible]="true">
                 {{ user.description }}
             </clickablepanel>
         </div>
         <div class="weakauras">
-            <clickablepanel heading="Weakauras">
+            <clickablepanel heading="Weakauras" [contentVisible]="true">
                 <div class="weakaura-grid">
                     <div *ngFor="let weakaura of weakauras" class="weakaura">
                         <div class="picture">

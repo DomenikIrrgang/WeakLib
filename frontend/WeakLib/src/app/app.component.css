@@ -20,13 +20,13 @@
 }
 
 .content {
-    background-color: cyan;
+    background-color: #f1f1f1;
     grid-area: content;
     padding: 5px;
     
 }
 
 .footer {
-    background-color: yellow;
+    background-color: white;
     grid-area: footer;
 }

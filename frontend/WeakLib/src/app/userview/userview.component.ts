@@ -24,4 +24,7 @@ export class UserViewComponent implements OnInit {
         });
     }
 
+    follow(): void {
+        
+    }
 }
