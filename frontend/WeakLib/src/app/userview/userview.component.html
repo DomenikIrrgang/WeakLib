@@ -1,1 +1,25 @@
-userview
+<div class="user-view">
+    <div class="profilepicture">
+        <profilepicture profilePicture="{{ user.profilePicture }}">
+        </profilepicture>
+    </div>
+    <div class="content">
+        <div class="titlebar">
+            {{ user.name }}
+        </div>
+        <div class="description">
+            <clickablepanel heading="Description">
+                {{ user.description }}
+            </clickablepanel>
+        </div>
+        <div class="weakauras">
+            <clickablepanel heading="Weakauras">
+                <div class="weakaura-grid">
+                    <div *ngFor="let weakaura of user.weakauras" class="picture">
+                        <img src="{{weakaura.profilePicture}}" />
+                    </div>
+                </div>
+            </clickablepanel>
+        </div>
+    </div>
+</div>

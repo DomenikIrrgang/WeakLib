@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../util/user';
+import { Weakaura } from "../util/weakaura";
+import { WeakauraService } from "../services/weakaura.service";
+//import { UserService } from '../services/user.service';
 
 @Component({
     selector: 'userview',
@@ -6,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class UserViewComponent implements OnInit {
-    constructor() { }
+    user: User;
+    weakauras: Weakaura[];
+
+    //private userService: UserService
+    constructor(private weakauraService: WeakauraService) { }
 
     ngOnInit() { }
 }

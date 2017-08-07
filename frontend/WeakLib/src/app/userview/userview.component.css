@@ -1,0 +1,25 @@
+.user-view {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: "left content right";
+}
+
+.profilepicture {
+    grid-area: right;
+    text-align: center;
+}
+
+.content {
+    grid-area: content;
+}
+
+.weakaura-grid {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 5px;
+}
+
+.picture {
+    border: 1px dotted gray;
+}
