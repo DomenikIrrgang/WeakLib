@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Weakaura } from '../util/weakaura';
 import { WEAKAURAS } from '../mockdata/weakauras';
+import { List } from "../util/list";
 
 @Injectable()
 export class WeakauraService {
@@ -22,5 +23,15 @@ export class WeakauraService {
             }
         }
         return null;
+    }
+
+    getWeakaurasFromUser(username: String): Weakaura[] {
+        var tmp: Weakaura[] = [];
+        for (let weakaura of WEAKAURAS) {
+            if (weakaura.author == username) {
+                tmp.push(weakaura);
+            }
+        }
+        return tmp;
     }
 }
