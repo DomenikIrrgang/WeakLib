@@ -7,9 +7,9 @@ import { UserService } from '../services/user.service';
 
 @Component({
     selector: 'userview',
-    templateUrl: 'userview.component.html'
+    templateUrl: 'userview.component.html',
+    styleUrls: ['userview.component.css'],
 })
-
 export class UserViewComponent implements OnInit {
     user: User;
     weakauras: Weakaura[];
