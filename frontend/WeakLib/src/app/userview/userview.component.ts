@@ -17,4 +17,5 @@ export class UserViewComponent implements OnInit {
     constructor(private weakauraService: WeakauraService) { }
 
     ngOnInit() { }
+
 }
