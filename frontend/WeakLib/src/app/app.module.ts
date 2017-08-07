@@ -23,7 +23,7 @@ import { StringComponent } from "./weakauraview/string/string.component";
 import { CommentsComponent } from "./weakauraview/comments/comments.component";
 import { CommentService } from "./services/comment.service";
 import { UserViewComponent } from "./userview/userview.component";
-import {UserService} from "./services/user.service";
+import { UserService } from "./services/user.service";
 
 @NgModule({
   declarations: [

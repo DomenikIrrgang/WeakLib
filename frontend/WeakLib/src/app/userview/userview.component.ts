@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
 import { User } from '../util/user';
 import { Weakaura } from "../util/weakaura";
 import { WeakauraService } from "../services/weakaura.service";
-//import { UserService } from '../services/user.service';
+import { UserService } from '../services/user.service';
 
 @Component({
     selector: 'userview',
@@ -13,9 +14,13 @@ export class UserViewComponent implements OnInit {
     user: User;
     weakauras: Weakaura[];
 
-    //private userService: UserService
-    constructor(private weakauraService: WeakauraService) { }
+    constructor(private weakauraService: WeakauraService, private userService: UserService, private route: ActivatedRoute) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.route.params.subscribe(params => {
+            var username: String = params['username'];
+            this.user = this.userService.getUser(username);
+        });
+    }
 
 }
