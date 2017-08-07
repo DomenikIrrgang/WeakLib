@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from '../util/user';
+import {UserService} from '../services/userservice';
 
 @Component({
     selector: 'userview',
@@ -6,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class UserViewComponent implements OnInit {
-    constructor() { }
+    user: User;
+    constructor(private userService: UserService ) { }
 
     ngOnInit() { }
+
 }
