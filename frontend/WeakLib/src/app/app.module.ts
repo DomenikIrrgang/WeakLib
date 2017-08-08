@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { PageFooterComponent } from './pagefooter/pagefooter.component'
+import { FormsModule } from '@angular/forms';
+import { PageFooterComponent } from './pagefooter/pagefooter.component';
 import { AppComponent } from './app.component';
 import { BoxComponent } from './box/box.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -25,6 +26,8 @@ import { CommentService } from "./services/comment.service";
 import { UserViewComponent } from "./userview/userview.component";
 import { UserService } from "./services/user.service";
 import { SearchViewComponent } from "./searchview/searchview.component";
+import { CategoriesComponent } from "./categories/categories.component";
+import { CategoryComponent } from "./categories/category/category.component";
 
 @NgModule({
   declarations: [
@@ -47,10 +50,13 @@ import { SearchViewComponent } from "./searchview/searchview.component";
     CommentsComponent,
     UserViewComponent,
     SearchViewComponent,
+    CategoriesComponent,
+    CategoryComponent,
   ],
   imports: [
     BrowserModule,
     RoutingModule,
+    FormsModule,
   ],
   providers: [
     WeakauraService,
