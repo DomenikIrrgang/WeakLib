@@ -1,0 +1,19 @@
+.searchview{
+    grid:display;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: gray;
+    grid-template-areas: "left right"
+}
+
+.name{
+
+}
+
+.categories{
+
+}
+
+.author{
+    grid-area: left;
+    text-align: right;
+}

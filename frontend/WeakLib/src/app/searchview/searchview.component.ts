@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
     selector: 'searchview',
@@ -7,7 +7,8 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 
 export class SearchViewComponent implements OnInit {
-@Input() namesearch: String;
+    @Input() namesearch: String;
+    author: String;
 
     constructor() { }
 
