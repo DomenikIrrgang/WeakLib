@@ -5,13 +5,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ContactComponent } from './contact/contact.component';
 import { WeakauraViewComponent } from './weakauraview/weakauraview.component';
 import { UserViewComponent} from "./userview/userview.component";
+import { SearchViewComponent } from "./searchview/searchview.component";
 
 const routes: Routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
     { path: 'dashboard', component: DashboardComponent },
     { path: 'contact', component: ContactComponent },
     { path: 'weakaura/:hash', component: WeakauraViewComponent },
-    { path: 'user/:username', component: UserViewComponent }
+    { path: 'user/:username', component: UserViewComponent },
+    { path: 'search', component: SearchViewComponent }
 ];
 
 @NgModule({

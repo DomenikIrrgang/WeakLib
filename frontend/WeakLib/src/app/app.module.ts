@@ -24,6 +24,7 @@ import { CommentsComponent } from "./weakauraview/comments/comments.component";
 import { CommentService } from "./services/comment.service";
 import { UserViewComponent } from "./userview/userview.component";
 import { UserService } from "./services/user.service";
+import { SearchViewComponent } from "./searchview/searchview.component";
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { UserService } from "./services/user.service";
     StringComponent,
     CommentsComponent,
     UserViewComponent,
+    SearchViewComponent,
   ],
   imports: [
     BrowserModule,
