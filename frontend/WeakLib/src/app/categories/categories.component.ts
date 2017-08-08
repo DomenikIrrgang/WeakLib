@@ -27,6 +27,5 @@ export class CategoriesComponent implements OnInit {
     removeCategory(category: string): void {
         this.categoryList.remove(category);
         this.selectedCategories = this.categoryList.toArray();
-        console.log(category);
     }
 }

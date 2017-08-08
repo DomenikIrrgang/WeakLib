@@ -15,7 +15,6 @@ export class CategoryComponent implements OnInit {
     ngOnInit() { }
 
     removeClick(): void {
-        console.log("clicked");
         this.notify.emit(this.name);
     }
 }
