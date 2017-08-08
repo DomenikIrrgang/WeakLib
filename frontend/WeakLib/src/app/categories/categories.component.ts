@@ -18,7 +18,7 @@ export class CategoriesComponent implements OnInit {
     ngOnInit() { }
 
     addCategory(): void {
-        if (!this.categoryList.contains(this.selectedCategory)) {
+        if (!this.categoryList.contains(this.selectedCategory) && this.selectedCategory != "" && this.selectedCategory != undefined) {
             this.categoryList.add(this.selectedCategory);
         }
         this.selectedCategories = this.categoryList.toArray();

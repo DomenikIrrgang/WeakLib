@@ -1,19 +1,17 @@
-.searchview{
-    grid:display;
-    grid-template-columns: 1fr 1fr 1fr;
-    background-color: gray;
+.searchview {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: "left content right"
+}
+
+.content {
+    grid-area: content;
+}
+
+.filter {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    grid-gap: 5px;
     grid-template-areas: "left right"
 }
 
-.name{
-
-}
-
-.categories{
-
-}
-
-.author{
-    grid-area: left;
-    text-align: right;
-}

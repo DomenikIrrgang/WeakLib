@@ -1,15 +1,32 @@
 <div class="searchview">
-    <div class="name">
-    Name: <br>
-    <input type="textbox" [(ngModel)]="namesearch"> 
-    </div>
-<div class= "author">
-     Author: <br>
-    <input type="textbox" [(ngModel)]="author"> <br> 
-    </div>
-<div class ="categories">
-    Categories: 
-    <categories></categories>
-    <input type="submit" value="Search" />
+    <div class="content">
+        <clickablepanel heading="Filter" [contentVisible]="true">
+            <div class="filter">
+                <div class="name-title">
+                    Name:
+                </div>
+                <div class="name-content">
+                    <input class="form-element" type="textbox" [(ngModel)]="namesearch">
+                </div>
+                <div class="author-title">
+                    Author:
+                </div>
+                <div class="author-content">
+                    <input class="form-element" type="textbox" [(ngModel)]="author">
+                </div>
+                <div class="categories-title">
+                    Categories:                    
+                </div>
+                <div class="categories-content">
+                    <categories></categories>
+                </div>
+                <div></div>
+                <div class="search">
+                    <input class="btn btn-primary btn-sm" type="submit" value="Search" />
+                </div>                
+            </div>
+        </clickablepanel>
+        <clickablepanel heading="Results" [contentVisible]="true">
+        </clickablepanel>
     </div>
 </div>
