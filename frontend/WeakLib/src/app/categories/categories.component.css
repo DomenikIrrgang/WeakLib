@@ -1,0 +1,10 @@
+.selected-categories {
+    margin-top: 5px;
+}
+
+.combobox {
+    height: 26px;
+    width: 140px;
+    border-radius: 5px;
+    border-color: #4099FF;
+}
