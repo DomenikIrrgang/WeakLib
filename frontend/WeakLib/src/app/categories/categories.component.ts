@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { List } from "../util/list";
 
 @Component({
     selector: 'categories',
@@ -9,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class CategoriesComponent implements OnInit {
     categories: string[] = ["Druid", "Monk", "Warrior"];
     selectedCategories: string[] = [];
+    categoryList: List<string> = new List<string>();
     selectedCategory: string;
 
     constructor() { }
@@ -16,11 +18,15 @@ export class CategoriesComponent implements OnInit {
     ngOnInit() { }
 
     addCategory(): void {
-        this.selectedCategories.push(this.selectedCategory);
-        console.log(this.selectedCategory);
+        if (!this.categoryList.contains(this.selectedCategory)) {
+            this.categoryList.add(this.selectedCategory);
+        }
+        this.selectedCategories = this.categoryList.toArray();
     }
 
     removeCategory(category: string): void {
-
+        this.categoryList.remove(category);
+        this.selectedCategories = this.categoryList.toArray();
+        console.log(category);
     }
 }
