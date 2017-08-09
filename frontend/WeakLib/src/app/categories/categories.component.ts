@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { List } from "../util/list";
 
 @Component({
@@ -12,6 +12,7 @@ export class CategoriesComponent implements OnInit {
     selectedCategories: string[] = [];
     categoryList: List<string> = new List<string>();
     selectedCategory: string;
+    @Output() notify: EventEmitter<string[]> = new EventEmitter<string[]>();
 
     constructor() { }
 
@@ -22,10 +23,12 @@ export class CategoriesComponent implements OnInit {
             this.categoryList.add(this.selectedCategory);
         }
         this.selectedCategories = this.categoryList.toArray();
+        this.notify.emit(this.selectedCategories);
     }
 
     removeCategory(category: string): void {
         this.categoryList.remove(category);
         this.selectedCategories = this.categoryList.toArray();
+        this.notify.emit(this.selectedCategories);
     }
 }

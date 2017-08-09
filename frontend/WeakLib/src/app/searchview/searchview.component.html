@@ -1,12 +1,12 @@
 <div class="searchview">
     <div class="content">
-        <clickablepanel heading="Filter" [contentVisible]="true">
+        <clickablepanel heading="Filter" [contentVisible]="true" #filterPanel>
             <div class="filter">
                 <div class="name-title">
                     Name:
                 </div>
                 <div class="name-content">
-                    <input class="form-element" type="textbox" [(ngModel)]="namesearch">
+                    <input class="form-element" type="textbox" [(ngModel)]="name">
                 </div>
                 <div class="author-title">
                     Author:
@@ -18,7 +18,7 @@
                     Categories:                    
                 </div>
                 <div class="categories-content">
-                    <categories></categories>
+                    <categories (notify)="categoriesChanged($event)"></categories>
                 </div>
                 <div></div>
                 <div class="search">
@@ -26,7 +26,8 @@
                 </div>                
             </div>
         </clickablepanel>
-        <clickablepanel heading="Results" [contentVisible]="true">
+        <clickablepanel heading="Results" [contentVisible]="true" #resultPanel>
+
         </clickablepanel>
     </div>
 </div>

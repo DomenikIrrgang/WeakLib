@@ -34,4 +34,14 @@ export class WeakauraService {
         }
         return tmp;
     }
+
+    searchWeakaura(name: string, author: string, categories: string[]): Weakaura[] {
+        var tmp: Weakaura[] = [];
+        for (let weakaura of WEAKAURAS) {
+            if (weakaura.name.includes(name) && weakaura.author.includes(author)) {
+                tmp.push(weakaura)
+            }
+        }
+        return tmp;
+    }
 }
