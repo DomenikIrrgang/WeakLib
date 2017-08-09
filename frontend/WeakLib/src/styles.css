@@ -2,3 +2,9 @@
     border-radius: 5px;
     border: 1px #4099FF solid;
 }
+
+.icon {
+    width: 20px;
+    height: auto;
+    padding-right: 5px;
+}

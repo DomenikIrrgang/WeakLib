@@ -19,8 +19,34 @@
 
 }
 
+.picture {
+    width: 100%;
+    vertical-align: middle;
+}
 
-.table > tr > img{
-    width: 100px;
-    
+.weakaura-grid {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    grid-template-rows: 30px 25px 100px;
+    grid-template-areas: "image name"
+    "image meta"
+    "image description";
+}
+
+.weakaura-picture {
+    grid-area: image;
+    margin-right: 10px;
+}
+
+.weakaura-name {
+    grid-area: name;
+    font-size: 22px;
+}
+
+.weawkaura-meta {
+    grid-area: meta;
+}
+
+.weakaura-description {
+    grid-area: description;
 }
