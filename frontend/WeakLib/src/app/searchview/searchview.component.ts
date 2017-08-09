@@ -9,8 +9,8 @@ import { WeakauraService } from "../services/weakaura.service";
 })
 
 export class SearchViewComponent implements OnInit {
-    name: string;
-    author: string;
+    name: string = "";
+    author: string = "";
     categories: string[];
     searchResult: Weakaura[];
     @ViewChild('filterPanel') filterPanel;
