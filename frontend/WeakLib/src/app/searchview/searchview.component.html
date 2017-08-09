@@ -27,7 +27,7 @@
             </div>
         </clickablepanel>
         <clickablepanel heading="Results" [contentVisible]="true" #resultPanel>
-            <table>
+            <table class="table">
                 <tr *ngFor="let weakaura of searchResult">
                     <td><img src= "{{weakaura.profilePicture}}"></td>
                     <td>{{weakaura.name}} </td>

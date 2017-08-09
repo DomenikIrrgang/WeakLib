@@ -15,3 +15,12 @@
     grid-template-areas: "left right"
 }
 
+.table{
+
+}
+
+
+.table > tr > img{
+    width: 100px;
+    
+}
