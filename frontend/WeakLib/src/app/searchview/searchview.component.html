@@ -15,18 +15,27 @@
                     <input class="form-element" type="textbox" [(ngModel)]="author">
                 </div>
                 <div class="categories-title">
-                    Categories:                    
+                    Categories:
                 </div>
                 <div class="categories-content">
                     <categories></categories>
                 </div>
                 <div></div>
                 <div class="search">
-                    <input class="btn btn-primary btn-sm" type="submit" value="Search" (click)="searchSubmit()"/>
-                </div>                
+                    <input class="btn btn-primary btn-sm" type="submit" value="Search" (click)="searchSubmit()" />
+                </div>
             </div>
         </clickablepanel>
         <clickablepanel heading="Results" [contentVisible]="true">
+            <table>
+                <tr *ngFor="let weakaura of searchResult">
+                    <td>{{weakaura.name}} </td>
+                    <td>{{weakaura.author}}</td>
+                    <td>{{weakaura.uploadTime}}</td>
+                    <td> {{weakaura.profilePicture}</td>
+                </tr>
+
+            </table>
         </clickablepanel>
     </div>
 </div>
