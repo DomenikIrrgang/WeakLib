@@ -1,15 +1,13 @@
 import { Weakaura } from '../util/Weakaura';
-import { Component,Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 
-@Component ({
-    selector:'profilepicture',
-    templateUrl: './profilepicture.component.html',
-    styleUrls: ['./profilepicture.component.css'],
+@Component({
+  selector: 'profilepicture',
+  templateUrl: './profilepicture.component.html',
+  styleUrls: ['./profilepicture.component.css'],
 
 })
 export class ProfilepictureComponent {
-
-  @Input()  profilePicture: String;
-
+  @Input() profilePicture: String;
 }

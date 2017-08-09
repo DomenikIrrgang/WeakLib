@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Weakaura } from "../util/weakaura";
 
 @Component({
     selector: 'searchview',
@@ -7,10 +8,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 
 export class SearchViewComponent implements OnInit {
-    @Input() namesearch: String;
+    namesearch: String;
     author: String;
+    categories: String[];
+    searchResult: Weakaura[];
 
     constructor() { }
 
     ngOnInit() { }
+
+    searchSubmit() {
+
+    }
 }
