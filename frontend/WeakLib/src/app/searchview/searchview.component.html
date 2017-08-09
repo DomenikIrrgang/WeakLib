@@ -29,10 +29,11 @@
         <clickablepanel heading="Results" [contentVisible]="true" #resultPanel>
             <table>
                 <tr *ngFor="let weakaura of searchResult">
+                    <td><img src= "{{weakaura.profilePicture}}"></td>
                     <td>{{weakaura.name}} </td>
                     <td>{{weakaura.author}}</td>
                     <td>{{weakaura.uploadTime}}</td>
-                    <td>{{weakaura.profilePicture}</td>
+                    
                 </tr>
             </table>
         </clickablepanel>
