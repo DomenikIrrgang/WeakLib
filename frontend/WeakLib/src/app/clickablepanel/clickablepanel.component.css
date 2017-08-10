@@ -4,7 +4,7 @@
     border-color: black;
     background-color: white;
     margin-bottom: 5px;
-    height: 100%;
+    overflow: hidden;    
 }
 
 .clickablepanel-heading {
@@ -23,4 +23,5 @@
     padding-bottom: 5px;
     padding-right: 5px; 
     font-size: 14px;
+    animation: fade-in 0.5s linear;
 }

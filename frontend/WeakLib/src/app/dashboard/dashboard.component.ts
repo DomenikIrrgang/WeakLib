@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit(): void {
         this.weakauraService.getWeakauras().then(weakauras => this.latestWeakauras = weakauras);
-        this.weakauraService.getWeakaurasWithLatency().then(weakauras => this.mostPopularWeakauras = weakauras);
+        this.weakauraService.getWeakauras().then(weakauras => this.mostPopularWeakauras = weakauras);
         this.weakauraService.getWeakauras().then(weakauras => this.bestRatedWeakauras = weakauras);
     }
 }

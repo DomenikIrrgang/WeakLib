@@ -7,7 +7,7 @@
             <span class="arrow">&#9660;</span>{{ heading }}
         </div>
     </div>
-    <div class="panel-content" [hidden]="!contentVisible">
+    <div class="panel-content" [hidden]="!contentVisible" #content>
         <ng-content></ng-content>
     </div>
 </div>

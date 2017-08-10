@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
 @Component({
     selector: 'clickablepanel',
@@ -9,6 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ClickablePanelComponent implements OnInit {
     @Input() heading: String;
     @Input() contentVisible: boolean;
+    @ViewChild('content') content;
 
     constructor() { }
 
