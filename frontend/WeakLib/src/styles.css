@@ -1,6 +1,7 @@
 .form-element {
     border-radius: 5px;
     border: 1px #4099FF solid;
+    width: 100%;
 }
 
 .icon {
@@ -12,4 +13,11 @@
 @keyframes fade-in {
   0% { opacity: 0 }
   100% { opacity: 1 }
+}
+
+.content-view {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: "left content right";
+    grid-gap: 10px;
 }
