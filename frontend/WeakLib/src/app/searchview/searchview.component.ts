@@ -13,7 +13,7 @@ export class SearchViewComponent implements OnInit {
     name: string = "";
     author: string = "";
     categories: string[];
-    searchResult: Weakaura[];
+    searchResult: Weakaura[] = [];
     @ViewChild('filterPanel') filterPanel;
     @ViewChild('resultPanel') resultPanel;
 
@@ -23,11 +23,21 @@ export class SearchViewComponent implements OnInit {
 
     searchSubmit() {
         this.searchResult = this.weakauraService.searchWeakaura(this.name, this.author, this.categories);
-        this.filterPanel.contentVisible = false;
+        this.filterPanel.contentVisible = true;
         this.resultPanel.contentVisible = true;
     }
     
     categoriesChanged(categories) {
         this.categories = categories;
+    }
+
+    hasResult(): boolean {
+        return this.searchResult.length > 0;
+    }
+
+    checkReturnKey(event) {
+        if (event.key == "Enter") {
+            this.searchSubmit();
+        }
     }
 }

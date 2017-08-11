@@ -6,13 +6,13 @@
                     <b>Name:</b>
                 </div>
                 <div class="name-content">
-                    <input class="form-element" type="text" [(ngModel)]="name">
+                    <input class="form-element" type="text" [(ngModel)]="name" (keydown)="checkReturnKey($event)">
                 </div>
                 <div class="author-title">
                     <b>Author:</b>
                 </div>
                 <div class="author-content">
-                    <input class="form-element" type="text" [(ngModel)]="author">
+                    <input class="form-element" type="text" [(ngModel)]="author" (keydown)="checkReturnKey($event)">
                 </div>
                 <div class="categories-title">
                     <b>Categories:</b>
@@ -27,6 +27,7 @@
             </div>
         </clickablepanel>
         <clickablepanel heading="Results" [contentVisible]="false" #resultPanel>
+            <div *ngIf="hasResult(); else noResults">
             <table class="table">
                 <tr *ngFor="let weakaura of searchResult">
                     <td>
@@ -55,6 +56,8 @@
                     </td>
                 </tr>
             </table>
+            </div>
+            <ng-template #noResults>No results :(</ng-template>
         </clickablepanel>
     </div>
 </div>
