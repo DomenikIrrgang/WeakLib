@@ -1,7 +1,7 @@
 .dashboard-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 3fr;
+    grid-template-rows: 223px 3fr;
     grid-template-areas: 
     "latestWeakauras mostPopularWeakauras bestRatedWeakauras"
     "news news notifications";

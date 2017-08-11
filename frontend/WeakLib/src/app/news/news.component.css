@@ -1,6 +1,10 @@
 .news {
     overflow: auto;
-    max-height: 571px;
+    box-shadow: 1px 1px 1px #888888;
+}
+
+.news-content{
+    
 }
 
 .news-entry {
@@ -11,7 +15,8 @@
     "image time"
     "image content";
     margin-bottom: 10px;
-    border: 1px dotted gray;
+    box-shadow: 
+         0px 11px 8px -10px #CCC;
     margin-right: 5px;
 }
 

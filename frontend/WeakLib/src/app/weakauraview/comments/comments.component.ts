@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Comment } from '../../util/Comment';
 import { CommentService } from "../../services/comment.service";
 import { Weakaura } from "../../util/weakaura";
@@ -12,14 +12,21 @@ import { Weakaura } from "../../util/weakaura";
 export class CommentsComponent implements OnInit {
     comments: Comment[];
     @Input() weakaura: Weakaura;
+    @ViewChild('comment') comment;
 
     constructor(private commentService: CommentService) { }
 
-    ngOnInit() { 
+    ngOnInit() {
         this.commentService.getComments(this.weakaura).then(comments => this.comments = comments);
     }
 
     sendComment(): void {
 
+    }
+
+    textAreaAdjust() {
+        console.log(this.comment);
+        this.comment.nativeElement.style.height = "1px";
+        this.comment.nativeElement.style.height = (1 + this.comment.nativeElement.scrollHeight) + "px";
     }
 }

@@ -1,10 +1,25 @@
 .selected-categories {
     margin-top: 5px;
+
+}
+
+.select-categories {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-gap: 5px;
 }
 
 .combobox {
     height: 26px;
-    width: 140px;
+    width: 100%;
     border-radius: 5px;
     border-color: #4099FF;
+}
+
+.categories {
+    width: 100%;
+}
+
+.add-button {
+    width: 100%;
 }
