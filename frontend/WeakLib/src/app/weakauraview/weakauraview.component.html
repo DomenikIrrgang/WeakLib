@@ -20,8 +20,8 @@
         <div class="images">
             <clickablepanel heading="Images" [contentVisible]="true">
                 <div class="image-grid">
-                    <div *ngFor="let images of weakaura.images" class="picture">
-                        <img src="{{images}}" />
+                    <div *ngFor="let images of weakaura.images; let i = index" class="picture">
+                        <img src="{{images}}" name="{{i}}" (click)="openImagePreview($event)"/>
                     </div>
                 </div>
             </clickablepanel>
@@ -41,5 +41,6 @@
             </clickablepanel>
         </div>
     </div>
+    <imagepreview [imageURLs]="weakaura.images" #imagePreview></imagepreview>
 </div>
 <ng-template #noWeakaura><error code="404">That weakaura does not exist!</error></ng-template>

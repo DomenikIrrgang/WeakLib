@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Weakaura } from '../util/weakaura';
@@ -14,6 +14,9 @@ import { Time } from "../util/time";
 export class WeakauraViewComponent implements OnInit {
     weakaura: Weakaura;
 
+    @ViewChild('imagePreview')
+    imagePreview;
+
     constructor(private weakauraService: WeakauraService, private route: ActivatedRoute, private time: Time) { }
 
     ngOnInit() {
@@ -25,5 +28,10 @@ export class WeakauraViewComponent implements OnInit {
 
     follow(): void {
         
+    }
+
+    openImagePreview(event) {
+        this.imagePreview.currentImage = +event.srcElement.name;
+        this.imagePreview.open();
     }
 }

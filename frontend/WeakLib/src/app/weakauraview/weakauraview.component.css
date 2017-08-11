@@ -38,6 +38,7 @@
 
 .picture > img{
     height: 140px;
+    cursor: pointer;
 }
 
 .images {

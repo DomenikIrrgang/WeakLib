@@ -23,13 +23,6 @@
     vertical-align: middle;
 }
 
-.actor {
-    display: inline-block;
-    line-height: 25px;
-    text-align: center;
-}
-
 .actor > span {
-    display: inline-block;
-    vertical-align: middle;
+
 }

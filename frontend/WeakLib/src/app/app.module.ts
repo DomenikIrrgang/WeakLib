@@ -32,6 +32,7 @@ import { RegisterViewComponent } from "./registerview/registerview.component";
 import { LoginViewComponent } from "./loginview/loginview.component";
 import { ErrorComponent } from "./error/error.component";
 import { Time } from "./util/time";
+import { ImagePreviewComponent } from "./imagepreview/imagepreview.component";
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { Time } from "./util/time";
     RegisterViewComponent,
     LoginViewComponent,
     ErrorComponent,
+    ImagePreviewComponent,
   ],
   imports: [
     BrowserModule,
