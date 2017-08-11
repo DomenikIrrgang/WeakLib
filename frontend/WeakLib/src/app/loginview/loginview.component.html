@@ -1,9 +1,22 @@
-Login: <br>
-
-Username:
-<input type="text" name="username"><br>
-Password: 
-<input type="password" name="password"> <br>
+<div class="login-view">
+    <div class="login"><div></div>
+<b>Login: </b>
+<div class="user-label">
+<b>Username:</b></div>
+<div class="user-content">
+<input class="form-element" [(ngModel)]="username" type="text" name="username">
+</div>
+<div class="pass-label">
+<b>Password: </b>
+</div>
+<div class="pass-content">
+<input class="form-element" [(ngModel)]="password" type="password" name="password"> 
+</div>
+<div class="checkbox">
 <input type="checkbox" name="login" value="Keep me logged in">
-Keep me logged in <br>
-<input type="submit" value="Login">
+Keep me logged in 
+</div>
+<input type="submit" class="btn btn-primary btn-sm register-button" value="Login">
+
+</div>
+</div>
