@@ -4,6 +4,7 @@ import { User } from '../util/user';
 import { Weakaura } from "../util/weakaura";
 import { WeakauraService } from "../services/weakaura.service";
 import { UserService } from '../services/user.service';
+import { Time } from "../util/time";
 
 @Component({
     selector: 'userview',
@@ -14,7 +15,7 @@ export class UserViewComponent implements OnInit {
     user: User;
     weakauras: Weakaura[];
 
-    constructor(private weakauraService: WeakauraService, private userService: UserService, private route: ActivatedRoute) { }
+    constructor(private weakauraService: WeakauraService, private userService: UserService, private route: ActivatedRoute, private time: Time) { }
 
     ngOnInit() {
         this.route.params.subscribe(params => {

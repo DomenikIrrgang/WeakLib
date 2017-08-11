@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Weakaura } from "../util/weakaura";
 import { WeakauraService } from "../services/weakaura.service";
+import { Time } from "../util/time";
 
 @Component({
     selector: 'searchview',
@@ -16,7 +17,7 @@ export class SearchViewComponent implements OnInit {
     @ViewChild('filterPanel') filterPanel;
     @ViewChild('resultPanel') resultPanel;
 
-    constructor(private weakauraService: WeakauraService) { }
+    constructor(private weakauraService: WeakauraService, private time: Time) { }
 
     ngOnInit() { }
 

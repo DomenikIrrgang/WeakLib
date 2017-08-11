@@ -6,7 +6,7 @@
                     <a href="/news/{{ newsEntry.title }}">{{ newsEntry.title }}</a>
                 </div>
                 <div class="news-time">
-                    {{ newsEntry.uploadTime }}
+                    {{ time.difference(newsEntry.uploadTime) }}
                 </div>
                 <div class="news-image">
                     <img src="{{ newsEntry.imageURL }}" />

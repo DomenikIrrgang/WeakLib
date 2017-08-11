@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../services/news.service';
 import { News } from '../util/news';
+import { Time } from "../util/time";
 
 @Component({
     selector: 'news',
@@ -10,7 +11,7 @@ import { News } from '../util/news';
 export class NewsComponent implements OnInit {
     news: News[];
 
-    constructor(private newsService: NewsService) {
+    constructor(private newsService: NewsService, private time: Time) {
         
     }
 

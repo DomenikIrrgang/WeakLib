@@ -31,6 +31,7 @@ import { CategoryComponent } from "./categories/category/category.component";
 import { RegisterViewComponent } from "./registerview/registerview.component";
 import { LoginViewComponent } from "./loginview/loginview.component";
 import { ErrorComponent } from "./error/error.component";
+import { Time } from "./util/time";
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { ErrorComponent } from "./error/error.component";
     NotificationService,
     CommentService,
     UserService,
+    Time,
   ],
   bootstrap: [AppComponent]
 })

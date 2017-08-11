@@ -2,7 +2,7 @@
     <div *ngIf="notifications; else noNotifications">
         <div class="notification" *ngFor="let notification of notifications">
             <div class="picture">
-                <img src="{{ getImage(notification.type) }}"/>
+                <img src="{{ getImage(notification.type) }}" />
             </div>
 
             <div class="actor">
@@ -15,6 +15,10 @@
 
             <div class="actor">
                 <span><a href="weakaura/{{ notification.weakaura.hash }}">{{ notification.weakaura.name }}</a></span>
+            </div>
+
+            <div class="time">
+                {{ time.difference(notification.timestamp) }}
             </div>
         </div>
     </div>

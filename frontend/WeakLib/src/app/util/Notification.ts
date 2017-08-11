@@ -7,4 +7,5 @@ export class Notification {
     actor2: User;
     weakaura: Weakaura;
     type: NotificationType;
+    timestamp: number;
 }
