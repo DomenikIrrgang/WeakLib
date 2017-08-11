@@ -28,6 +28,7 @@ import { UserService } from "./services/user.service";
 import { SearchViewComponent } from "./searchview/searchview.component";
 import { CategoriesComponent } from "./categories/categories.component";
 import { CategoryComponent } from "./categories/category/category.component";
+import {LoginViewComponent} from "./loginview/loginview.component";
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { CategoryComponent } from "./categories/category/category.component";
     SearchViewComponent,
     CategoriesComponent,
     CategoryComponent,
+    LoginViewComponent,
   ],
   imports: [
     BrowserModule,
