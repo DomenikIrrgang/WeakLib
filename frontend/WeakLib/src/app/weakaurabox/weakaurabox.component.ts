@@ -1,5 +1,5 @@
 import { Component, Input, Directive, ElementRef } from '@angular/core';
-import { Weakaura } from '../util/Weakaura';
+import { Weakaura } from '../util/weakaura';
 
 @Component({
     selector: 'weakaurabox',

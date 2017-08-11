@@ -1,4 +1,4 @@
-import { Weakaura } from '../util/Weakaura';
+import { Weakaura } from '../util/weakaura';
 import { Component, Input } from '@angular/core';
 
 

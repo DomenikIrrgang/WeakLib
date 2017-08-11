@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { WeakauraVersion } from "../../util/WeakauraVersion";
+import { WeakauraVersion } from "../../util/weakauraversion";
 
 @Component({
     selector: 'weakaurastring',

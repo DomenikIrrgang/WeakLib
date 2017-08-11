@@ -1,4 +1,4 @@
-<div class="user-view">
+<div class="user-view" *ngIf="user; else noUser">
     <div class="profilepicture">
         <profilepicture profilePicture="{{ user.profilePicture }}">
                 <div><h1 class="heading">{{ user.name }}</h1></div>
@@ -31,3 +31,4 @@
         </div>
     </div>
 </div>
+<ng-template #noUser><error code="404">That user does not exist!</error></ng-template>

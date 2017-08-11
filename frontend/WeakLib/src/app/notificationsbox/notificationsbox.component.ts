@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationService } from '../services/notification.service';
 import { Notification } from '../util/notification';
-import { NotificationType } from "../util/NotificationTypes";
+import { NotificationType } from "../util/notificationtypes";
 
 
 @Component({
@@ -17,6 +17,15 @@ export class NotificationsBoxComponent implements OnInit {
 
     ngOnInit(): void {
         this.notificationService.getNotifications().then(notifications => this.notifications = notifications);
+    }
 
+    getImage(notificationType: NotificationType): string {
+        switch(notificationType) {
+            case NotificationType.USER_NEW_WEAKAURA:
+                return "assets/img/plus.png";
+            case NotificationType.WEAKAURA_UPDATE:
+                return "assets/img/edit.png";
+        }
+        return "";
     }
 }

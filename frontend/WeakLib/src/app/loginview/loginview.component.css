@@ -1,20 +1,14 @@
 .login-view{
-    display:grid;
-       grid-template-columns: 1fr 0.5fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas: "top top top"
     "left content right"
     "bottom bottom bottom";
 }
 
-.login{
-    display: grid;
-    grid-area:content;
-    border: 1.5px solid black;
-    grid-template-areas: "left right";
-    grid-template-columns: 150px 1fr;
-    grid-gap: 5px;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+.login-box {
+    grid-area: content;
 }
 
 .pass-content{
@@ -23,5 +17,16 @@
 
 .user-content{
     
+}
+
+.login-grid {
+    display: grid;
+    grid-template-areas: "left right";
+    grid-template-columns: 150px 1fr;
+    grid-gap: 5px;
+}
+
+.login-button {
+    width: 100%;
 }
 

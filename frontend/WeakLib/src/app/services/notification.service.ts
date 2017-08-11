@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Notification } from '../util/Notification';
+import { Notification } from '../util/notification';
 import { NOTIFICATIONS } from '../mockdata/notification';
 
 @Injectable()

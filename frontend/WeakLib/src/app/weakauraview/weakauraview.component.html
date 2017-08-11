@@ -1,4 +1,4 @@
-<div class="weakaura-view">
+<div class="weakaura-view"  *ngIf="weakaura; else noWeakaura">
     <div class="profilepicture">
         <profilepicture profilePicture="{{ weakaura.profilePicture }}">
             <div>
@@ -42,3 +42,4 @@
         </div>
     </div>
 </div>
+<ng-template #noWeakaura><error code="404">That weakaura does not exist!</error></ng-template>

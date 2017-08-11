@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { Comment } from '../../util/Comment';
+import { Comment } from '../../util/comment';
 import { CommentService } from "../../services/comment.service";
 import { Weakaura } from "../../util/weakaura";
 

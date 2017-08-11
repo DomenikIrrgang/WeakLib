@@ -1,6 +1,6 @@
 export class User {
-    name: String;
-    profilePicture: String;
-    description: String;
+    name: string;
+    profilePicture: string;
+    description: string;
     joined: number;
 }

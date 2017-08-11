@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Weakaura } from '../util/Weakaura';
+import { Weakaura } from '../util/weakaura';
 import { WeakauraService } from "../services/weakaura.service";
 
 @Component({

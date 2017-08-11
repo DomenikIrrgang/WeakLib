@@ -30,6 +30,7 @@ import { CategoriesComponent } from "./categories/categories.component";
 import { CategoryComponent } from "./categories/category/category.component";
 import { RegisterViewComponent } from "./registerview/registerview.component";
 import { LoginViewComponent } from "./loginview/loginview.component";
+import { ErrorComponent } from "./error/error.component";
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { LoginViewComponent } from "./loginview/loginview.component";
     CategoryComponent,
     RegisterViewComponent,
     LoginViewComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,19 +3,19 @@
         <clickablepanel heading="Filter" [contentVisible]="true" #filterPanel>
             <div class="filter">
                 <div class="name-title">
-                    Name:
+                    <b>Name:</b>
                 </div>
                 <div class="name-content">
                     <input class="form-element" type="text" [(ngModel)]="name">
                 </div>
                 <div class="author-title">
-                    Author:
+                    <b>Author:</b>
                 </div>
                 <div class="author-content">
                     <input class="form-element" type="text" [(ngModel)]="author">
                 </div>
                 <div class="categories-title">
-                    Categories:
+                    <b>Categories:</b>
                 </div>
                 <div class="categories-content">
                     <categories (notify)="categoriesChanged($event)"></categories>
