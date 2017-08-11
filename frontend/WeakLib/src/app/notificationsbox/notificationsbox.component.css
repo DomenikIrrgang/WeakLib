@@ -8,6 +8,10 @@
     height: 25px;
 }
 
+.time {
+    text-align: center;
+}
+
 .actor {
     display: inline-block;
     line-height: 25px;

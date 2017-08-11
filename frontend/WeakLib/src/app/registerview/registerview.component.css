@@ -6,7 +6,7 @@
     display: grid;
     grid-template-columns: 150px 1fr;
     grid-gap: 5px;
-    grid-template-areas: "left right"
+    grid-template-areas: "left right";
 }
 
 .content-view {
@@ -17,6 +17,7 @@
     "left content right"
     "bottom bottom bottom";
     grid-gap: 10px;
+    height: 100%;
 }
 
 .register {

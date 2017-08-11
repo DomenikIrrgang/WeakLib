@@ -5,6 +5,7 @@
     grid-template-areas: "top top top"
     "left content right"
     "bottom bottom bottom";
+    height: 100%;
 }
 
 .login-box {
