@@ -33,6 +33,7 @@ import { LoginViewComponent } from "./loginview/loginview.component";
 import { ErrorComponent } from "./error/error.component";
 import { Time } from "./util/time";
 import { ImagePreviewComponent } from "./imagepreview/imagepreview.component";
+import { NewsViewComponent } from "./newsview/newsview.component";
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { ImagePreviewComponent } from "./imagepreview/imagepreview.component";
     LoginViewComponent,
     ErrorComponent,
     ImagePreviewComponent,
+    NewsViewComponent,
   ],
   imports: [
     BrowserModule,

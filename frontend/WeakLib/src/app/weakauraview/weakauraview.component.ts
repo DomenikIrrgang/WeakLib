@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { Time } from "../util/time";
 import { Weakaura } from '../util/weakaura';
 import { WeakauraService } from '../services/weakaura.service';
-import { Time } from "../util/time";
 
 @Component({
     selector: 'weakauraview',

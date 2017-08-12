@@ -16,12 +16,12 @@
     grid-template-areas: "left head close"
     "left content right";
     height: 100%;
-       position: fixed;
-   left: 0px;
-   top: 50px;
-   height: 100%;
-   width: 100%;
-   z-index: 10000;
+    position: fixed;
+    left: 0px;
+    top: 50px;
+    height: 100%;
+    width: 100%;
+    z-index: 10000;
 }
 
 .content {

@@ -12,13 +12,13 @@ import { Time } from "../../util/time";
 
 export class CommentsComponent implements OnInit {
     comments: Comment[];
-    @Input() weakaura: Weakaura;
     @ViewChild('comment') comment;
+    @Input() source: any;
 
     constructor(private commentService: CommentService, private time: Time) { }
 
     ngOnInit() {
-        this.commentService.getComments(this.weakaura).then(comments => this.comments = comments);
+        this.commentService.getComments(this.source).then(comments => this.comments = comments);
     }
 
     sendComment(): void {
@@ -26,7 +26,6 @@ export class CommentsComponent implements OnInit {
     }
 
     textAreaAdjust() {
-        console.log(this.comment);
         this.comment.nativeElement.style.height = "1px";
         this.comment.nativeElement.style.height = (1 + this.comment.nativeElement.scrollHeight) + "px";
     }

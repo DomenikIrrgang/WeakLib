@@ -3,4 +3,5 @@ export class News {
     imageURL: String;
     uploadTime: number;
     content: String;
+    hash: string;
 }

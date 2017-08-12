@@ -23,6 +23,7 @@
     background-color: #f1f1f1;
     grid-area: content;
     padding: 5px;
+    overflow: auto;
 }
 
 .footer {

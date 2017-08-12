@@ -14,4 +14,13 @@ export class NewsService {
             setTimeout(() => resolve(this.getNews()), 2000);
         });
     }
+
+    getNewsWithHash(hash: string): Promise<News> {
+        for (let tmp of NEWS) {
+            if (tmp.hash == hash) {
+                return Promise.resolve(tmp);
+            }
+        }
+        return null;
+    }
 }

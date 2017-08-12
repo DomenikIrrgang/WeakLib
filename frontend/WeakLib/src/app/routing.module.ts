@@ -8,6 +8,7 @@ import { UserViewComponent } from "./userview/userview.component";
 import { SearchViewComponent } from "./searchview/searchview.component";
 import { RegisterViewComponent } from "./registerview/registerview.component";
 import { LoginViewComponent } from "./loginview/loginview.component";
+import { NewsViewComponent } from "./newsview/newsview.component";
 
 const routes: Routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
     { path: 'search', component: SearchViewComponent },
     { path: 'register', component: RegisterViewComponent },
     { path: 'login', component: LoginViewComponent },
+    { path: 'news/:hash', component: NewsViewComponent },
 ];
 
 @NgModule({
