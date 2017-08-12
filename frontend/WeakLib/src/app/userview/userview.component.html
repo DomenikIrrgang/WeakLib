@@ -17,10 +17,10 @@
                 <div class="weakaura-grid">
                     <div *ngFor="let weakaura of weakauras" class="weakaura">
                         <div class="picture">
-                            <a href="/weakaura/{{ weakaura.hash }}"><img src="{{weakaura.profilePicture}}" /></a>
+                            <a routerLink="/weakaura/{{ weakaura.hash }}"><img src="{{weakaura.profilePicture}}" /></a>
                         </div>
                         <div class="title">
-                            <a href="/weakaura/{{ weakaura.hash }}">{{ weakaura.name }}</a>
+                            <a routerLink="/weakaura/{{ weakaura.hash }}">{{ weakaura.name }}</a>
                         </div>
                         <div class="weakaura-date">
                             {{ time.difference(weakaura.uploadTime) }}

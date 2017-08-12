@@ -4,7 +4,7 @@
             <div>
                 <div><h1 class="heading">{{ weakaura.name }}</h1></div>
                 <input type="button" class="btn btn-primary btn-sm follow-button" value="Follow" (click)="follow()"/>
-                <div><img src="assets/img/user.png" class="icon"/>Author: <a href="user/{{ weakaura.author }}">{{ weakaura.author }}</a></div>
+                <div><img src="assets/img/user.png" class="icon"/>Author: <a routerLink="/user/{{ weakaura.author }}">{{ weakaura.author }}</a></div>
                 <div><img src="assets/img/clock.png" class="icon"/><b>Upload: </b>{{ time.difference(weakaura.uploadTime) }}</div>
                 <div><img src="assets/img/clock.png" class="icon"/><b>Update: </b>{{ time.difference(weakaura.uploadTime) }}</div>
                 <div><img src="assets/img/eye.png" class="icon"/>Views: 2</div>

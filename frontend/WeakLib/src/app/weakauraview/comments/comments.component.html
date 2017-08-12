@@ -12,7 +12,7 @@
                         <img src="{{ comment.author.profilePicture }}" />
                     </div>
                     <div class="comment-title">
-                        <a href="/user/{{ comment.author.name }}">{{ comment.author.name }}</a>
+                        <a routerLink="/user/{{ comment.author.name }}">{{ comment.author.name }}</a>
                         <span class="timestamp">{{ time.difference(comment.timestamp) }}</span>
                     </div>
                     <div class="comment-content">
