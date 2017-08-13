@@ -57,3 +57,4 @@ typings/
 # dotenv environment variables file
 .env
 
+backend/planning/uml/databasemodel.uxf
