@@ -2,7 +2,7 @@
 
 abstract class MySQLTable
 {
-    protected $name;
+    protected $name = "";
     protected $fields = array();
     protected $foreignKeys = array();
 
