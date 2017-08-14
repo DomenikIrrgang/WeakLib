@@ -7,11 +7,13 @@ require_once './database/MySQLDatabaseConnection.php';
 class MySQLDatabase implements Database
 {
     private $mysqlConnection;
+    private $connected;
 
     public function connect(DatabaseConnection $connection): bool
     {
         if ($connection instanceof MySQLDatabaseConnection) {
             $this->mysqlConnection = new mysqli($connection->ip, $connection->username, $connection->password, $connection->database);
+            $this->connected = true;
             return $this->isConnected();
         }
         return false;
@@ -21,6 +23,7 @@ class MySQLDatabase implements Database
     {
         if ($this->isConnected()) {
             $this->mysqlConnection->close();
+            $this->connected = false;
             return true;
         }
         return false;
@@ -28,9 +31,6 @@ class MySQLDatabase implements Database
 
     public function isConnected(): bool
     {
-        if ($this->mysqlConnection->connect_error) {
-            return false;
-        }
-        return true;
+        return $this->connected;
     }
 }

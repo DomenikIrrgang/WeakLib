@@ -12,4 +12,16 @@ $databaseConnection = new MySQLDatabaseConnection(
     $config["database"]["password"],
     $config["database"]["port"]
 );
+
 $database->connect($databaseConnection);
+if ($database->isConnected()) {
+    echo "database connection active\n";
+} else {
+    echo "database connection inactive\n";
+}
+$database->disconnect();
+if ($database->isConnected()) {
+    echo "database connection active\n";
+} else {
+    echo "database connection inactive\n";
+}
