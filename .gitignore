@@ -58,3 +58,4 @@ typings/
 .env
 
 backend/planning/uml/databasemodel.uxf
+backend/src/.vscode/settings.json
