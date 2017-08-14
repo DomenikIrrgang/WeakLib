@@ -1,5 +1,6 @@
 <?php
-abstract class DatabaseEntry implements DatabaseModel {
+
+abstract class DatabaseEntry {
 
 
 }
