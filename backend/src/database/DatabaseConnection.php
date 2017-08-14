@@ -1,5 +1,6 @@
 <?php
-interface DatabaseConnection {
+
+interface DatabaseConnection
+{
 
 }
-?>
