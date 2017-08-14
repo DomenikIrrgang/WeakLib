@@ -6,12 +6,14 @@ class MySQLDatabaseConnection implements DatabaseConnection
     public $database;
     public $username;
     public $password;
+    public $port;
 
-    public function __construct($ip, $database, $username, $password)
+    public function __construct(string $ip, string $database, string $username, string $password, number $port)
     {
         $this->ip = $ip;
         $this->database = $database;
         $this->username = $username;
         $this->password = $password;
+        $this->port = $port;
     }
 }
