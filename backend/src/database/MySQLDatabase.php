@@ -11,7 +11,7 @@ class MySQLDatabase implements Database
     public function connect(DatabaseConnection $connection): bool
     {
         if ($connection instanceof MySQLDatabaseConnection) {
-            $this->mysqlConnection = new msqli($connection->ip, $connection->username, $connection->password, $connection->database);
+            $this->mysqlConnection = new mysqli($connection->ip, $connection->username, $connection->password, $connection->database);
             return $this->isConnected();
         }
         return false;
