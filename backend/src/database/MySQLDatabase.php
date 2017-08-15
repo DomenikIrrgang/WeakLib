@@ -33,4 +33,12 @@ class MySQLDatabase implements Database
     {
         return $this->connected;
     }
+
+    public function executeQuery(string $query): bool
+    {
+   if ($this->mysqlConnection->query($query) == TRUE){
+       return TRUE;
+   }
+   return FALSE;
+    }
 }
