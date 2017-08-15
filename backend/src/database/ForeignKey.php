@@ -6,7 +6,7 @@ class ForeignKey
     public $reference;
     public $tableName;
 
-    function __construct(Field $field, string $reference, string $tableName)
+    function __construct(string $field, string $reference, string $tableName)
     {
         $this->field = $field;
         $this->reference = $reference;
