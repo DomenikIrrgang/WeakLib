@@ -19,10 +19,10 @@ if ($database->isConnected()) {
 } else {
     echo "database connection inactive\n";
 }
-$database->executeQuery("Create table Person (
-    id int
-)
-    ");
+$database->executePreparedStatement(
+    "Insert into person (id) 
+    Values (?)",[6]
+);
 $database->disconnect();
 if ($database->isConnected()) {
     echo "database connection active\n";
