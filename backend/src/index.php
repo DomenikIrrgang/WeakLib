@@ -21,8 +21,8 @@ if ($database->isConnected()) {
     echo "database connection inactive\n";
 }
 $database->executePreparedStatement(
-    "Insert into person (id) 
-    Values (?)", [6]
+    "INSERT INTO users (id, username, password) 
+    VALUES (?, ?, ?)", [2, "Suu", "123"]
 );
 $database->disconnect();
 if ($database->isConnected()) {

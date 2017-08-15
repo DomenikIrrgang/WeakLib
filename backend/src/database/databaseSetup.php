@@ -26,6 +26,7 @@ if ($database->isConnected()) {
             break;
         }
     }
+    $database->disconnect();
 } else {
     echo "ERROR: COULD NOT CONNECT TO DATABASE!\n";
 }

@@ -45,23 +45,30 @@ class MySQLDatabase implements Database
     
     public function executePreparedStatement(string $query, array $values): bool
     {
-        $statement=$this->mysqlConnection->prepare($query);
-        $typeString="";
-        foreach ($values as $value) {
-            if (gettype($value) =="integer") {
-                $typeString = $typeString . "i";
+        $statement = $this->mysqlConnection->prepare($query);
+        if ($statement != false) {
+            $typeString="";
+            foreach ($values as $value) {
+                if (gettype($value) =="integer") {
+                    $typeString = $typeString . "i";
+                }
+                if (gettype($value)=="string") {
+                    $typeString = $typeString . "s";
+                }
+                if (gettype($value)=="double") {
+                    $typeString = $typeString . "d";
+                }
             }
-            if (gettype($value)=="string") {
-                $typeString = $typeString . "s";
+            $bindArray = [];
+            $bindArray[0] = & $typeString;
+            for ($i = 0; $i < count($values); $i++) {
+                $bindArray[$i+1] = & $values[$i];
             }
-            if (gettype($value)=="double") {
-                $typeString = $typeString . "d";
-            }
+            call_user_func_array(array($statement, 'bind_param'), $bindArray);
+            $statement->execute();
+            $statement->close();
+            return true;
         }
-
-        $statement->bind_param($typeString, $values);
-        $statement->execute();
-        $statement->close();
-        return true;
+        return false;
     }
 }
