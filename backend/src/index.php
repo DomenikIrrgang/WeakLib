@@ -3,6 +3,7 @@
 require_once './database/MySQLDatabase.php';
 require_once './database/MySQLDatabaseConnection.php';
 require_once './config.php';
+require_once './database/tables/UserTable.php';
 
 $database = new MySQLDatabase();
 $databaseConnection = new MySQLDatabaseConnection(
@@ -19,10 +20,7 @@ if ($database->isConnected()) {
 } else {
     echo "database connection inactive\n";
 }
-$database->executeQuery("Create table Person (
-    id int
-)
-    ");
+
 $database->disconnect();
 if ($database->isConnected()) {
     echo "database connection active\n";

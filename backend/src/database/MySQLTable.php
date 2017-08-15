@@ -43,7 +43,6 @@ abstract class MySQLTable implements DatabaseModel
         }
         $query = substr($query, 0, -1);
         $query = $query . ");";
-        echo $query;
         return $query;
     }
 

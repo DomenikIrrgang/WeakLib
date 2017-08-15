@@ -36,9 +36,13 @@ class MySQLDatabase implements Database
 
     public function executeQuery(string $query): bool
     {
-   if ($this->mysqlConnection->query($query) == TRUE){
-       return TRUE;
-   }
-   return FALSE;
+        if ($this->mysqlConnection->query($query) == true) {
+            return true;
+        }
+        return false;
+    }
+
+    public function executePreparedStatement(string $query, array $values): bool {
+        return false;
     }
 }
