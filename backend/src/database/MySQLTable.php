@@ -17,17 +17,17 @@ abstract class MySQLTable implements DatabaseModel
 
     public function addField(string $name, string $type, bool $primary, bool $nullable)
     {
-        array_push($this->$fields, new Field($name, $type, $primary, $nullable));
+        array_push($this->fields, new Field($name, $type, $primary, $nullable));
     }
 
     public function addForeignKey(string $name, string $type, string $reference, string $table)
     {
-        array_push($this->$foreignKeys, new ForeignKey(new Field($name, $type), $reference, $table));
+        array_push($this->foreignKeys, new ForeignKey(new Field($name, $type), $reference, $table));
     }
 
     public function getInsertQuery(): string
     {
-        $query = "CREATE TABLE " . $this->name . " {";
+        $query = "CREATE TABLE " . $this->name . " (";
         foreach ($this->fields as $field) {
             $query = $query . $field->name . " " . $field->type;
             if ($field->primary) {
@@ -41,13 +41,19 @@ abstract class MySQLTable implements DatabaseModel
         foreach ($this->foreignKeys as $foreignKey) {
             $query = $query . 'FOREIGN KEY (' . $foreignKey->field . ') REFERENCES ' . $foreignKey->table . '(' . $foreignKey->reference . '),';
         }
-            echo $query;
-            return $query;
+        $query = substr($query, 0, -1);
+        $query = $query . ");";
+        echo $query;
+        return $query;
     }
 
     public function add(Database $database): bool
     {
-        return true;
-        //return $database->executeQuery($this->getInsertQuery());
+        return $database->executeQuery($this->getInsertQuery());
+    }
+
+    public function remove(Database $database): bool
+    {
+        return false;
     }
 }
