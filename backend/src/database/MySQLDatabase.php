@@ -42,32 +42,26 @@ class MySQLDatabase implements Database
         }
         return false;
     }
-
-    public function executePreparedStatement(string $query, array $values): bool {
-        return false;
-    }
-
+    
     public function executePreparedStatement(string $query, array $values): bool
     {
-    
-    $statement=$this->mysqlConnection->prepare($query);
-    $typeString="";
-    foreach($values as $value){
-        if (gettype($value) =="integer"){
-            $typeString = $typeString . "i";
+        $statement=$this->mysqlConnection->prepare($query);
+        $typeString="";
+        foreach ($values as $value) {
+            if (gettype($value) =="integer") {
+                $typeString = $typeString . "i";
+            }
+            if (gettype($value)=="string") {
+                $typeString = $typeString . "s";
+            }
+            if (gettype($value)=="double") {
+                $typeString = $typeString . "d";
+            }
         }
-        if (gettype($value)=="string"){
-            $typeString = $typeString . "s";
-        }
-        if (gettype($value)=="double"){
-            $typeString = $typeString . "d";
-        }
-    }
 
-     $statement->bind_param($typeString,$values);
-     $statement->execute();
-     $statement->close();
-     return true;
+        $statement->bind_param($typeString, $values);
+        $statement->execute();
+        $statement->close();
+        return true;
     }
-
 }
