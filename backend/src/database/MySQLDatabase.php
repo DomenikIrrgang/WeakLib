@@ -71,4 +71,47 @@ class MySQLDatabase implements Database
         }
         return false;
     }
+
+    public function getExecutePreparedStatement(string $query, array $values): array
+    {
+        $statement = $this->mysqlConnection->prepare($query);
+        if ($statement != false) {
+            $typeString="";
+            foreach ($values as $value) {
+                if (gettype($value) =="integer") {
+                    $typeString = $typeString . "i";
+                }
+                if (gettype($value)=="string") {
+                    $typeString = $typeString . "s";
+                }
+                if (gettype($value)=="double") {
+                    $typeString = $typeString . "d";
+                }
+            }
+            $bindArray = [];
+            $bindArray[0] = & $typeString;
+            for ($i = 0; $i < count($values); $i++) {
+                $bindArray[$i+1] = & $values[$i];
+            }
+            call_user_func_array(array($statement, 'bind_param'), $bindArray);
+            $statement->execute();
+            $queryResult = $statement->get_result();
+            $result = [];
+            while ($row = $queryResult->fetch_assoc()) {
+                array_push($result, $row);
+            }
+            $statement->close();
+            return $result;
+        }
+        return [];
+    }
+
+    public function getExecuteQuery(string $query): array
+    {
+        $result = $this->mysqlConnection->query($query);
+        if ($result != false) {
+            return $result->fetch_assoc();
+        }
+        return [];
+    }
 }

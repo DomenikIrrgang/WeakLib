@@ -46,6 +46,11 @@ abstract class MySQLTable implements DatabaseModel
         return $query;
     }
 
+    public function getRemoveQuery(): string
+    {
+        return "DROP TABLE IF EXISTS " . $this->name;
+    }
+
     public function add(Database $database): bool
     {
         return $database->executeQuery($this->getInsertQuery());

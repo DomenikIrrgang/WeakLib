@@ -20,10 +20,9 @@ if ($database->isConnected()) {
 } else {
     echo "database connection inactive\n";
 }
-$database->executePreparedStatement(
-    "INSERT INTO users (id, username, password) 
-    VALUES (?, ?, ?)", [2, "Suu", "123"]
-);
+var_dump($database->getExecutePreparedStatement(
+    'SELECT * FROM users WHERE username=?', ["Suu"]
+));
 $database->disconnect();
 if ($database->isConnected()) {
     echo "database connection active\n";
