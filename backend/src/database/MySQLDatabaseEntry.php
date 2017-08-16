@@ -5,6 +5,11 @@ require_once "./database/DatabaseEntry.php";
 class MySQLDatabaseEntry implements DatabaseEntry
 {
     private $values = [];
+
+    public function __construct(array $values) 
+    {
+        $this->values = $values;
+    }
     
     public function toJSON(): String
     {
