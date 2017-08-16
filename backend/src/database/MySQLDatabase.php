@@ -110,7 +110,11 @@ class MySQLDatabase implements Database
     {
         $result = $this->mysqlConnection->query($query);
         if ($result != false) {
-            return $result->fetch_assoc();
+            $tmp = [];
+            while ($row = $result->fetch_assoc()) {
+                array_push($tmp, $row);
+            }
+            return $tmp;
         }
         return [];
     }

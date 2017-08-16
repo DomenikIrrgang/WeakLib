@@ -2,9 +2,9 @@
 
 require_once "./database/DatabaseEntry.php";
 
-abstract class MySQLDatabaseEntry implements DatabaseEntry
+class MySQLDatabaseEntry implements DatabaseEntry
 {
-    private $values=[];
+    private $values = [];
     
     public function toJSON(): String
     {
@@ -12,10 +12,13 @@ abstract class MySQLDatabaseEntry implements DatabaseEntry
         return $JSONoutput;
     }
 
-    public function fromJSON(string $JSONEntry):DatabaseEntry
+    public function fromJSON(string $JSONEntry): void
     {
+        $this->values = json_decode($JSONEntry, true);
+    }
 
-        $entry=json_decode($JSONEntry);
-         return $entry;
+    public function getValue(string $key)
+    {
+        return $this->values[$key];
     }
 }
