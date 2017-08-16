@@ -1,6 +1,7 @@
 <?php
 
-abstract class DatabaseEntry
+interface DatabaseEntry
 {
-    public $databaseModel;
+    public function toJSON(): String;
+    public function fromJSON(string $JSONEntry):DatabaseEntry;
 }
