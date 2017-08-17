@@ -58,6 +58,6 @@ abstract class MySQLTable implements DatabaseModel
 
     public function remove(Database $database): bool
     {
-        return false;
+        return $database->executeQuery($this->getRemoveQuery());
     }
 }
