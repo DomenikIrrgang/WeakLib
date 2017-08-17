@@ -6,7 +6,7 @@ class MySQLDatabaseEntry implements DatabaseEntry
 {
     private $values = [];
 
-    public function __construct(array $values) 
+    public function __construct(array $values)
     {
         $this->values = $values;
     }
@@ -25,5 +25,27 @@ class MySQLDatabaseEntry implements DatabaseEntry
     public function getValue(string $key)
     {
         return $this->values[$key];
+    }
+
+    public function getKeys(): array
+    {
+        $tmp = [];
+        foreach ($this->values as $key => $value) {
+            array_push($tmp, $key);
+        }
+        return $tmp;
+    }
+
+    public function getValues(): array
+    {
+        $tmp = [];
+        foreach ($this->values as $key => $value) {
+            array_push($tmp, $value);
+        }
+        return $tmp;
+    }
+    public function setValue(string $key, $value)
+    {
+        $this->values[$key] = $value;
     }
 }

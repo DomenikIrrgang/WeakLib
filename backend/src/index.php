@@ -5,6 +5,7 @@ require_once './database/MySQLDatabaseConnection.php';
 require_once './config.php';
 require_once './database/tables/UserTable.php';
 require_once "./database/MySQLDatabaseEntry.php";
+require_once "./database/tables/UserTable.php";
 
 $database = new MySQLDatabase();
 $databaseConnection = new MySQLDatabaseConnection(
@@ -22,10 +23,11 @@ if ($database->isConnected()) {
     echo "database connection inactive\n";
 }
 
-$databaseEntry = new MySQLDatabaseEntry($database->getExecutePreparedStatement(
-    'SELECT * FROM users WHERE username=?', ["Suu"]
-)[0]);
+$usertable = new UserTable();
+$databaseEntry = $usertable->getById($database, 1);
+$databaseEntry->setValue("id", 3);
 echo $databaseEntry->toJSON() . "\n";
+$usertable->postData($database, $databaseEntry);
 
 $database->disconnect();
 if ($database->isConnected()) {

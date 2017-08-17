@@ -60,4 +60,26 @@ abstract class MySQLTable implements DatabaseModel
     {
         return $database->executeQuery($this->getRemoveQuery());
     }
+
+    public function getById($database, $id): DatabaseEntry
+    {
+        $data = $database->getExecutePreparedStatement("SELECT * FROM " . $this->name . " WHERE id=?", [$id]);
+        return new MySQLDatabaseEntry($data[0]);
+    }
+
+    public function postData($database, $data): bool
+    {
+        $query = "INSERT INTO " . $this->name . " (";
+        $values = "(";
+        foreach ($data->getKeys() as $key) {
+            $query .= $key . ", ";
+            $values .= "?, ";
+        }
+        $query = substr($query, 0, -2);
+        $values = substr($values, 0, -2);
+        $values .= ")";
+        $query .= ") VALUES ";
+        $query .= $values;
+        return $database->executePreparedStatement($query, $data->getValues());
+    }
 }
