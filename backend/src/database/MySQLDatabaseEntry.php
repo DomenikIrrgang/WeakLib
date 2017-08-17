@@ -8,7 +8,10 @@ class MySQLDatabaseEntry implements DatabaseEntry
 
     public function __construct(array $values)
     {
-        $this->values = $values;
+        if ($values != null)
+        {
+            $this->values = $values;
+        }
     }
     
     public function toJSON(): String
