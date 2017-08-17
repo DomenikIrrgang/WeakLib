@@ -11,5 +11,5 @@ interface DatabaseModel
     public function postData(Database $database, DatabaseEntry $data): bool;
     public function getByField(Database $database, string $fieldname, $value): DatabaseEntry;
     public function putData(Database $database, DatabaseEntry $data): bool;
-    //public function deleteData(Database $database, DatabaseEntry $data): bool;
+    public function deleteData(Database $database, DatabaseEntry $data): bool;
 }

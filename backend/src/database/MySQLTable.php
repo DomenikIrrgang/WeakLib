@@ -102,4 +102,9 @@ abstract class MySQLTable implements DatabaseModel
         }
         return $this->postData($database, $databaseEntry);
     }
+    public function deleteData(Database $database, DatabaseEntry $data):bool
+    {
+        $query ="DELETE FROM " . $this->name . "WHERE id =?";
+        return $database->executePreparedStatement($query, [$data->getValue("id")]);
+    }
 }
