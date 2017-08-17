@@ -10,4 +10,5 @@ interface DatabaseModel
     public function getById(Database $database, int $id): DatabaseEntry;
     public function postData(Database $database, DatabaseEntry $data): bool;
     public function getByField(Database $database, string $fieldname, $value): DatabaseEntry;
+    public function deleteData(Database $database, DatabaseEntry $data):bool;
 }

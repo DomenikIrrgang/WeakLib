@@ -24,7 +24,8 @@ if ($database->isConnected()) {
 }
 
 $usertable = new UserTable();
-$databaseEntry = $usertable->getById($database, 1);
+$databaseEntry = $usertable->getById($database, 2);
+$usertable->deleteData($database,$databaseEntry);
 $databaseEntry->setValue("id", 3);
 echo $databaseEntry->toJSON() . "\n";
 $usertable->postData($database, $databaseEntry);

@@ -88,4 +88,11 @@ abstract class MySQLTable implements DatabaseModel
         $data=$database->getPreparedStatement("SELECT * FROM " . $this->name ." WHERE " .  $fieldname . "=?", [$value] ) ;
         return new MySQLDatabaseEntry($data);
     }
+
+    public function deleteData(Database $database, DatabaseEntry $data):bool{
+    $query ="DELETE FROM " . $this->name . "WHERE id =?";
+    return $database->executePreparedStatement($query,[$data->getValue("id")]);
+
+    }
+
 }
