@@ -107,7 +107,6 @@ abstract class MySQLTable implements DatabaseModel
             $query = substr($query, 0, -2);
             $query .= " WHERE id=?";
             array_push($values, $databaseEntry->getValue("id"));
-            echo $query;
             return $database->executePreparedStatement($query, $values);
         } else {
             return $this->postData($database, $databaseEntry);
