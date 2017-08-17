@@ -25,11 +25,11 @@ if ($database->isConnected()) {
 
 $usertable = new UserTable();
 $databaseEntry = $usertable->getById($database, 1);
-$databaseEntry->setValue("id", 1);
+$databaseEntry->setValue("id", 20);
 $databaseEntry->setValue("username", "Suu");
 $databaseEntry->setValue("password", "123");
 $usertable->deleteData($database,$databaseEntry);
-$usertable->putData($database, $databaseEntry);
+//$usertable->putData($database, $databaseEntry);
 
 $database->disconnect();
 if ($database->isConnected()) {

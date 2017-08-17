@@ -97,14 +97,26 @@ abstract class MySQLTable implements DatabaseModel
 
     public function putData(Database $database, DatabaseEntry $databaseEntry): bool
     {
-        if ($this->getById($database, $databaseEntry->getValue("id"))->hasKey("id")) {
-            $databaseEntry->removeKey("id");
+        if (count($this->getById($database, $databaseEntry->getValue("id"))->getValues()) > 0) {
+            $query = "UPDATE " . $this->name. " SET ";
+            $values = [];
+            foreach ($databaseEntry->getKeys() as $key) {
+                $query .= $key . "=?, ";
+                array_push($values, $databaseEntry->getValue($key));
+            }
+            $query = substr($query, 0, -2);
+            $query .= " WHERE id=?";
+            array_push($values, $databaseEntry->getValue("id"));
+            echo $query;
+            return $database->executePreparedStatement($query, $values);
+        } else {
+            return $this->postData($database, $databaseEntry);
         }
-        return $this->postData($database, $databaseEntry);
+       
     }
     public function deleteData(Database $database, DatabaseEntry $data):bool
     {
-        $query ="DELETE FROM " . $this->name . "WHERE id =?";
+        $query ="DELETE FROM " . $this->name . " WHERE id=?";
         return $database->executePreparedStatement($query, [$data->getValue("id")]);
     }
 }
