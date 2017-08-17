@@ -60,4 +60,9 @@ abstract class MySQLTable implements DatabaseModel
     {
         return $database->executeQuery($this->getRemoveQuery());
     }
+
+    public function getByField(String $fieldname, Database $database, $value ):DatabaseEntry{
+    $data=$database->getPreparedStatement("SELECT * FROM " . $this->name ." WHERE " .  $fieldname . "=?",[$value] ) ;   
+    return new MySQLDatabaseEntry($data);
+    }
 }
