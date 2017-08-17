@@ -8,4 +8,6 @@ interface DatabaseEntry
     public function getKeys(): array;
     public function getValues(): array;
     public function setValue(string $key, $value);
+    public function hasKey(string $key): bool;
+    public function removeKey(string $key);
 }

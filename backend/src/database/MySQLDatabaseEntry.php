@@ -51,4 +51,14 @@ class MySQLDatabaseEntry implements DatabaseEntry
     {
         $this->values[$key] = $value;
     }
+
+    public function hasKey(string $key): bool 
+    {
+        return array_key_exists($key, $this->values);
+    }
+
+    public function removeKey(string $key)
+    {
+        unset($this->values[$key]);
+    }
 }

@@ -15,9 +15,9 @@ abstract class MySQLTable implements DatabaseModel
         $this->name = $name;
     }
 
-    public function addField(string $name, string $type, bool $primary, bool $nullable)
+    public function addField(Field $field)
     {
-        array_push($this->fields, new Field($name, $type, $primary, $nullable));
+        array_push($this->fields, $field);
     }
 
     public function addForeignKey(string $name, string $type, string $reference, string $table)
@@ -35,6 +35,9 @@ abstract class MySQLTable implements DatabaseModel
             }
             if ($field->nullable == false) {
                 $query = $query . ' NOT NULL';
+            }
+            if ($field->autoIncrement == true) {
+                $query .= ' AUTO_INCREMENT';
             }
             $query = $query . ',';
         }
@@ -64,7 +67,10 @@ abstract class MySQLTable implements DatabaseModel
     public function getById(Database $database, int $id): DatabaseEntry
     {
         $data = $database->getExecutePreparedStatement("SELECT * FROM " . $this->name . " WHERE id=?", [$id]);
-        return new MySQLDatabaseEntry($data[0]);
+        if ($data != false) {
+            return new MySQLDatabaseEntry($data[0]);
+        }
+        return new MySQLDatabaseEntry($data);
     }
 
     public function postData(Database $database, DatabaseEntry $data): bool
@@ -87,5 +93,13 @@ abstract class MySQLTable implements DatabaseModel
     {
         $data=$database->getPreparedStatement("SELECT * FROM " . $this->name ." WHERE " .  $fieldname . "=?", [$value] ) ;
         return new MySQLDatabaseEntry($data);
+    }
+
+    public function putData(Database $database, DatabaseEntry $databaseEntry): bool
+    {
+        if ($this->getById($database, $databaseEntry->getValue("id"))->hasKey("id")) {
+            $databaseEntry->removeKey("id");
+        }
+        return $this->postData($database, $databaseEntry);
     }
 }

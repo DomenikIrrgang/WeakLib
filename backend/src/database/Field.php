@@ -4,15 +4,32 @@ class Field
 {
     public $name;
     public $type;
-    public $primary;
-    public $nullable;
+    public $primary = false;
+    public $nullable = false;
+    public $autoIncrement = false;
 
-    function __construct(string $name, string $type, bool $primary, bool $nullable)
+    function __construct(string $name, string $type)
     {
         $this->name = $name;
         $this->type = $type;
-        $this->primary = $primary;
-        $this->nullable = $nullable;
+    }
+
+    public function nullable(): Field
+    {
+        $this->nullable = true;
+        return $this;
+    }
+
+    public function primary(): Field
+    {
+        $this->primary = true;
+        return $this;
+    }
+
+    public function autoIncrement(): Field
+    {
+        $this->autoIncrement = true;
+        return $this;
     }
 
 }

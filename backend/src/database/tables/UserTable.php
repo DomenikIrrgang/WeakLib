@@ -1,14 +1,15 @@
 <?php
 
 require_once 'database/MySQLTable.php';
+require_once "./database/Field.php";
 
 class UserTable extends MySQLTable
 {
     public function __construct()
     {
         $this->name = "users";
-        $this->addField("id", "int", true, false);
-        $this->addField("username", "varchar(255)", false, false);
-        $this->addField("password", "varchar(255)", false, false);
+        $this->addField((new Field("id", "int"))->primary()->autoIncrement());
+        $this->addField(new Field("username", "varchar(255)"));
+        $this->addField(new Field("password", "varchar(255)"));
     }
 }

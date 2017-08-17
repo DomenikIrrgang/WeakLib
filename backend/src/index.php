@@ -25,9 +25,11 @@ if ($database->isConnected()) {
 
 $usertable = new UserTable();
 $databaseEntry = $usertable->getById($database, 1);
-$databaseEntry->setValue("id", 3);
+$databaseEntry->setValue("id", 1);
+$databaseEntry->setValue("username", "Suu");
+$databaseEntry->setValue("password", "123");
 echo $databaseEntry->toJSON() . "\n";
-$usertable->postData($database, $databaseEntry);
+$usertable->putData($database, $databaseEntry);
 
 $database->disconnect();
 if ($database->isConnected()) {
