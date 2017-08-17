@@ -61,13 +61,13 @@ abstract class MySQLTable implements DatabaseModel
         return $database->executeQuery($this->getRemoveQuery());
     }
 
-    public function getById($database, $id): DatabaseEntry
+    public function getById(Database $database, int $id): DatabaseEntry
     {
         $data = $database->getExecutePreparedStatement("SELECT * FROM " . $this->name . " WHERE id=?", [$id]);
         return new MySQLDatabaseEntry($data[0]);
     }
 
-    public function postData($database, $data): bool
+    public function postData(Database $database, DatabaseEntry $data): bool
     {
         $query = "INSERT INTO " . $this->name . " (";
         $values = "(";
@@ -81,5 +81,11 @@ abstract class MySQLTable implements DatabaseModel
         $query .= ") VALUES ";
         $query .= $values;
         return $database->executePreparedStatement($query, $data->getValues());
+    }
+    
+    public function getByField(Database $database, string $fieldname, $value): DatabaseEntry
+    {
+        $data=$database->getPreparedStatement("SELECT * FROM " . $this->name ." WHERE " .  $fieldname . "=?", [$value] ) ;
+        return new MySQLDatabaseEntry($data);
     }
 }
