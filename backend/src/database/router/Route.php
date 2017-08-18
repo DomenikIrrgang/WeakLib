@@ -1,22 +1,21 @@
 <?php
 
+require_once "./controller/Controller.php";
+
 class Route
 {
     private $name;
     private $pattern;
-    private $class;
-    private $method;
+    private $controller;
     private $params;
 
-    public function __construct($name, $pattern, $class, $method, $params)
+    public function __construct(string $name, string $pattern, Controller $controller)
     {
         $this->name = $name;
         $this->pattern = $pattern;
-        $this->class = $class;
-        $this->method = $method;
+        $this->controller = $controller;
         $this->params = $params;
     }
-
 
     public function getName()
     {
@@ -28,14 +27,9 @@ class Route
         return $this->pattern;
     }
 
-    public function getClass()
+    public function getController()
     {
         return $this->class;
-    }
-
-    public function getMethod()
-    {
-        return $this->method;
     }
 
     public function getParams()
