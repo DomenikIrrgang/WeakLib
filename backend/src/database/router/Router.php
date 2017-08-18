@@ -32,16 +32,21 @@ class Router
     private function getRoute(array $routes, string $path): Route
     {
         foreach ($routes as $route) {
-            if (strpos($path, $route->pattern) === 0) {
+            if (strpos($path, $route->getPattern()) === 0) {
                 break;
             }
         }
 
-        $paramString = str_replace($route->pattern, '', $path);
-        $params = explode('/', trim($paramString, '/'));
-        $params = array_filter($params);
         $match = clone($route);
-        $match->setParams($params);
+        $paramString = str_replace($route->getPattern(), '', $path);
+        $params = explode('/', trim($paramString, '/'));
+        
+        if (count($params) > 0) {
+            $params = substr($params[0], 1);
+            parse_str($params, $result);
+            $match->setParams($result);
+        }
+        
         return $match;
     }
 

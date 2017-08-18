@@ -6,6 +6,7 @@ class LoginController implements Controller
 {
     public function request(array $params): string
     {
-        echo "ich wurde gecalled";
+        var_dump($params);
+        return "test";
     }
 }

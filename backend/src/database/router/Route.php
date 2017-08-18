@@ -14,7 +14,6 @@ class Route
         $this->name = $name;
         $this->pattern = $pattern;
         $this->controller = $controller;
-        $this->params = $params;
     }
 
     public function getName()
@@ -29,7 +28,7 @@ class Route
 
     public function getController()
     {
-        return $this->class;
+        return $this->controller;
     }
 
     public function getParams()
