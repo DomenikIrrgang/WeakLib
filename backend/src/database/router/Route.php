@@ -1,13 +1,13 @@
 <?php
 
-require_once "./controller/Controller.php";
+require_once "./database/router/controller/Controller.php";
 
 class Route
 {
     private $name;
     private $pattern;
     private $controller;
-    private $params;
+    private $params = [];
 
     public function __construct(string $name, string $pattern, Controller $controller)
     {

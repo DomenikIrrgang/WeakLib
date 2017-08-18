@@ -6,7 +6,7 @@ require_once './config.php';
 require_once './database/tables/UserTable.php';
 require_once "./database/MySQLDatabaseEntry.php";
 require_once "./database/tables/UserTable.php";
-require_once "./database/router/Router.php";
+require_once "./database/router/Routes.php";
 
 $database = new MySQLDatabase();
 $databaseConnection = new MySQLDatabaseConnection(
@@ -24,8 +24,7 @@ if ($database->isConnected()) {
     echo "database connection inactive\n";
 }
 
-$router = new Router();
-$router->getRoute("/api/login?username=Suu&password=123");
+$router->dispatch("GET", "/test?username=Suu&password=123");
 
 $usertable = new UserTable();
 $databaseEntry = $usertable->getById($database, 1);

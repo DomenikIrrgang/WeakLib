@@ -1,6 +1,6 @@
 <?php
 
-require_once "./Route.php";
+require_once "./database/router/Route.php";
 
 class Router
 {
@@ -41,7 +41,7 @@ class Router
         $params = explode('/', trim($paramString, '/'));
         $params = array_filter($params);
         $match = clone($route);
-        $match->params = $params;
+        $match->setParams($params);
         return $match;
     }
 
