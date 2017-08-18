@@ -2,5 +2,5 @@
 
 interface Controller
 {
-    public function request($params);
+    public function request($params): string;
 }

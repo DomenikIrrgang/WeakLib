@@ -1,5 +1,7 @@
 <?php
 
+require_once "./Route.php";
+
 class Router
 {
     public $getRoutes = [];
@@ -27,7 +29,7 @@ class Router
         array_push($this->putRoutes, $route);
     }
     
-    private function getRoute(array $routes, string $path)
+    private function getRoute(array $routes, string $path): Route
     {
         foreach ($routes as $route) {
             if (strpos($path, $route->pattern) === 0) {
@@ -43,7 +45,7 @@ class Router
         return $match;
     }
 
-    public function resolve($type, string $path)
+    public function resolve($type, string $path): Route
     {
         switch ($type) {
             case "GET":
@@ -55,5 +57,11 @@ class Router
             case "PUT":
                 return $this->getRoute($this->putRoutes, $path);
         }
+    }
+
+    public function dispatch($type, string $path): string
+    {
+        $route = $this->resolve($type, $path);
+        return $route->getController()->request($route->getParams());
     }
 }
