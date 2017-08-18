@@ -7,6 +7,14 @@ class Route {
     private $method;
     private $params;
 
+    public function __construct($name,$pattern,$class,$method,$params){
+        $this->name=$name;
+        $this->pattern=$pattern;
+        $this->class=$class;
+        $this->method=$method;
+        $this->params=$params;
+    }
+
 
     public function getName(){
     return $this->name;
