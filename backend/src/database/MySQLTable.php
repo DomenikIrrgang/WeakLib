@@ -3,6 +3,7 @@
 require_once './database/DatabaseModel.php';
 require_once './database/Field.php';
 require_once './database/ForeignKey.php';
+require_once "./database/MySQLDatabaseEntry.php";
 
 abstract class MySQLTable implements DatabaseModel
 {
@@ -117,5 +118,16 @@ abstract class MySQLTable implements DatabaseModel
     {
         $query ="DELETE FROM " . $this->name . " WHERE id=?";
         return $database->executePreparedStatement($query, [$data->getValue("id")]);
+    }
+
+    public function getAllData(Database $database): array
+    {
+        $tmp = [];
+        $query = "SELECT * FROM " . $this->name;
+        $data = $database->getExecuteQuery($query);
+        foreach ($data as $dataEntry) {
+            array_push($tmp, new MySQLDatabaseEntry($dataEntry));
+        }
+        return $tmp;
     }
 }
