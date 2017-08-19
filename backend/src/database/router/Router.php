@@ -8,6 +8,7 @@ class Router
     public $postRoutes = [];
     public $deleteRoutes = [];
     public $putRoutes = [];
+    public $error404;
 
     public function get(Route $route)
     {
@@ -31,10 +32,15 @@ class Router
     
     private function getRoute(array $routes, string $path): Route
     {
+        $found = false;
         foreach ($routes as $route) {
             if (strpos($path, $route->getPattern()) === 0) {
+                $found = true;
                 break;
             }
+        }
+        if ($found) {
+            return $this->error404;
         }
 
         $match = clone($route);

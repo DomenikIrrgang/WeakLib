@@ -6,6 +6,6 @@ class LoginController implements Controller
 {
     public function request(array $params): string
     {
-        return "test";
+        return $_SERVER['REQUEST_URI'];
     }
 }
