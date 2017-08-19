@@ -16,6 +16,7 @@ $databaseConnection = new MySQLDatabaseConnection(
 
 $requestURI = $_SERVER['REQUEST_URI'] ?: "/test?username=Suu&password=13";
 $requestType = $_SERVER['REQUEST_METHOD'] ?: "GET";
+echo $_SERVER['REQUEST_URI'];
 $database->connect($databaseConnection);
 echo $router->dispatch($requestType, $requestURI);
 $database->disconnect();
