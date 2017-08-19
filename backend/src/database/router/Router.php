@@ -75,4 +75,12 @@ class Router
         $route = $this->resolve($type, $path);
         return $route->getController()->request($route->getParams());
     }
+
+    public function getBaseURI(string $uri): string
+    {
+        $basepath = implode('/', array_slice(explode('/', $_SERVER['SCRIPT_NAME']), 0, -1)) . '/';
+        $uri = substr($_SERVER['REQUEST_URI'], strlen($basepath));
+        $uri = '/' . trim($uri, '/');
+        return $uri;
+    }
 }
