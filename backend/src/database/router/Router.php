@@ -39,7 +39,7 @@ class Router
                 break;
             }
         }
-        if ($found) {
+        if (!$found) {
             return $this->error404;
         }
 
