@@ -14,8 +14,14 @@ $databaseConnection = new MySQLDatabaseConnection(
     $config["database"]["port"]
 );
 
-$requestURI = $router->getBaseURI($_SERVER['REQUEST_URI']) ?: "/test?username=Suu&password=13";
-$requestType = $_SERVER['REQUEST_METHOD'] ?: "GET";
+if (array_key_exists('REQUEST_URI', $_SERVER)) {
+    $requestURI = $router->getBaseURI($_SERVER['REQUEST_URI']);
+    $requestType = $_SERVER['REQUEST_METHOD'];
+} else {
+    $requestURI =  "/test?username=Suu&password=13";
+    $requestType = "GET";
+}
+
 
 $database->connect($databaseConnection);
 echo $router->dispatch($requestType, $requestURI);
