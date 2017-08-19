@@ -2,7 +2,7 @@
 
 require_once "./database/DatabaseEntry.php";
 
-class MySQLDatabaseEntry implements DatabaseEntry
+class MySQLDatabaseEntry implements DatabaseEntry, JsonSerializable 
 {
     private $values = [];
 
@@ -23,6 +23,10 @@ class MySQLDatabaseEntry implements DatabaseEntry
     public function fromJSON(string $JSONEntry): void
     {
         $this->values = json_decode($JSONEntry, true);
+    }
+
+    public function jsonSerialize() {
+        return $this->values;
     }
 
     public function getValue(string $key)

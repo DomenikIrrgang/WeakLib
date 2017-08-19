@@ -9,7 +9,6 @@ class GetAllUserController implements Controller
         global $database;
         $userTable = new UserTable;
         $allData = $userTable->getAllData($database);
-        var_dump($allData);
-        return "";
+        return json_encode($allData, JSON_PRETTY_PRINT);
     }
 }
