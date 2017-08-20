@@ -14,6 +14,7 @@ import { Time } from "../util/time";
 export class UserViewComponent implements OnInit {
     user: User;
     weakauras: Weakaura[];
+    userExists: boolean;
 
     constructor(private weakauraService: WeakauraService, private userService: UserService, private route: ActivatedRoute, private time: Time) { }
 
@@ -21,15 +22,11 @@ export class UserViewComponent implements OnInit {
         this.route.params.subscribe(params => {
             var username: String = params['username'];
             this.userService.getUser(username).then(user => this.user = user);
-            console.log(this.user);
-            if (this.user.name == "") {
-                this.user = null;
-            }
             this.weakauras = this.weakauraService.getWeakaurasFromUser(username);
         });
     }
 
     follow(): void {
-        
+
     }
 }
