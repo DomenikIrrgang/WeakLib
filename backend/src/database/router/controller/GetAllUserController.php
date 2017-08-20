@@ -8,7 +8,18 @@ class GetAllUserController implements Controller
     {
         global $database;
         $userTable = new UserTable;
-        $allData = $userTable->getAllData($database);
-        return json_encode($allData);
+
+        if (count($params)==0) {
+            $allData = $userTable->getAllData($database);
+            echo "all data";
+            return json_encode($allData);
+        } else {
+            $user = $userTable->getByField($database, "name", $params["name"]);
+            if ($user->hasKey("0")) {
+                $data = new MySQLDatabaseEntry($user->getValue("0"));
+                return $data->toJSON();
+            }
+            return "";
+        }
     }
 }

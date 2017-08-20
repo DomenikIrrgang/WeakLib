@@ -93,9 +93,6 @@ abstract class MySQLTable implements DatabaseModel
     public function getByField(Database $database, string $fieldname, $value): DatabaseEntry
     {
         $data=$database->getExecutePreparedStatement("SELECT * FROM " . $this->name ." WHERE " .  $fieldname . "=?", [$value] ) ;
-        if ($data != false) {
-            return new MySQLDatabaseEntry($data[0]);
-        }
         return new MySQLDatabaseEntry($data);
     }
 
