@@ -9,6 +9,17 @@ $tables = [
     "user" => new UserTable(),
 ];
 
+$defaultEntries = [
+    "user" => [
+        new MySQLDatabaseEntry([
+            "name" => "Suu",
+            "password" => "123",
+            "profilePicture" => "http://wow.zamimg.com/images/logos/construction.png",
+            "description" => "Hello World"
+        ])
+    ]
+];
+
 $database = new MySQLDatabase();
 $databaseConnection = new MySQLDatabaseConnection(
     $config["database"]["ip"],
@@ -17,13 +28,18 @@ $databaseConnection = new MySQLDatabaseConnection(
     $config["database"]["password"],
     $config["database"]["port"]
 );
-$database->connect($databaseConnection);
 
+$database->connect($databaseConnection);
 if ($database->isConnected()) {
     foreach ($tables as $name => $table) {
         if (!$table->add($database)) {
             echo "ERROR: COULD NOT ADD DATABASEMODEL: " . $name . "\n";
             break;
+        }
+    }
+    foreach ($defaultEntries as $table => $entries) {
+        foreach ($entries as $entry) {
+            $tables[$table]->postData($database, $entry);
         }
     }
     $database->disconnect();

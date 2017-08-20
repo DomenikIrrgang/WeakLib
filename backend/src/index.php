@@ -18,7 +18,7 @@ if (array_key_exists('REQUEST_URI', $_SERVER)) {
     $requestURI = $router->getBaseURI($_SERVER['REQUEST_URI']);
     $requestType = $_SERVER['REQUEST_METHOD'];
 } else {
-    $requestURI =  "/test?username=Suu&password=13";
+    $requestURI =  "/api/user";
     $requestType = "GET";
 }
 
