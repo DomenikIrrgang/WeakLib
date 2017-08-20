@@ -1934,11 +1934,21 @@ NotificationService = __decorate([
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mockdata_user__ = __webpack_require__("../../../../../src/app/mockdata/user.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__weaklib_service__ = __webpack_require__("../../../../../src/app/services/weaklib.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__ = __webpack_require__("../../../../rxjs/add/operator/toPromise.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserService; });
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1952,21 +1962,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var UserService = (function () {
+var UserService = (function (_super) {
+    __extends(UserService, _super);
     function UserService(http) {
-        this.http = http;
+        var _this = _super.call(this) || this;
+        _this.http = http;
+        return _this;
     }
     UserService.prototype.getUser = function (userName) {
-        for (var _i = 0, USER_1 = __WEBPACK_IMPORTED_MODULE_1__mockdata_user__["a" /* USER */]; _i < USER_1.length; _i++) {
-            var user = USER_1[_i];
-            if (user.name == userName) {
-                return user;
-            }
-        }
-        return null;
+        return this.http.get(this.baseURL + "/api/user?name=" + userName)
+            .toPromise()
+            .then(function (response) {
+            return response.json();
+        })
+            .catch(function (err) { return err; });
     };
     UserService.prototype.getAllUser = function () {
-        return this.http.get("http://localhost/backend/api/user")
+        return this.http.get(this.baseURL + "/api/user")
             .toPromise()
             .then(function (response) {
             return response.json();
@@ -1974,7 +1986,7 @@ var UserService = (function () {
             .catch(function (err) { return err; });
     };
     return UserService;
-}());
+}(__WEBPACK_IMPORTED_MODULE_1__weaklib_service__["a" /* WeaklibService */]));
 UserService = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _a || Object])
@@ -2051,6 +2063,22 @@ WeakauraService = __decorate([
 
 /***/ }),
 
+/***/ "../../../../../src/app/services/weaklib.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WeaklibService; });
+var WeaklibService = (function () {
+    function WeaklibService() {
+        this.baseURL = "/backend/";
+    }
+    return WeaklibService;
+}());
+
+//# sourceMappingURL=weaklib.service.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/userview/userview.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2072,7 +2100,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/userview/userview.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"user-view\" *ngIf=\"user; else noUser\">\r\n    <div class=\"profilepicture\">\r\n        <profilepicture profilePicture=\"{{ user.profilePicture }}\">\r\n                <div><h1 class=\"heading\">{{ user.name }}</h1></div>\r\n                <input type=\"button\" class=\"btn btn-primary btn-sm follow-button\" value=\"Follow\" (click)=\"follow()\"/>\r\n                <div><img src=\"assets/img/clock.png\" class=\"icon\"/><b>Joined: </b>{{ time.difference(user.joined) }}</div>\r\n        </profilepicture>\r\n    </div>\r\n    <div class=\"content\">\r\n        <div class=\"description\">\r\n            <clickablepanel heading=\"Description\" [contentVisible]=\"true\">\r\n                {{ user.description }}\r\n            </clickablepanel>\r\n        </div>\r\n        <div class=\"weakauras\">\r\n            <clickablepanel heading=\"Weakauras\" [contentVisible]=\"true\">\r\n                <div class=\"weakaura-grid\">\r\n                    <div *ngFor=\"let weakaura of weakauras\" class=\"weakaura\">\r\n                        <div class=\"picture\">\r\n                            <a routerLink=\"/weakaura/{{ weakaura.hash }}\"><img src=\"{{weakaura.profilePicture}}\" /></a>\r\n                        </div>\r\n                        <div class=\"title\">\r\n                            <a routerLink=\"/weakaura/{{ weakaura.hash }}\">{{ weakaura.name }}</a>\r\n                        </div>\r\n                        <div class=\"weakaura-date\">\r\n                            {{ time.difference(weakaura.uploadTime) }}\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </clickablepanel>\r\n        </div>\r\n    </div>\r\n</div>\r\n<ng-template #noUser><error code=\"404\">That user does not exist!</error></ng-template>"
+module.exports = "<div class=\"user-view\" *ngIf=\"user != null; else noUser\">\r\n    <div class=\"profilepicture\">\r\n        <profilepicture profilePicture=\"{{ user.profilePicture }}\">\r\n                <div><h1 class=\"heading\">{{ user.name }}</h1></div>\r\n                <input type=\"button\" class=\"btn btn-primary btn-sm follow-button\" value=\"Follow\" (click)=\"follow()\"/>\r\n                <div><img src=\"assets/img/clock.png\" class=\"icon\"/><b>Joined: </b>{{ time.difference(user.joined) }}</div>\r\n        </profilepicture>\r\n    </div>\r\n    <div class=\"content\">\r\n        <div class=\"description\">\r\n            <clickablepanel heading=\"Description\" [contentVisible]=\"true\">\r\n                {{ user.description }}\r\n            </clickablepanel>\r\n        </div>\r\n        <div class=\"weakauras\">\r\n            <clickablepanel heading=\"Weakauras\" [contentVisible]=\"true\">\r\n                <div class=\"weakaura-grid\">\r\n                    <div *ngFor=\"let weakaura of weakauras\" class=\"weakaura\">\r\n                        <div class=\"picture\">\r\n                            <a routerLink=\"/weakaura/{{ weakaura.hash }}\"><img src=\"{{weakaura.profilePicture}}\" /></a>\r\n                        </div>\r\n                        <div class=\"title\">\r\n                            <a routerLink=\"/weakaura/{{ weakaura.hash }}\">{{ weakaura.name }}</a>\r\n                        </div>\r\n                        <div class=\"weakaura-date\">\r\n                            {{ time.difference(weakaura.uploadTime) }}\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </clickablepanel>\r\n        </div>\r\n    </div>\r\n</div>\r\n<ng-template #noUser><error code=\"404\">That user does not exist!</error></ng-template>"
 
 /***/ }),
 
@@ -2111,7 +2139,11 @@ var UserViewComponent = (function () {
         var _this = this;
         this.route.params.subscribe(function (params) {
             var username = params['username'];
-            _this.user = _this.userService.getUser(username);
+            _this.userService.getUser(username).then(function (user) { return _this.user = user; });
+            console.log(_this.user);
+            if (_this.user.name == "") {
+                _this.user = null;
+            }
             _this.weakauras = _this.weakauraService.getWeakaurasFromUser(username);
         });
     };

@@ -1,4 +1,4 @@
-<div class="user-view" *ngIf="user; else noUser">
+<div class="user-view" *ngIf="user != null; else noUser">
     <div class="profilepicture">
         <profilepicture profilePicture="{{ user.profilePicture }}">
                 <div><h1 class="heading">{{ user.name }}</h1></div>
