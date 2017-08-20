@@ -34,6 +34,7 @@ import { ErrorComponent } from "./error/error.component";
 import { Time } from "./util/time";
 import { ImagePreviewComponent } from "./imagepreview/imagepreview.component";
 import { NewsViewComponent } from "./newsview/newsview.component";
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { NewsViewComponent } from "./newsview/newsview.component";
     BrowserModule,
     RoutingModule,
     FormsModule,
+    HttpModule,
   ],
   providers: [
     WeakauraService,
