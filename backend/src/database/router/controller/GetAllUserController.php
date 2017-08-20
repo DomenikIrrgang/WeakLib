@@ -19,7 +19,7 @@ class GetAllUserController implements Controller
                 $data = new MySQLDatabaseEntry($user->getValue("0"));
                 return $data->toJSON();
             }
-            return "";
+            return "{}";
         }
     }
 }
