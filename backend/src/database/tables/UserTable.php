@@ -36,21 +36,13 @@ class UserTable extends MySQLTable
 
     public function putData(Database $database, DatabaseEntry $databaseEntry)
     {
-        $options = [
-            'cost' => 10,
-        ];
-        $passwordHash = password_hash($databaseEntry->getValue("password"), PASSWORD_BCRYPT, $options);
-        $databaseEntry->setValue("password", $passwordHash);
+        $databaseEntry->setValue("password", encryptPassword($databaseEntry->getValue("password")));
         return parent::putData($database, $databaseEntry);
     }
 
     public function postData(Database $database, DatabaseEntry $databaseEntry)
     {
-        $options = [
-            'cost' => 10,
-        ];
-        $passwordHash = password_hash($databaseEntry->getValue("password"), PASSWORD_BCRYPT, $options);
-        $databaseEntry->setValue("password", $passwordHash);
+        $databaseEntry->setValue("password", encryptPassword($databaseEntry->getValue("password")));
         return parent::postData($database, $databaseEntry);
     }
 }
