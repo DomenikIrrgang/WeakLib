@@ -1,6 +1,6 @@
 <?php
 
-require_once "./database/router/controller/Controller.php";
+require_once "./router/controller/Controller.php";
 
 class LoginController implements Controller
 {

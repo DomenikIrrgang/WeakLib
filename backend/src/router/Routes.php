@@ -1,7 +1,7 @@
 <?php
 
-require_once "./database/router/Router.php";
-foreach (glob("./database/router/controller/*.php") as $filename)
+require_once "./router/Router.php";
+foreach (glob("./router/controller/*.php") as $filename)
 {
     require_once $filename;
 }

@@ -3,7 +3,7 @@
 require_once './database/MySQLDatabase.php';
 require_once './database/MySQLDatabaseConnection.php';
 require_once './config.php';
-require_once "./database/router/Routes.php";
+require_once "./router/Routes.php";
 
 $database = new MySQLDatabase();
 $databaseConnection = new MySQLDatabaseConnection(
@@ -19,7 +19,7 @@ if (array_key_exists('REQUEST_URI', $_SERVER)) {
     $requestType = $_SERVER['REQUEST_METHOD'];
 } else {
     $requestURI =  "/api/user?name=Suu";
-    $requestType = "POST";
+    $requestType = "GET";
 }
 
 $database->connect($databaseConnection);

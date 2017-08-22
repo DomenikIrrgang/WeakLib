@@ -1,5 +1,5 @@
 <?php
-require_once "./database/router/controller/Controller.php";
+require_once "./router/controller/Controller.php";
 require_once "./database/tables/UserTable.php";
 
 class GetAllUserController implements Controller

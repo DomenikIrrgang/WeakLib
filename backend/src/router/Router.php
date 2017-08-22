@@ -1,6 +1,6 @@
 <?php
 
-require_once "./database/router/Route.php";
+require_once "./router/Route.php";
 
 class Router
 {
