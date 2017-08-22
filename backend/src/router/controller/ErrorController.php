@@ -12,7 +12,7 @@ class ErrorController implements Controller
         $this->errorMessage = $errorMessage;
     }
     
-    public function request(array $params): string
+    public function request(Request $request, array $params): string
     {
         return $this->errorMessage;
     }

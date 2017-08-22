@@ -1,6 +1,7 @@
 <?php
 
 require_once "./router/controller/Controller.php";
+require_once "./router/middleware/Middleware.php";
 
 class Route
 {
@@ -8,6 +9,7 @@ class Route
     private $pattern;
     private $controller;
     private $params = [];
+    private $middlewares = [];
 
     public function __construct(string $name, string $pattern, Controller $controller)
     {
@@ -39,5 +41,16 @@ class Route
     public function setParams(array $params)
     {
         $this->params = $params;
+    }
+
+    public function middleware(Middleware $middleware): Route
+    {
+        array_push($this->middlewares, $middleware);
+        return $this;
+    }
+
+    public function getMiddlewares(): array
+    {
+        return $this->middlewares;
     }
 }

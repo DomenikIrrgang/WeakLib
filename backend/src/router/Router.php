@@ -1,6 +1,7 @@
 <?php
 
 require_once "./router/Route.php";
+require_once "./router/Request.php";
 
 class Router
 {
@@ -9,6 +10,7 @@ class Router
     public $deleteRoutes = [];
     public $putRoutes = [];
     public $error404;
+    public $error401;
 
     public function get(Route $route)
     {
@@ -56,31 +58,41 @@ class Router
         return $match;
     }
 
-    public function resolve($type, string $path): Route
+    public function resolve(Request $request): Route
     {
-        switch ($type) {
+        switch ($request->type) {
             case "GET":
-                return $this->getRoute($this->getRoutes, $path);
+                return $this->getRoute($this->getRoutes, $request->getBaseURI());
             case "POST":
-                return $this->getRoute($this->postRoutes, $path);
+                return $this->getRoute($this->postRoutes, $request->getBaseURI());
             case "DELETE":
-                return $this->getRoute($this->deleteRoutes, $path);
+                return $this->getRoute($this->deleteRoutes, $request->getBaseURI());
             case "PUT":
-                return $this->getRoute($this->putRoutes, $path);
+                return $this->getRoute($this->putRoutes, $request->getBaseURI());
         }
     }
 
-    public function dispatch($type, string $path): string
+    public function dispatch(Request $request): string
     {
-        $route = $this->resolve($type, $path);
-        return $route->getController()->request($route->getParams());
+        $route = $this->resolve($request);
+        return $this->executeRequest($request, $route);
     }
 
-    public function getBaseURI(string $uri): string
+    public function executeRequest(Request $request, Route $route): string
     {
-        $basepath = implode('/', array_slice(explode('/', $_SERVER['SCRIPT_NAME']), 0, -1)) . '/';
-        $uri = substr($_SERVER['REQUEST_URI'], strlen($basepath));
-        $uri = '/' . trim($uri, '/');
-        return $uri;
+        $redirected = false;
+        foreach ($route->getMiddlewares() as $middleware) {
+            $newRoute = $middleware->onRequest($request, $route);
+            if ($newRoute != $route) {
+                $redirected = true;
+                $request->redirect($newRoute);
+                $route = $newRoute;
+                break;
+            }
+        }
+        if (!$redirected) {
+            return $route->getController()->request($request, $route->getParams());
+        }
+        return $this->executeRequest($request, $route);
     }
 }

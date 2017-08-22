@@ -73,7 +73,6 @@ class MySQLDatabase implements Database
             $statement->close();
             return true;
         }
-        echo "test";
         return new MySQLDatabaseError($this->mysqlConnection->error);
     }
 
