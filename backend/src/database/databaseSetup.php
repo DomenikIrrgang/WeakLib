@@ -15,7 +15,8 @@ $defaultEntries = [
             "name" => "Suu",
             "password" => "123",
             "profilePicture" => "http://wow.zamimg.com/images/logos/construction.png",
-            "description" => "Hello World"
+            "description" => "Hello World",
+            "email" => "test@test.com"
         ])
     ]
 ];

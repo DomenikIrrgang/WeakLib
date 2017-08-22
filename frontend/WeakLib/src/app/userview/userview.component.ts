@@ -14,7 +14,6 @@ import { Time } from "../util/time";
 export class UserViewComponent implements OnInit {
     user: User;
     weakauras: Weakaura[];
-    userExists: boolean;
 
     constructor(private weakauraService: WeakauraService, private userService: UserService, private route: ActivatedRoute, private time: Time) { }
 

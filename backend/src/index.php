@@ -18,10 +18,9 @@ if (array_key_exists('REQUEST_URI', $_SERVER)) {
     $requestURI = $router->getBaseURI($_SERVER['REQUEST_URI']);
     $requestType = $_SERVER['REQUEST_METHOD'];
 } else {
-    $requestURI =  "/api/user";
-    $requestType = "GET";
+    $requestURI =  "/api/user?name=Suu";
+    $requestType = "POST";
 }
-
 
 $database->connect($databaseConnection);
 echo $router->dispatch($requestType, $requestURI);

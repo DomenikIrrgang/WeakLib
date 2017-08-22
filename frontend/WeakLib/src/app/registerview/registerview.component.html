@@ -1,5 +1,6 @@
 <div class="content-view">
     <div class="register-content">
+        <statusmessage type="{{ statusType }}" message="{{ statusMessage }}" [closeable]="false"></statusmessage>
         <box heading="Register">
             <div class="register-grid">
                 <div class="username-label">
@@ -28,7 +29,7 @@
                 </div>
             </div>
             <div class="register">
-                <input type="button" class="btn btn-primary btn-sm register-button" value="Register" (click)="register()" />
+                <input type="button" [disabled]="buttonDisabled" class="btn btn-primary btn-sm register-button" value="Register" (click)="register()" />
             </div>
         </box>
     </div>

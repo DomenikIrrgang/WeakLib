@@ -7,6 +7,7 @@ class Field
     public $primary = false;
     public $nullable = false;
     public $autoIncrement = false;
+    public $unique = false;
 
     function __construct(string $name, string $type)
     {
@@ -29,6 +30,12 @@ class Field
     public function autoIncrement(): Field
     {
         $this->autoIncrement = true;
+        return $this;
+    }
+
+    public function unique(): Field
+    {
+        $this->unique = true;
         return $this;
     }
 

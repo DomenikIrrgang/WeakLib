@@ -10,14 +10,14 @@ class GetAllUserController implements Controller
         $userTable = new UserTable;
 
         if (count($params)==0) {
-            $allData = $userTable->getAllData($database);
-            echo "all data";
+            $allData = $userTable->getAllDataWithoutPassword($database);
             return json_encode($allData);
         } else {
-            $user = $userTable->getByField($database, "name", $params["name"]);
-            if ($user->hasKey("0")) {
-                $data = new MySQLDatabaseEntry($user->getValue("0"));
-                return $data->toJSON();
+            foreach ($params as $key => $param) {
+                $user = $userTable->getByFieldWithoutPassword($database, $key, $param);
+                if (array_key_exists(0, $user)) {
+                    return $user[0]->toJSON();
+                }
             }
             return "{}";
         }

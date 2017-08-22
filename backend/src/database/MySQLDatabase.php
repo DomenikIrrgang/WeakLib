@@ -3,6 +3,7 @@
 require_once './database/Database.php';
 require_once './database/DatabaseConnection.php';
 require_once './database/MySQLDatabaseConnection.php';
+require_once "./database/MySQLDatabaseError.php";
 
 class MySQLDatabase implements Database
 {
@@ -43,7 +44,7 @@ class MySQLDatabase implements Database
         return false;
     }
     
-    public function executePreparedStatement(string $query, array $values): bool
+    public function executePreparedStatement(string $query, array $values)
     {
         $statement = $this->mysqlConnection->prepare($query);
         if ($statement != false) {
@@ -66,10 +67,14 @@ class MySQLDatabase implements Database
             }
             call_user_func_array(array($statement, 'bind_param'), $bindArray);
             $statement->execute();
+            if ($this->mysqlConnection->error) {
+                return new MySQLDatabaseError($this->mysqlConnection->error);
+            } 
             $statement->close();
             return true;
         }
-        return false;
+        echo "test";
+        return new MySQLDatabaseError($this->mysqlConnection->error);
     }
 
     public function getExecutePreparedStatement(string $query, array $values): array

@@ -9,12 +9,11 @@ import { User } from "../util/user";
 })
 export class ContactComponent implements OnInit {
     url: string = "";
-    result: User = new User();
 
     constructor(private userService: UserService) {}
 
     sendRequest(): void {
-        this.userService.getAllUser().then(user => this.result = user[0] )
+
     }
 
     ngOnInit(): void {

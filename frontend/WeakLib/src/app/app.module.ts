@@ -35,6 +35,8 @@ import { Time } from "./util/time";
 import { ImagePreviewComponent } from "./imagepreview/imagepreview.component";
 import { NewsViewComponent } from "./newsview/newsview.component";
 import { HttpModule } from '@angular/http';
+import { HttpService } from "./services/http.service";
+import { StatusMessageComponent } from "./statusmessage/statusmessage.component";
 
 @NgModule({
   declarations: [
@@ -64,6 +66,7 @@ import { HttpModule } from '@angular/http';
     ErrorComponent,
     ImagePreviewComponent,
     NewsViewComponent,
+    StatusMessageComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +75,7 @@ import { HttpModule } from '@angular/http';
     HttpModule,
   ],
   providers: [
+    HttpService,
     WeakauraService,
     NewsService,
     NotificationService,

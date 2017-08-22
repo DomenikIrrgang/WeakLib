@@ -40,8 +40,13 @@ abstract class MySQLTable implements DatabaseModel
             if ($field->autoIncrement == true) {
                 $query .= ' AUTO_INCREMENT';
             }
+            if ($field->unique == true) {
+                $query .= ' UNIQUE';
+            }
             $query = $query . ',';
         }
+        $query .= "created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,";
+        $query .= "updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,";
         foreach ($this->foreignKeys as $foreignKey) {
             $query = $query . 'FOREIGN KEY (' . $foreignKey->field . ') REFERENCES ' . $foreignKey->table . '(' . $foreignKey->reference . '),';
         }
@@ -74,7 +79,7 @@ abstract class MySQLTable implements DatabaseModel
         return new MySQLDatabaseEntry($data);
     }
 
-    public function postData(Database $database, DatabaseEntry $data): bool
+    public function postData(Database $database, DatabaseEntry $data)
     {
         $query = "INSERT INTO " . $this->name . " (";
         $values = "(";
@@ -90,13 +95,17 @@ abstract class MySQLTable implements DatabaseModel
         return $database->executePreparedStatement($query, $data->getValues());
     }
     
-    public function getByField(Database $database, string $fieldname, $value): DatabaseEntry
+    public function getByField(Database $database, string $fieldname, $value): array
     {
         $data=$database->getExecutePreparedStatement("SELECT * FROM " . $this->name ." WHERE " .  $fieldname . "=?", [$value] ) ;
-        return new MySQLDatabaseEntry($data);
+        $tmp = [];
+        foreach ($data as $dataEntry) {
+            array_push($tmp, new MySQLDatabaseEntry($dataEntry));
+        }
+        return $tmp;
     }
 
-    public function putData(Database $database, DatabaseEntry $databaseEntry): bool
+    public function putData(Database $database, DatabaseEntry $databaseEntry)
     {
         if (count($this->getById($database, $databaseEntry->getValue("id"))->getValues()) > 0) {
             $query = "UPDATE " . $this->name. " SET ";
@@ -113,7 +122,7 @@ abstract class MySQLTable implements DatabaseModel
             return $this->postData($database, $databaseEntry);
         }
     }
-    public function deleteData(Database $database, DatabaseEntry $data):bool
+    public function deleteData(Database $database, DatabaseEntry $data)
     {
         $query ="DELETE FROM " . $this->name . " WHERE id=?";
         return $database->executePreparedStatement($query, [$data->getValue("id")]);

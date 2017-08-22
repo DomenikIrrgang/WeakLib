@@ -110,6 +110,8 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__imagepreview_imagepreview_component__ = __webpack_require__("../../../../../src/app/imagepreview/imagepreview.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__newsview_newsview_component__ = __webpack_require__("../../../../../src/app/newsview/newsview.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__services_http_service__ = __webpack_require__("../../../../../src/app/services/http.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__statusmessage_statusmessage_component__ = __webpack_require__("../../../../../src/app/statusmessage/statusmessage.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -117,6 +119,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -188,6 +192,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_32__error_error_component__["a" /* ErrorComponent */],
             __WEBPACK_IMPORTED_MODULE_34__imagepreview_imagepreview_component__["a" /* ImagePreviewComponent */],
             __WEBPACK_IMPORTED_MODULE_35__newsview_newsview_component__["a" /* NewsViewComponent */],
+            __WEBPACK_IMPORTED_MODULE_38__statusmessage_statusmessage_component__["a" /* StatusMessageComponent */],
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -196,6 +201,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_36__angular_http__["a" /* HttpModule */],
         ],
         providers: [
+            __WEBPACK_IMPORTED_MODULE_37__services_http_service__["a" /* HttpService */],
             __WEBPACK_IMPORTED_MODULE_13__services_weakaura_service__["a" /* WeakauraService */],
             __WEBPACK_IMPORTED_MODULE_14__services_news_service__["a" /* NewsService */],
             __WEBPACK_IMPORTED_MODULE_12__services_notification_service__["a" /* NotificationService */],
@@ -531,7 +537,6 @@ module.exports = "<input type=\"text\" [(ngModel)]=\"url\"/><input type=\"button
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util_user__ = __webpack_require__("../../../../../src/app/util/user.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -544,16 +549,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 var ContactComponent = (function () {
     function ContactComponent(userService) {
         this.userService = userService;
         this.url = "";
-        this.result = new __WEBPACK_IMPORTED_MODULE_2__util_user__["a" /* User */]();
     }
     ContactComponent.prototype.sendRequest = function () {
-        var _this = this;
-        this.userService.getAllUser().then(function (user) { return _this.result = user[0]; });
     };
     ContactComponent.prototype.ngOnInit = function () {
         //this.result = this.userService.getAllUser();
@@ -869,17 +870,26 @@ LoginViewComponent = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return COMMENTS; });
 var COMMENTS = [
     {
-        author: { name: 'user1', joined: Date.now(), profilePicture: "http://orig01.deviantart.net/12c5/f/2014/085/f/b/kanra_icon__128x128__by_akashizaya-d7bsehd.png", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+        author: {
+            name: 'user1', email: "",
+            password: "", joined: Date.now(), profilePicture: "http://orig01.deviantart.net/12c5/f/2014/085/f/b/kanra_icon__128x128__by_akashizaya-d7bsehd.png", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
         comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         timestamp: Date.now(),
     },
     {
-        author: { name: 'user2', joined: Date.now(), profilePicture: "http://orig01.deviantart.net/12c5/f/2014/085/f/b/kanra_icon__128x128__by_akashizaya-d7bsehd.png", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+        author: {
+            name: 'user2', email: "",
+            password: "", joined: Date.now(), profilePicture: "http://orig01.deviantart.net/12c5/f/2014/085/f/b/kanra_icon__128x128__by_akashizaya-d7bsehd.png", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
         comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         timestamp: Date.now(),
     },
     {
-        author: { name: 'user3', joined: Date.now(), profilePicture: "http://orig01.deviantart.net/12c5/f/2014/085/f/b/kanra_icon__128x128__by_akashizaya-d7bsehd.png", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
+        author: {
+            name: 'user3', email: "",
+            password: "", joined: Date.now(), profilePicture: "http://orig01.deviantart.net/12c5/f/2014/085/f/b/kanra_icon__128x128__by_akashizaya-d7bsehd.png", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
         comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         timestamp: Date.now(),
     },
@@ -987,21 +997,29 @@ var USER = [
     {
         name: 'user1', profilePicture: "http://wow.zamimg.com/images/logos/construction.png",
         joined: Date.now(),
+        email: "",
+        password: "",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     },
     {
         name: 'Suu', profilePicture: "http://wow.zamimg.com/images/logos/construction.png",
         joined: Date.now(),
+        email: "",
+        password: "",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     },
     {
         name: 'user3', profilePicture: "http://wow.zamimg.com/images/logos/construction.png",
         joined: Date.now(),
+        email: "",
+        password: "",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     },
     {
         name: 'user4', profilePicture: "http://wow.zamimg.com/images/logos/construction.png",
         joined: Date.now(),
+        email: "",
+        password: "",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     },
 ];
@@ -1624,7 +1642,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/registerview/registerview.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"content-view\">\r\n    <div class=\"register-content\">\r\n        <box heading=\"Register\">\r\n            <div class=\"register-grid\">\r\n                <div class=\"username-label\">\r\n                    <b>Username:</b>\r\n                </div>\r\n                <div class=\"username-content\">\r\n                    <input class=\"form-element\" [(ngModel)]=\"username\" type=\"text\" />\r\n                </div>\r\n                <div class=\"email-label\">\r\n                    <b>Email:</b>\r\n                </div>\r\n                <div class=\"email-content\">\r\n                    <input class=\"form-element\" [(ngModel)]=\"email\" type=\"text\" />\r\n                </div>\r\n                <div class=\"password-label\">\r\n                    <b>Password:</b>\r\n                </div>\r\n                <div class=\"password-content\">\r\n                    <input class=\"form-element\" [(ngModel)]=\"password\" type=\"password\" />\r\n                </div>\r\n                <div class=\"password-repeat-label\">\r\n                    <b>Repeat Password:</b>\r\n                </div>\r\n                <div class=\"password-repeat-content\">\r\n                    <input class=\"form-element\" [(ngModel)]=\"passwordRepeat\" type=\"password\" />\r\n                </div>\r\n            </div>\r\n            <div class=\"register\">\r\n                <input type=\"button\" class=\"btn btn-primary btn-sm register-button\" value=\"Register\" (click)=\"register()\" />\r\n            </div>\r\n        </box>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"content-view\">\r\n    <div class=\"register-content\">\r\n        <statusmessage type=\"{{ statusType }}\" message=\"{{ statusMessage }}\" [closeable]=\"false\"></statusmessage>\r\n        <box heading=\"Register\">\r\n            <div class=\"register-grid\">\r\n                <div class=\"username-label\">\r\n                    <b>Username:</b>\r\n                </div>\r\n                <div class=\"username-content\">\r\n                    <input class=\"form-element\" [(ngModel)]=\"username\" type=\"text\" />\r\n                </div>\r\n                <div class=\"email-label\">\r\n                    <b>Email:</b>\r\n                </div>\r\n                <div class=\"email-content\">\r\n                    <input class=\"form-element\" [(ngModel)]=\"email\" type=\"text\" />\r\n                </div>\r\n                <div class=\"password-label\">\r\n                    <b>Password:</b>\r\n                </div>\r\n                <div class=\"password-content\">\r\n                    <input class=\"form-element\" [(ngModel)]=\"password\" type=\"password\" />\r\n                </div>\r\n                <div class=\"password-repeat-label\">\r\n                    <b>Repeat Password:</b>\r\n                </div>\r\n                <div class=\"password-repeat-content\">\r\n                    <input class=\"form-element\" [(ngModel)]=\"passwordRepeat\" type=\"password\" />\r\n                </div>\r\n            </div>\r\n            <div class=\"register\">\r\n                <input type=\"button\" [disabled]=\"buttonDisabled\" class=\"btn btn-primary btn-sm register-button\" value=\"Register\" (click)=\"register()\" />\r\n            </div>\r\n        </box>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -1633,6 +1651,8 @@ module.exports = "<div class=\"content-view\">\r\n    <div class=\"register-cont
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util_user__ = __webpack_require__("../../../../../src/app/util/user.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterViewComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1644,15 +1664,50 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var RegisterViewComponent = (function () {
-    function RegisterViewComponent() {
+    function RegisterViewComponent(userService) {
+        this.userService = userService;
         this.username = "";
         this.password = "";
         this.passwordRepeat = "";
         this.email = "";
+        this.statusType = "";
+        this.statusMessage = "";
+        this.buttonDisabled = false;
     }
     RegisterViewComponent.prototype.ngOnInit = function () { };
     RegisterViewComponent.prototype.register = function () {
+        if (this.password == this.passwordRepeat) {
+            this.userService.registerUser(new __WEBPACK_IMPORTED_MODULE_2__util_user__["a" /* User */](this.username, this.password, this.email)).subscribe(function (data) {
+                console.log(data);
+                if (data._body.indexOf("ERROR") >= 0) {
+                    this.statusType = "error";
+                    if (data._body.indexOf("name") >= 0 && data._body.indexOf("length") >= 0) {
+                        this.statusMessage = "Your username needs to contain at least 3 characters!";
+                    }
+                    if (data._body.indexOf("name") >= 0 && data._body.indexOf("taken") >= 0) {
+                        this.statusMessage = "A user with that name already exists!";
+                    }
+                    if (data._body.indexOf("email") >= 0 && data._body.indexOf("taken") >= 0) {
+                        this.statusMessage = "A user with than email already exists!";
+                    }
+                    if (data._body.indexOf("email") >= 0 && data._body.indexOf("invalid") >= 0) {
+                        this.statusMessage = "Please enter a valid email!";
+                    }
+                }
+                if (data._body.indexOf("SUCCESS") >= 0) {
+                    this.statusType = "success";
+                    this.statusMessage = "Your account has been created!";
+                    this.buttonDisabled = true;
+                }
+            }.bind(this));
+        }
+        else {
+            this.statusType = "error";
+            this.statusMessage = "The passwords need to match!";
+        }
     };
     return RegisterViewComponent;
 }());
@@ -1662,9 +1717,10 @@ RegisterViewComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/registerview/registerview.component.html"),
         styles: [__webpack_require__("../../../../../src/app/registerview/registerview.component.css")],
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */]) === "function" && _a || Object])
 ], RegisterViewComponent);
 
+var _a;
 //# sourceMappingURL=registerview.component.js.map
 
 /***/ }),
@@ -1852,6 +1908,49 @@ CommentService = __decorate([
 
 /***/ }),
 
+/***/ "../../../../../src/app/services/http.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__("../../../../rxjs/add/operator/toPromise.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HttpService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var HttpService = (function () {
+    function HttpService(http) {
+        this.http = http;
+        this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+    }
+    HttpService.prototype.postJSON = function (url, data) {
+        return this.http.post(url, JSON.stringify(data), { headers: this.headers });
+    };
+    return HttpService;
+}());
+HttpService = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Http */]) === "function" && _a || Object])
+], HttpService);
+
+var _a;
+//# sourceMappingURL=http.service.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/services/news.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1935,9 +2034,14 @@ NotificationService = __decorate([
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__weaklib_service__ = __webpack_require__("../../../../../src/app/services/weaklib.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__ = __webpack_require__("../../../../rxjs/add/operator/toPromise.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__http_service__ = __webpack_require__("../../../../../src/app/services/http.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise__ = __webpack_require__("../../../../rxjs/add/operator/toPromise.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__ = __webpack_require__("../../../../rxjs/add/operator/catch.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserService; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -1962,11 +2066,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+// Import RxJs required methods
+
+
 var UserService = (function (_super) {
     __extends(UserService, _super);
-    function UserService(http) {
+    function UserService(http, httpService) {
         var _this = _super.call(this) || this;
         _this.http = http;
+        _this.httpService = httpService;
         return _this;
     }
     UserService.prototype.getUser = function (userName) {
@@ -1985,14 +2094,21 @@ var UserService = (function (_super) {
         })
             .catch(function (err) { return err; });
     };
+    UserService.prototype.registerUser = function (user) {
+        var bodyString = JSON.stringify(user); // Stringify payload
+        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
+        var options = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* RequestOptions */]({ headers: headers }); // Create a request option
+        console.log("http://localhost" + this.baseURL + "api/user");
+        return this.http.post("http://localhost" + this.baseURL + "api/user", bodyString, options);
+    };
     return UserService;
 }(__WEBPACK_IMPORTED_MODULE_1__weaklib_service__["a" /* WeaklibService */]));
 UserService = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__http_service__["a" /* HttpService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__http_service__["a" /* HttpService */]) === "function" && _b || Object])
 ], UserService);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=user.service.js.map
 
 /***/ }),
@@ -2076,6 +2192,60 @@ var WeaklibService = (function () {
 }());
 
 //# sourceMappingURL=weaklib.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/statusmessage/statusmessage.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div>\r\n    <div *ngIf=\"type=='success'\" class=\"alert alert-success alert-dismissable fade in\">\r\n        <a *ngIf=\"closeable\" href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>\r\n        <strong>Success</strong> {{ message }}\r\n    </div>\r\n\r\n    <div *ngIf=\"type=='info'\" class=\"alert alert-info alert-dismissable fade in\">\r\n        <a *ngIf=\"closeable\" href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>\r\n        <strong>Info</strong> {{ message }}\r\n    </div>\r\n\r\n    <div *ngIf=\"type=='warning'\" class=\"alert alert-warning alert-dismissable fade in\">\r\n        <a *ngIf=\"closeable\" href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>\r\n        <strong>Attention</strong> {{ message }}\r\n    </div>\r\n\r\n    <div *ngIf=\"type=='error'\" class=\"alert alert-danger alert-dismissable fade in\">\r\n        <a *ngIf=\"closeable\" href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>\r\n        <strong>Error</strong> {{ message }}\r\n    </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/statusmessage/statusmessage.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StatusMessageComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var StatusMessageComponent = (function () {
+    function StatusMessageComponent() {
+    }
+    StatusMessageComponent.prototype.ngOnInit = function () { };
+    return StatusMessageComponent;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Input */])(),
+    __metadata("design:type", String)
+], StatusMessageComponent.prototype, "type", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Input */])(),
+    __metadata("design:type", String)
+], StatusMessageComponent.prototype, "message", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Input */])(),
+    __metadata("design:type", Boolean)
+], StatusMessageComponent.prototype, "closeable", void 0);
+StatusMessageComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* Component */])({
+        selector: 'statusmessage',
+        template: __webpack_require__("../../../../../src/app/statusmessage/statusmessage.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/statusmessage/statusmessage.component.html")]
+    }),
+    __metadata("design:paramtypes", [])
+], StatusMessageComponent);
+
+//# sourceMappingURL=statusmessage.component.js.map
 
 /***/ }),
 
@@ -2271,7 +2441,10 @@ var Time = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return User; });
 var User = (function () {
-    function User() {
+    function User(name, password, email) {
+        this.name = name;
+        this.password = password;
+        this.email = email;
     }
     return User;
 }());
