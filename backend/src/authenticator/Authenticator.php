@@ -21,6 +21,7 @@ class Authenticator
             if (passwordMatch($password, $user->getValue("password"))) {
                 global $session;
                 $this->authenticated = true;
+                $user->removeKey("password");
                 $this->user = $user;
                 $session->setValue("authentication", $this);
                 return true;
@@ -33,6 +34,7 @@ class Authenticator
     {
         if ($this->authenticated) {
             $this->authenticated = false;
+            $this->user = null;
             session_destroy();
             return true;
         }
@@ -42,5 +44,10 @@ class Authenticator
     public function isAuthenticated(): bool
     {
         return $this->authenticated;
+    }
+
+    public function getUser()
+    {
+        return $this->user;
     }
 }
