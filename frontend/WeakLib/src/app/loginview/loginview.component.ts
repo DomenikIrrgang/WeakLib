@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from "../services/user.service";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'loginview',
@@ -10,8 +12,10 @@ export class LoginViewComponent implements OnInit {
     username: string = "";
     password: string = "";
     remember: boolean = true;
+    statusType: string = "";
+    statusMessage: string = "";
 
-    constructor() { }
+    constructor(private userService: UserService, private router: Router) { }
 
     ngOnInit() { }
 
@@ -20,6 +24,16 @@ export class LoginViewComponent implements OnInit {
     }
 
     loginClick(): void {
-        
+        this.userService.login(this.username, this.password).subscribe(function (data) {
+            console.log(data);
+            if (data._body == "SUCCESS") {
+                this.router.navigate(["/dashboard"]);
+            }
+
+            if (data._body == "ERROR") {
+                this.statusType = "error";
+                this.statusMessage = "Username or password is wrong!";
+            }
+        }.bind(this));
     }
 }
