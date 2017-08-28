@@ -8,7 +8,6 @@ import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { Observable } from 'rxjs/Rx';
 
-// Import RxJs required methods
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
@@ -20,7 +19,7 @@ export class UserService extends WeaklibService {
     }
 
     getUser(userName: String): Promise<User> {
-        return this.http.get(this.baseURL + "/api/user?name=" + userName)
+        return this.http.get(this.baseURI + "/api/user?name=" + userName)
             .toPromise()
             .then(response => {
                 return response.json();
@@ -29,7 +28,7 @@ export class UserService extends WeaklibService {
     }
 
     getAllUser(): Promise<User[]> {
-        return this.http.get(this.baseURL + "/api/user")
+        return this.http.get(this.baseURI + "/api/user")
             .toPromise()
             .then(response => {
                 return response.json();
@@ -38,11 +37,27 @@ export class UserService extends WeaklibService {
     }
 
     registerUser(user: User): any {
-        let bodyString = JSON.stringify(user); // Stringify payload
-        let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
-        let options = new RequestOptions({ headers: headers }); // Create a request option
-        console.log("http://localhost" + this.baseURL + "api/user");
-        return this.http.post("http://localhost" + this.baseURL + "api/user", bodyString, options);
+        let bodyString = JSON.stringify(user);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.post(this.baseURL + this.baseURI + "api/user", bodyString, options);
+    }
+
+    logout(): any {
+        return this.http.post(this.baseURL + this.baseURI + "/logout", "");
+    }
+
+    login(name: string, password: string): any {
+        return this.http.post(this.baseURL + this.baseURI + "/login?name=" + name + "&password=" + password, "");
+    }
+
+    getAuthenticatedUser(): Promise<User> {
+        return this.http.get(this.baseURI + "/login")
+            .toPromise()
+            .then(response => {
+                return response.json();
+            })
+            .catch(err => err);
     }
 }
 
