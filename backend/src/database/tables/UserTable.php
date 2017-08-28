@@ -2,6 +2,7 @@
 
 require_once 'database/MySQLTable.php';
 require_once "./database/Field.php";
+require_once "./util.php";
 
 class UserTable extends MySQLTable
 {

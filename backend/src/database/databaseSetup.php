@@ -1,5 +1,6 @@
 <?php
 
+
 require_once "./database/MySQLDatabase.php";
 require_once "./database/MySQLDatabaseConnection.php";
 require_once "./database/tables/UserTable.php";
