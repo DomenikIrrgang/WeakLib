@@ -11,7 +11,7 @@ class LoginTable extends MySQLTable
     {
         $this->name = "logins";
         $this->addField((new Field("id", "int"))->primary()->autoIncrement());
-        $this->addField((new Field("ip", "int")));
+        $this->addField((new Field("ip", "varchar(45)")));
         $this->addForeignKey(new Field("userId", "int"), "id", "users");
     }
 }
