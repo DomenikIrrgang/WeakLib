@@ -5,9 +5,11 @@ require_once "./database/MySQLDatabase.php";
 require_once "./database/MySQLDatabaseConnection.php";
 require_once "./database/tables/UserTable.php";
 require_once "./config.php";
+require_once "./database/tables/LoginTable.php";
 
 $tables = [
     "user" => new UserTable(),
+    "logins" => new LoginTable(),
 ];
 
 $defaultEntries = [
