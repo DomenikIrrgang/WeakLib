@@ -4,12 +4,12 @@ class ForeignKey
 {
     public $field;
     public $reference;
-    public $tableName;
+    public $table;
 
-    function __construct(string $field, string $reference, string $tableName)
+    function __construct(Field $field, string $reference, string $table)
     {
         $this->field = $field;
         $this->reference = $reference;
-        $this->tableName = $tableName;
+        $this->table = $table;
     }
 }

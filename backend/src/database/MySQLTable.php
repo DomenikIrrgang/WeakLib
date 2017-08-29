@@ -21,9 +21,10 @@ abstract class MySQLTable implements DatabaseModel
         array_push($this->fields, $field);
     }
 
-    public function addForeignKey(string $name, string $type, string $reference, string $table)
+    public function addForeignKey(Field $field, string $reference, string $table)
     {
-        array_push($this->foreignKeys, new ForeignKey(new Field($name, $type), $reference, $table));
+        $this->addField($field);
+        array_push($this->foreignKeys, new ForeignKey($field, $reference, $table));
     }
 
     public function getInsertQuery(): string
@@ -48,7 +49,7 @@ abstract class MySQLTable implements DatabaseModel
         $query .= "created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,";
         $query .= "updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,";
         foreach ($this->foreignKeys as $foreignKey) {
-            $query = $query . 'FOREIGN KEY (' . $foreignKey->field . ') REFERENCES ' . $foreignKey->table . '(' . $foreignKey->reference . '),';
+            $query = $query . 'FOREIGN KEY (' . $foreignKey->field->name . ') REFERENCES ' . $foreignKey->table . '(' . $foreignKey->reference . '),';
         }
         $query = substr($query, 0, -1);
         $query = $query . ");";
