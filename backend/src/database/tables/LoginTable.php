@@ -9,7 +9,6 @@ class LoginTable extends MySQLTable
 
     public function __construct()
     {
-
         $this->name = "logins";
         $this->addField((new Field("id", "int"))->primary()->autoIncrement());
         $this->addField((new Field("ip", "int")));

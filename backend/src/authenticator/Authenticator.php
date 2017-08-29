@@ -1,6 +1,8 @@
 <?php
 
 require_once "./database/tables/UserTable.php";
+require_once "./database/tables/LoginTable.php";
+require_once "./router/Request.php";
 
 class Authenticator
 {
@@ -11,7 +13,7 @@ class Authenticator
     {
     }
 
-    public function login(string $name, string $password)
+    public function login(Request $request, string $name, string $password)
     {
         global $database;
         $userTable = new UserTable();
@@ -24,6 +26,11 @@ class Authenticator
                 $user->removeKey("password");
                 $this->user = $user;
                 $session->setValue("authentication", $this);
+                $loginTable = new LoginTable();
+                $loginTable->postData($database, new MySQLDatabaseEntry([
+                    "ip" => $request->ip,
+                    "userId" => $user->getValue("id")
+                ]));
                 return true;
             }
         }

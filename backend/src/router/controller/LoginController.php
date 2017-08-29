@@ -9,7 +9,7 @@ class LoginController implements Controller
         if (array_key_exists("name", $params) && array_key_exists("password", $params))
         {
             $authenticator = new Authenticator();
-            if ($authenticator->login($params["name"], $params["password"]))
+            if ($authenticator->login($request, $params["name"], $params["password"]))
             {
                 return "SUCCESS";
             }
