@@ -816,7 +816,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/loginview/loginview.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"login-view\">\r\n    <div class=\"login-box\">\r\n        <box heading=\"Login\">\r\n            <div class=\"login-grid\">\r\n                <div class=\"user-label\">\r\n                    <b>Username:</b></div>\r\n                <div class=\"user-content\">\r\n                    <input class=\"form-element\" [(ngModel)]=\"username\" type=\"text\" name=\"username\">\r\n                </div>\r\n                <div class=\"pass-label\">\r\n                    <b>Password: </b>\r\n                </div>\r\n                <div class=\"pass-content\">\r\n                    <input class=\"form-element\" [(ngModel)]=\"password\" type=\"password\" name=\"password\">\r\n                </div>\r\n                <div></div>\r\n                <div class=\"checkbox\">\r\n                    <label><input type=\"checkbox\" name=\"login\" value=\"remember\" [checked]=\"remember\" (change)=\"checkboxClick()\"/> Remember me</label>\r\n                </div>\r\n            </div>\r\n            <input type=\"submit\" class=\"btn btn-primary btn-sm login-button\" (click)=\"loginClick()\" value=\"Login\">\r\n        </box>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"login-view\">\r\n    <div class=\"login-box\">\r\n        <statusmessage type=\"{{ statusType }}\" message=\"{{ statusMessage }}\" [closeable]=\"false\"></statusmessage>\r\n        <box heading=\"Login\">\r\n            <div class=\"login-grid\">\r\n                <div class=\"user-label\">\r\n                    <b>Username:</b></div>\r\n                <div class=\"user-content\">\r\n                    <input class=\"form-element\" [(ngModel)]=\"username\" type=\"text\" name=\"username\">\r\n                </div>\r\n                <div class=\"pass-label\">\r\n                    <b>Password: </b>\r\n                </div>\r\n                <div class=\"pass-content\">\r\n                    <input class=\"form-element\" [(ngModel)]=\"password\" type=\"password\" name=\"password\">\r\n                </div>\r\n                <div></div>\r\n                <div class=\"checkbox\">\r\n                    <label><input type=\"checkbox\" name=\"login\" value=\"remember\" [checked]=\"remember\" (change)=\"checkboxClick()\"/> Remember me</label>\r\n                </div>\r\n            </div>\r\n            <input type=\"submit\" class=\"btn btn-primary btn-sm login-button\" (click)=\"loginClick()\" value=\"Login\">\r\n        </box>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -825,6 +825,8 @@ module.exports = "<div class=\"login-view\">\r\n    <div class=\"login-box\">\r\
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginViewComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -836,17 +838,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var LoginViewComponent = (function () {
-    function LoginViewComponent() {
+    function LoginViewComponent(userService, router) {
+        this.userService = userService;
+        this.router = router;
         this.username = "";
         this.password = "";
         this.remember = true;
+        this.statusType = "";
+        this.statusMessage = "";
     }
     LoginViewComponent.prototype.ngOnInit = function () { };
     LoginViewComponent.prototype.checkboxClick = function () {
         this.remember = !this.remember;
     };
     LoginViewComponent.prototype.loginClick = function () {
+        this.userService.login(this.username, this.password).subscribe(function (data) {
+            console.log(data);
+            if (data._body == "SUCCESS") {
+                this.router.navigate(["/dashboard"]);
+            }
+            if (data._body == "ERROR") {
+                this.statusType = "error";
+                this.statusMessage = "Username or password is wrong!";
+            }
+        }.bind(this));
     };
     return LoginViewComponent;
 }());
@@ -856,9 +874,10 @@ LoginViewComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/loginview/loginview.component.html"),
         styles: [__webpack_require__("../../../../../src/app/loginview/loginview.component.css")],
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_user_service__["a" /* UserService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */]) === "function" && _b || Object])
 ], LoginViewComponent);
 
+var _a, _b;
 //# sourceMappingURL=loginview.component.js.map
 
 /***/ }),
@@ -2067,7 +2086,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-// Import RxJs required methods
 
 
 var UserService = (function (_super) {
@@ -2079,7 +2097,7 @@ var UserService = (function (_super) {
         return _this;
     }
     UserService.prototype.getUser = function (userName) {
-        return this.http.get(this.baseURL + "/api/user?name=" + userName)
+        return this.http.get(this.baseURI + "/api/user?name=" + userName)
             .toPromise()
             .then(function (response) {
             return response.json();
@@ -2087,7 +2105,7 @@ var UserService = (function (_super) {
             .catch(function (err) { return err; });
     };
     UserService.prototype.getAllUser = function () {
-        return this.http.get(this.baseURL + "/api/user")
+        return this.http.get(this.baseURI + "/api/user")
             .toPromise()
             .then(function (response) {
             return response.json();
@@ -2095,11 +2113,24 @@ var UserService = (function (_super) {
             .catch(function (err) { return err; });
     };
     UserService.prototype.registerUser = function (user) {
-        var bodyString = JSON.stringify(user); // Stringify payload
-        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
-        var options = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* RequestOptions */]({ headers: headers }); // Create a request option
-        console.log("http://localhost" + this.baseURL + "api/user");
-        return this.http.post("http://localhost" + this.baseURL + "api/user", bodyString, options);
+        var bodyString = JSON.stringify(user);
+        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json' });
+        var options = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* RequestOptions */]({ headers: headers });
+        return this.http.post(this.baseURL + this.baseURI + "api/user", bodyString, options);
+    };
+    UserService.prototype.logout = function () {
+        return this.http.post(this.baseURL + this.baseURI + "/logout", "");
+    };
+    UserService.prototype.login = function (name, password) {
+        return this.http.post(this.baseURL + this.baseURI + "/login?name=" + name + "&password=" + password, "");
+    };
+    UserService.prototype.getAuthenticatedUser = function () {
+        return this.http.get(this.baseURI + "/login")
+            .toPromise()
+            .then(function (response) {
+            return response.json();
+        })
+            .catch(function (err) { return err; });
     };
     return UserService;
 }(__WEBPACK_IMPORTED_MODULE_1__weaklib_service__["a" /* WeaklibService */]));
@@ -2186,7 +2217,8 @@ WeakauraService = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WeaklibService; });
 var WeaklibService = (function () {
     function WeaklibService() {
-        this.baseURL = "/backend/";
+        this.baseURL = "http://localhost";
+        this.baseURI = "/backend/";
     }
     return WeaklibService;
 }());
