@@ -55,7 +55,10 @@ export class UserService extends WeaklibService {
         return this.http.get(this.baseURI + "/login")
             .toPromise()
             .then(response => {
-                return response.json();
+                if (response["_body"]!= "ERROR") {
+                    return response.json();
+                }
+                return null;
             })
             .catch(err => err);
     }

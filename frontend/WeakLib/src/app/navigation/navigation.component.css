@@ -68,3 +68,8 @@
     background-color: #5299ff;
   }
 }
+
+.profile-picture {
+  height: 18px;
+  width: auto;
+}

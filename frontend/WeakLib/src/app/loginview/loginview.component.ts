@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from "../services/user.service";
 import { Router } from "@angular/router";
+import { Globals } from "../util/globals";
 
 @Component({
     selector: 'loginview',
@@ -27,6 +28,7 @@ export class LoginViewComponent implements OnInit {
         this.userService.login(this.username, this.password).subscribe(function (data) {
             console.log(data);
             if (data._body == "SUCCESS") {
+                this.userService.getAuthenticatedUser().then(user => Globals.authenticatedUser = user);
                 this.router.navigate(["/dashboard"]);
             }
 
