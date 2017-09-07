@@ -13,13 +13,13 @@ class ImageUploadController implements Controller
                 return "ERROR nofile";
         }
 
-        if ($_FILES["file"]["size"] > $config["imageupload"]["maxSize"] ) {
+        if ($_FILES["file"]["size"] > $config["imageupload"]["maxSize"]) {
             return "ERROR size";
         }
 
         if ($_FILES["file"]["error"] > 0) {
             return "ERROR unknown";
-    }
+        }
 
         $name = hash('sha256', rand());
         $extension = pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
