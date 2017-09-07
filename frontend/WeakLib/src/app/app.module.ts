@@ -38,6 +38,7 @@ import { HttpModule } from '@angular/http';
 import { HttpService } from "./services/http.service";
 import { StatusMessageComponent } from "./statusmessage/statusmessage.component";
 import { UserPanelComponent } from "./userpanel/userpanel.component";
+import {UploadWeakauraViewComponent} from './uploadweakauraview/uploadweakauraview.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { UserPanelComponent } from "./userpanel/userpanel.component";
     NewsViewComponent,
     StatusMessageComponent,
     UserPanelComponent,
+    UploadWeakauraViewComponent,
   ],
   imports: [
     BrowserModule,
