@@ -42,6 +42,11 @@ class Request
         return $request;
     }
 
+    public function setResponseCode(int $responseCode)
+    {
+        http_response_code($responseCode);
+    }
+
     public function redirect(Route $route)
     {
         $this->setBaseURI($route->getPattern());
