@@ -10,6 +10,13 @@ $config["environment"] = [];
 $config["environment"]["debug"] = true;
 
 
+/*
+    Image Upload
+*/
+$config["imageupload"]["directory"] = "./img/";
+$config["imageupload"]["maxSize"] = 1024000;
+
+
 /* 
     Database Config
 */

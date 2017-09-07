@@ -32,4 +32,6 @@ $router->get((new Route("isLoggedIn", "/login", new IsLoggedInController())));
 $router->get((new Route("get user", "/api/user", new GetAllUserController())));
 $router->post(new Route("new user", "/api/user", new RegisterController()));
 
+$router->post(new Route("upload image", "/api/image/upload", new ImageUploadController()));
+
 $router->get(new Route("get weakaura", "/api/weakaura", new GetAllWeakauraController()));
