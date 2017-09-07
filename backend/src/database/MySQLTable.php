@@ -106,6 +106,27 @@ abstract class MySQLTable implements DatabaseModel
         return $tmp;
     }
 
+    public function searchByFields(Database $database, array $fields): array
+    {
+        $tmp = [];
+        if (count($fields) > 0) {
+            $query = "SELECT * FROM " . $this->name ." WHERE";
+            foreach ($fields as $fieldname => $value) {
+                $query .= " " . $fieldname . "=? AND";
+            }
+            $query = substr($query, 0, -4);
+            $newFields = [];
+            foreach ($fields as $field) {
+                array_push($newFields, $field);
+            }
+            $data = $database->getExecutePreparedStatement($query, $newFields) ;
+            foreach ($data as $dataEntry) {
+                array_push($tmp, new MySQLDatabaseEntry($dataEntry));
+            }
+        }
+        return $tmp;
+    }
+
     public function putData(Database $database, DatabaseEntry $databaseEntry)
     {
         if (count($this->getById($database, $databaseEntry->getValue("id"))->getValues()) > 0) {

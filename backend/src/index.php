@@ -24,8 +24,8 @@ if (!isCommandLineInterface()) {
     $request = new Request(
         "127.0.0.1",
         "localhost",
-        "/backend/login?name=Suu&password=123",
-        "POST",
+        "/backend/api/weakaura",
+        "GET",
         '{
            "name": "Suu",
            "email": "test@test121233123.com",
