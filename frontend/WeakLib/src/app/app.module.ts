@@ -37,6 +37,7 @@ import { NewsViewComponent } from "./newsview/newsview.component";
 import { HttpModule } from '@angular/http';
 import { HttpService } from "./services/http.service";
 import { StatusMessageComponent } from "./statusmessage/statusmessage.component";
+import {UploadWeakauraViewComponent} from './uploadweakauraview/uploadweakauraview.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { StatusMessageComponent } from "./statusmessage/statusmessage.component"
     ImagePreviewComponent,
     NewsViewComponent,
     StatusMessageComponent,
+    UploadWeakauraViewComponent,
   ],
   imports: [
     BrowserModule,
