@@ -29,7 +29,7 @@ $defaultEntries = [
     "weakauras" => [
         new MySQLDatabaseEntry([
             "description" => "This is a testing weakaura.",
-            "name" => "Test Weakaura",
+            "name" => "Test Weakaura 1",
             "hash" => "78aDsj82",
             "profilePicture" => "http://wow.zamimg.com/images/logos/construction.png",
             "views" => 0,
@@ -37,7 +37,7 @@ $defaultEntries = [
         ]),
         new MySQLDatabaseEntry([
             "description" => "This is a testing weakaura. Number 2!",
-            "name" => "Test Weakaura",
+            "name" => "Test Weakaura 2",
             "hash" => "78aDsj83",
             "profilePicture" => "http://wow.zamimg.com/images/logos/construction.png",
             "views" => 0,
