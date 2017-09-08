@@ -31,6 +31,7 @@ $defaultEntries = [
             "description" => "This is a testing weakaura.",
             "name" => "Test Weakaura",
             "hash" => "78aDsj82",
+            "profilePicture" => "http://wow.zamimg.com/images/logos/construction.png",
             "views" => 0,
             "userId" => 1
         ]),
@@ -38,6 +39,7 @@ $defaultEntries = [
             "description" => "This is a testing weakaura. Number 2!",
             "name" => "Test Weakaura",
             "hash" => "78aDsj83",
+            "profilePicture" => "http://wow.zamimg.com/images/logos/construction.png",
             "views" => 0,
             "userId" => 1
         ])

@@ -68,7 +68,6 @@ class MySQLDatabase implements Database
             call_user_func_array(array($statement, 'bind_param'), $bindArray);
             $statement->execute();
             if ($this->mysqlConnection->error) {
-                echo $this->mysqlConnection->error . "\n";
                 return new MySQLDatabaseError($this->mysqlConnection->error);
             } 
             $statement->close();

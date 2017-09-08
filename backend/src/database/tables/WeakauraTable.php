@@ -13,7 +13,8 @@ class WeakauraTable extends MySQLTable
         $this->name = "weakauras";
         $this->addField((new Field("id", "int"))->primary()->autoIncrement());
         $this->addField((new Field("name", "varchar(255)")));
-        $this->addField((new Field("hash", "varchar(255)")));
+        $this->addField((new Field("hash", "varchar(255)"))->unique());
+        $this->addField((new Field("profilePicture", "varchar(255)")));
         $this->addField((new Field("description", "TEXT")));
         $this->addField((new Field("views", "int")));
         $this->addForeignKey(new Field("userId", "int"), "id", "users");
