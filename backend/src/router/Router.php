@@ -11,6 +11,7 @@ class Router
     public $putRoutes = [];
     public $error404;
     public $error401;
+    public $error400;
 
     public function get(Route $route)
     {

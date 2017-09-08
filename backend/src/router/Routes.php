@@ -18,6 +18,7 @@ $router = new Router();
 */
 $router->error401 = new Route("error", "/error", new ErrorController(401, "Access denied"));
 $router->error404 = new Route("error", "/error", new ErrorController(404, "Could not find page"));
+$router->error400 = new Route("error", "/error", new ErrorController(400, "Bad Request"));
 
 /*
     AUTHENTICATION
@@ -34,4 +35,5 @@ $router->post(new Route("new user", "/api/user", new RegisterController()));
 
 $router->post(new Route("upload image", "/api/image/upload", new ImageUploadController()));
 
-$router->get(new Route("get weakaura", "/api/weakaura", new GetAllWeakauraController()));
+$router->get(new Route("get weakaura(s)", "/api/weakaura", new GetAllWeakauraController()));
+$router->post(new Route("create weakaura", "/api/weakaura", new AddWeakauraController()));
