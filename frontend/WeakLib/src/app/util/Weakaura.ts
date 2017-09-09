@@ -1,10 +1,12 @@
 import { WeakauraVersion } from "./weakauraversion";
+import { User } from "./user";
 
 export class Weakaura {
     name: string;
-    author: string;
-    uploadTime: number;
-    updateTime: number;
+    user: User;
+    created: number;
+    updated: number;
+    views: number;
     hash: string;
     description: string;
     profilePicture: string;

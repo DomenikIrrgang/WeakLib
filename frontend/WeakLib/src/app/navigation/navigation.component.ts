@@ -19,7 +19,9 @@ export class NavigationComponent implements OnInit {
     }
 
     navigationElementClick(): void {
-        document.getElementsByName("collapse-button")[0].click()
+        if (window.innerWidth < 768) {
+            document.getElementsByName("collapse-button")[0].click()
+        } 
     }
 
     logout(event) {

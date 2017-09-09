@@ -4,6 +4,7 @@ import { WEAKAURAS } from '../mockdata/weakauras';
 import { List } from "../util/list";
 import { WeaklibService } from "./weaklib.service";
 import { HttpService } from "./http.service";
+import { User } from "../util/user";
 
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
@@ -35,31 +36,29 @@ export class WeakauraService extends WeaklibService {
     }
 
     getWeakauraWithHash(hash: String) {
-        for (let weakaura of WEAKAURAS) {
-            if (weakaura.hash == hash) {
-                return weakaura;
-            }
-        }
-        return null;
+        return this.http.get(this.baseURI + "/api/weakaura?hash=" + hash)
+        .toPromise()
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => err);
     }
 
-    getWeakaurasFromUser(username: String): Weakaura[] {
-        var tmp: Weakaura[] = [];
-        for (let weakaura of WEAKAURAS) {
-            if (weakaura.author == username) {
-                tmp.push(weakaura);
-            }
-        }
-        return tmp;
+    getWeakaurasFromUser(username: String): Promise<Weakaura[]> {
+        return this.http.get(this.baseURI + "/api/weakaura")
+        .toPromise()
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => err);
     }
 
-    searchWeakaura(name: string, author: string, categories: string[]): Weakaura[] {
-        var tmp: Weakaura[] = [];
-        for (let weakaura of WEAKAURAS) {
-            if (weakaura.name.includes(name) && weakaura.author.includes(author)) {
-                tmp.push(weakaura)
-            }
-        }
-        return tmp;
+    searchWeakaura(name: string, user: string, categories: string[]): Promise<Weakaura[]> {
+        return this.http.get(this.baseURI + "/api/weakaura")
+        .toPromise()
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => err);
     }
 }

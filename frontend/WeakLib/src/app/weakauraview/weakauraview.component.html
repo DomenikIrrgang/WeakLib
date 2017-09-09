@@ -4,10 +4,10 @@
             <div>
                 <div><h1 class="heading">{{ weakaura.name }}</h1></div>
                 <input type="button" class="btn btn-primary btn-sm follow-button" value="Follow" (click)="follow()"/>
-                <div><img src="assets/img/user.png" class="icon"/>Author: <a routerLink="/user/{{ weakaura.author }}">{{ weakaura.author }}</a></div>
-                <div><img src="assets/img/clock.png" class="icon"/><b>Upload: </b>{{ time.difference(weakaura.uploadTime) }}</div>
-                <div><img src="assets/img/clock.png" class="icon"/><b>Update: </b>{{ time.difference(weakaura.uploadTime) }}</div>
-                <div><img src="assets/img/eye.png" class="icon"/>Views: 2</div>
+                <div><img src="assets/img/user.png" class="icon"/>Author: <a routerLink="/user/{{ weakaura.user.name }}">{{ weakaura.user.name }}</a></div>
+                <div><img src="assets/img/clock.png" class="icon"/><b>Upload: </b>{{ time.difference(weakaura.created) }}</div>
+                <div><img src="assets/img/clock.png" class="icon"/><b>Update: </b>{{ time.difference(weakaura.updated) }}</div>
+                <div><img src="assets/img/eye.png" class="icon"/>Views: {{ weakaura.views }}</div>
             </div>
         </profilepicture>
     </div>
@@ -19,9 +19,9 @@
         </div>
         <div class="images">
             <clickablepanel heading="Images" [contentVisible]="true">
-                <div class="image-grid">
+                <div class="image-grid" *ngIf="weakaura.images.length > 0; else noImages">
                     <div *ngFor="let images of weakaura.images; let i = index" class="picture">
-                        <img src="{{images}}" name="{{i}}" (click)="openImagePreview($event)"/>
+                        <img src="{{images.url}}" name="{{i}}" (click)="openImagePreview($event)"/>
                     </div>
                 </div>
             </clickablepanel>
@@ -41,6 +41,7 @@
             </clickablepanel>
         </div>
     </div>
-    <imagepreview [imageURLs]="weakaura.images" #imagePreview></imagepreview>
+    <imagepreview [images]="weakaura.images" #imagePreview></imagepreview>
 </div>
 <ng-template #noWeakaura><error code="404">That weakaura does not exist!</error></ng-template>
+<ng-template #noImages>There are no images for this weakaura!</ng-template>

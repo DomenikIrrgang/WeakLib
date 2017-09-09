@@ -1,10 +1,11 @@
 export class User {
     name: string;
-    password: string;
     email: string;
+    password: string;
     profilePicture: string;
     description: string;
-    joined: number;
+    created;
+    updated;
 
     constructor(name: string, password: string, email: string) {
         this.name = name;

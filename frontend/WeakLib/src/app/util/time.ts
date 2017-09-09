@@ -6,8 +6,12 @@ export class Time {
         var msPerDay = msPerHour * 24;
         var msPerMonth = msPerDay * 30;
         var msPerYear = msPerDay * 365;
+        if (typeof(previous) == "string") {
+            var match: any = previous.match(/^(\d+)-(\d+)-(\d+) (\d+)\:(\d+)\:(\d+)$/);
+            var date = new Date(match[1], match[2] - 1, match[3], match[4], match[5], match[6]);
+            previous = date.getTime();
+        } 
         var elapsed = current - previous;
-
         if (elapsed < msPerMinute) {
             return Math.round(elapsed / 1000) + ' second(s) ago';
         }

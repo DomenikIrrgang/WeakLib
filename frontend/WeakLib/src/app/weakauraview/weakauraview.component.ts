@@ -21,12 +21,12 @@ export class WeakauraViewComponent implements OnInit {
     ngOnInit() {
         this.route.params.subscribe(params => {
             var hash: String = params['hash']; 
-            this.weakaura = this.weakauraService.getWeakauraWithHash(hash);
+            this.weakauraService.getWeakauraWithHash(hash).then(weakauras => this.weakaura = weakauras[0]);
         });
     }
 
     follow(): void {
-        
+        console.log(this.weakaura.images);
     }
 
     openImagePreview(event) {

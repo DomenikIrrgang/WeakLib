@@ -1,7 +1,7 @@
 <div class="strings">
     <div *ngIf="weakaura">
-        <div *ngFor="let string of weakaura.strings">
-            <weakaurastring [weakauraVersion]="string"></weakaurastring>
+        <div *ngFor="let version of weakaura.versions">
+            <weakaurastring [weakauraVersion]="version"></weakaurastring>
         </div>
     </div>
 </div>

@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class ImagePreviewComponent implements OnInit {
     @Input()
-    imageURLs: string[];
+    images: any;
     currentImage: number = 0;
     isVisible: boolean = false;
 
@@ -26,15 +26,14 @@ export class ImagePreviewComponent implements OnInit {
 
     nextImage(): void {
         this.currentImage++;
-        if (this.currentImage > this.imageURLs.length - 1) {
+        if (this.currentImage > this.images.length - 1) {
             this.currentImage = 0;
         }
     }
 
     previousImage() {
-        console.log(this.currentImage);
         if (this.currentImage <= 0) {
-            this.currentImage = this.imageURLs.length - 1;
+            this.currentImage = this.images.length - 1;
         } else {
             this.currentImage--;
         }

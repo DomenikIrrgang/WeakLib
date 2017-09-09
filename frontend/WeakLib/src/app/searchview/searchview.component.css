@@ -24,7 +24,7 @@
     .weakaura-grid {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
+        grid-template-rows: max-content max-content min-content;
         grid-template-areas: "name"
         "meta"
         "description";
@@ -46,7 +46,7 @@
     .weakaura-grid {
         display: grid;
         grid-template-columns: 150px 1fr;
-        grid-template-rows: auto auto auto;
+        grid-template-rows: max-content max-content min-content;
         grid-template-areas: "image name"
         "image meta"
         "image description";
@@ -69,8 +69,9 @@
     font-size: 22px;
 }
 
-.weawkaura-meta {
+.weakaura-meta {
     grid-area: meta;
+    margin-bottom: 5px;
 }
 
 .weakaura-description {

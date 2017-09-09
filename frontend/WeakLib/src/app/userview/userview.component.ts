@@ -21,7 +21,7 @@ export class UserViewComponent implements OnInit {
         this.route.params.subscribe(params => {
             var username: String = params['username'];
             this.userService.getUser(username).then(user => this.user = user);
-            this.weakauras = this.weakauraService.getWeakaurasFromUser(username);
+            this.weakauraService.getWeakaurasFromUser(username).then(weakauras => this.weakauras = weakauras);
         });
     }
 

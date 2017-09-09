@@ -3,7 +3,7 @@
         <profilepicture profilePicture="{{ user.profilePicture }}">
                 <div><h1 class="heading">{{ user.name }}</h1></div>
                 <input type="button" class="btn btn-primary btn-sm follow-button" value="Follow" (click)="follow()"/>
-                <div><img src="assets/img/clock.png" class="icon"/><b>Joined: </b>{{ time.difference(user.joined) }}</div>
+                <div><img src="assets/img/clock.png" class="icon"/><b>Joined: </b>{{ time.difference(user.created) }}</div>
         </profilepicture>
     </div>
     <div class="content">
@@ -23,7 +23,7 @@
                             <a routerLink="/weakaura/{{ weakaura.hash }}">{{ weakaura.name }}</a>
                         </div>
                         <div class="weakaura-date">
-                            {{ time.difference(weakaura.uploadTime) }}
+                            {{ time.difference(weakaura.created) }}
                         </div>
                     </div>
                 </div>

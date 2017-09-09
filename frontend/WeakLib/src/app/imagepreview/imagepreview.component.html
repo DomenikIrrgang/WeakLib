@@ -10,13 +10,13 @@
         <div class="arrow-left">
             <span class="arrow glyphicon glyphicon-menu-left" (click)="previousImage()"></span>
         </div>
-        <div class="preview" *ngIf="imageURLs">
-            <img src="{{ imageURLs[currentImage] }}" (click)="nextImage()"/>
+        <div class="preview" *ngIf="images">
+            <img src="{{ images[currentImage].url }}" (click)="nextImage()"/>
             <div class="footer">test</div>
         </div>
         <div class="arrow-right">
             <span class="arrow glyphicon glyphicon-menu-right" (click)="nextImage()"></span>
         </div>
     </div>
-    <div class="head">Image {{ currentImage + 1}} out of {{ imageURLs.length }}</div>
+    <div class="head">Image {{ currentImage + 1}} out of {{ images.length }}</div>
 </div>
