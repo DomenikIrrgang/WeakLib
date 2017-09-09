@@ -17,11 +17,19 @@
         grid-template-columns: 1fr 1fr 1fr;
         padding: 5px;
     }
-    
 
-    .picture > img{
+    .weakaura {
+        display: grid;
+        grid-template-rows: 140px 20px 18px;
+        grid-template-areas: "picture"
+        "title"
+        "date";
+        border: 1px dotted gray;
+        padding: 5px;
+    }
+
+    .picture > a > img {
         height: 140px;
-        cursor: pointer;
     }
 }
 
@@ -50,6 +58,20 @@
     .picture > img{
         cursor: pointer;
     }
+
+    .weakaura {
+        display: grid;
+        grid-template-rows: auto 20px 18px;
+        grid-template-areas: "picture"
+        "title"
+        "date";
+        border: 1px dotted gray;
+        padding: 5px;
+    }
+
+    .picture > a > img {
+        max-width: 100%;
+    }
 }
 
 .profilepicture {
@@ -76,23 +98,9 @@
     padding-right: 5px;
 }
 
-.weakaura {
-    display: grid;
-    grid-template-rows: 140px 20px 18px;
-    grid-template-areas: "picture"
-    "title"
-    "date";
-    border: 1px dotted gray;
-    padding: 5px;
-}
-
 .picture {
     grid-area: picture;
     text-align: center;
-}
-
-.picture > a > img {
-    max-width: 100%;
 }
 
 .title {
