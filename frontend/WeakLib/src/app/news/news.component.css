@@ -1,5 +1,5 @@
 .news {
-    box-shadow: 1px 1px 1px #888888;
+
 }
 
 @media (max-width: 1080px) {
@@ -31,8 +31,6 @@
         "image time"
         "image content";
         margin-bottom: 10px;
-        box-shadow: 
-             0px 11px 8px -10px #CCC;
         margin-right: 5px;
     }
 

@@ -1,10 +1,23 @@
-.news-view {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 300px 1fr;
-    grid-template-areas: "left picture right"
-    "left content right";
-    grid-gap: 10px;
+@media (min-width: 1080px) {
+    .news-view {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 300px 1fr;
+        grid-template-areas: "left picture right"
+        "left content right";
+        grid-gap: 10px;
+    }
+}
+
+@media (max-width: 1080px) {
+    .news-view {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas: "picture"
+        "content";
+        grid-gap: 10px;
+    }
 }
 
 .picture {

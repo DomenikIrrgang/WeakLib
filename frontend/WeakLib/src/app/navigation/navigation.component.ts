@@ -18,6 +18,10 @@ export class NavigationComponent implements OnInit {
         this.userService.getAuthenticatedUser().then(user => Globals.authenticatedUser = user);
     }
 
+    navigationElementClick(): void {
+        document.getElementsByName("collapse-button")[0].click()
+    }
+
     logout(event) {
         this.userService.logout().subscribe(function (data) {
             console.log(data);

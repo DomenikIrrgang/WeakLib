@@ -26,19 +26,39 @@
   margin-top: 5px;
 }
 
-.comment {
-    display: grid;
-    grid-template-columns: 140px 4fr;
-    grid-template-rows: 20px 120px;
-    grid-template-areas: "profilePicture title"
-    "profilePicture comment";
-    grid-gap: 5px;
-    margin-bottom: 5px;
+@media (min-width: 1080px) {
+    .comment {
+        display: grid;
+        grid-template-columns: 140px 4fr;
+        grid-template-rows: 20px auto;
+        grid-template-areas: "profilePicture title"
+        "profilePicture comment";
+        grid-gap: 5px;
+        margin-bottom: 15px;
+    }
+
+    .comment-profile-picture {
+        grid-area: profilePicture;
+    }
 }
 
-.comment-profile-picture {
-    grid-area: profilePicture;
+@media (max-width: 1080px) {
+    .comment {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas: "title"
+        "comment";
+        grid-gap: 5px;
+        margin-bottom: 10px;
+    }
+
+    .comment-profile-picture {
+        visibility: hidden;
+         display: none;
+    }
 }
+
 
 .comment-profile-picture > img {
     width: 100%;

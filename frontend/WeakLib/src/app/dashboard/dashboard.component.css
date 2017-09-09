@@ -59,8 +59,10 @@
 
 .news {
     grid-area: news;
+    margin-bottom: 5px;
 }
 
 .notifications {
     grid-area: notifications;
+    margin-bottom: 5px;
 }

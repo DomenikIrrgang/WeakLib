@@ -1,8 +1,55 @@
-.user-view {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-areas: "left content right";
-    grid-gap: 10px;
+@media (min-width: 1080px) {
+    .user-view {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas: "left content right";
+        grid-gap: 10px;
+    }
+
+    .follow-button {
+        width: 140px;
+        margin-bottom: 5px;
+    }
+
+    .weakaura-grid {
+        display: grid;
+        grid-gap: 5px;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 5px;
+    }
+    
+
+    .picture > img{
+        height: 140px;
+        cursor: pointer;
+    }
+}
+
+
+@media (max-width: 1080px) {
+    .user-view {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: "right"
+        "content";
+        grid-gap: 10px;
+    }
+
+    .follow-button {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .weakaura-grid {
+        display: grid;
+        grid-gap: 5px;
+        grid-template-columns: 1fr;
+        padding: 5px;
+    }
+
+    .picture > img{
+        cursor: pointer;
+    }
 }
 
 .profilepicture {
@@ -12,13 +59,6 @@
 
 .content {
     grid-area: content;
-}
-
-.weakaura-grid {
-    display: grid;
-    grid-gap: 5px;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 5px;
 }
 
 .follow-button {
@@ -52,7 +92,7 @@
 }
 
 .picture > a > img {
-    height: 100%;
+    max-width: 100%;
 }
 
 .title {
