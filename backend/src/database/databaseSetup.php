@@ -16,6 +16,7 @@ $tables = [
     "weakauraimages" => new WeakauraImageTable(),
     "weakauracategories" => new WeakauraCategoriesTable(),
     "weakauratocategories" => new WeakauraToCategoriesTable(),
+    "weakauracomments" => new WeakauraCommentsTable(),
 ];
 
 $defaultEntries = [
@@ -77,12 +78,19 @@ $defaultEntries = [
         new MySQLDatabaseEntry([ "name" => "Druid" ]),
         new MySQLDatabaseEntry([ "name" => "Monk" ]),
         new MySQLDatabaseEntry([ "name" => "Warrior" ]),
+        new MySQLDatabaseEntry([ "name" => "Rogue" ]),
+        new MySQLDatabaseEntry([ "name" => "Demon Hunter" ]),
     ],
     "weakauratocategories" => [
         new MySQLDatabaseEntry([ "weakauraId" => 1, "categoryId" => 1]),
         new MySQLDatabaseEntry([ "weakauraId" => 1, "categoryId" => 2]),
         new MySQLDatabaseEntry([ "weakauraId" => 1, "categoryId" => 3]),
         new MySQLDatabaseEntry([ "weakauraId" => 2, "categoryId" => 1]),
+    ],
+    "weakauracomments" => [
+        new MySQLDatabaseEntry([ "weakauraId" => 1, "userId" => 1, "text" => "Awesome! Have been looking for this since forever! Thanks a lot!!!"]),
+        new MySQLDatabaseEntry([ "weakauraId" => 1, "userId" => 1, "text" => "You rock!"]),
+        new MySQLDatabaseEntry([ "weakauraId" => 2, "userId" => 1, "text" => "What is this shit, doesnt event work"]),
     ]
 ];
 
