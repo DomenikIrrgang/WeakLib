@@ -1,0 +1,7 @@
+<div class="image-upload">
+    <input *ngIf="multiple==false" (change)="filesChanged($event)" class="file-input" id="file" type="file" name="file" />
+    <input *ngIf="multiple==true" (change)="filesChanged($event)" class="file-input" id="file" type="file" name="file" multiple />
+    <div class="upload-square">
+        <label class="upload" for="file"><span class="glyphicon glyphicon-open upload-icon" aria-hidden="true"></span>{{ caption }}</label>
+    </div>
+</div>

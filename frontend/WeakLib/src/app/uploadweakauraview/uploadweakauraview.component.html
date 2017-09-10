@@ -3,37 +3,37 @@
         <box heading="Upload Weakaura">
             <div class="upload-grid">
                 <div class="weakaura-name">
-                <b>Name:</b> 
+                    <b>Name:</b>
                 </div>
                 <div class="name-content">
-                        <input class="form-element" type="text" name="weakauraname">
+                    <input class="form-element" type="text" name="weakauraname">
                 </div>
                 <div class="categories">
                     <b> Categories: </b>
                 </div>
                 <div class="categories-content">
-                        <categories (notify)="categoriesChanged($event)"></categories>
+                    <categories (notify)="categoriesChanged($event)"></categories>
                 </div>
                 <div class="weakaura-description">
-                <b>Description: </b>
+                    <b>Description: </b>
                 </div>
                 <div class="description-content">
-                <textarea class="form-element"> </textarea>
+                    <textarea class="form-element"> </textarea>
                 </div>
 
-<div class="profile-picture">
-    <b> Profile Picture: </b>
-</div>
-<div class="picture-content">
-<input type="file" id="weakaurapicture">
-</div>
+                <div class="profile-picture">
+                    <b> Profile Picture: </b>
+                </div>
+                <div class="picture-content">
+                    <imageupload [multiple]="true"></imageupload>
+                </div>
 
             </div>
 
             <div class="upload">
-            <input class="btn btn-primary btn-sm upload-button" type="button" name="uploadweakaura" value="Upload Weakaura">
+                <input class="btn btn-primary btn-sm upload-button" type="button" name="uploadweakaura" value="Upload Weakaura">
             </div>
         </box>
     </div>
-        
+
 </div>

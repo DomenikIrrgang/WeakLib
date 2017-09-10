@@ -41,6 +41,7 @@ import { UserPanelComponent } from "./userpanel/userpanel.component";
 import { UploadWeakauraViewComponent } from './uploadweakauraview/uploadweakauraview.component';
 import { CategoryService } from "./services/category.service";
 import { CategoriesDisplayComponent } from "./categoriesdisplay/categoriesdisplay.component";
+import { ImageUploadComponent } from "./imageupload/imageupload.component";
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { CategoriesDisplayComponent } from "./categoriesdisplay/categoriesdispla
     StatusMessageComponent,
     UserPanelComponent,
     UploadWeakauraViewComponent,
-    CategoriesDisplayComponent
+    CategoriesDisplayComponent,
+    ImageUploadComponent,
   ],
   imports: [
     BrowserModule,
