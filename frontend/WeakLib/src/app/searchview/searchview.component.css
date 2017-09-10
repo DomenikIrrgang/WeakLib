@@ -24,9 +24,10 @@
     .weakaura-grid {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: max-content max-content min-content;
+        grid-template-rows: max-content max-content max-content min-content;
         grid-template-areas: "name"
         "meta"
+        "categories"
         "description";
     }
 
@@ -46,9 +47,10 @@
     .weakaura-grid {
         display: grid;
         grid-template-columns: 150px 1fr;
-        grid-template-rows: max-content max-content min-content;
+        grid-template-rows: max-content max-content max-content min-content;
         grid-template-areas: "image name"
         "image meta"
+        "image categories"
         "image description";
     }
 
@@ -76,4 +78,8 @@
 
 .weakaura-description {
     grid-area: description;
+}
+
+.weakaura-categories {
+    grid-area: categories;
 }

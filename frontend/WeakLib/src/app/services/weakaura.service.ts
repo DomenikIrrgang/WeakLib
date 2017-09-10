@@ -57,7 +57,7 @@ export class WeakauraService extends WeaklibService {
         var url: string = "/api/weakaura?";
         if (name.length > 0) {
             url += "name=" + name + "&";
-        }
+        }   
         if (user.length > 0) {
             url += "user=" + user + "&";
         }

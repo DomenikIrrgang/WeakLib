@@ -5,6 +5,7 @@ import { Weakaura } from "../util/weakaura";
 
 @Injectable()
 export class CommentService {
+    
     getComments(source: any): Promise<Comment[]>{
         return Promise.resolve(COMMENTS);
     }

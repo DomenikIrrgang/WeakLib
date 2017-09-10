@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { List } from "../util/list";
+import { CategoryService } from "../services/category.service";
+import { Category } from "../util/category";
 
 @Component({
     selector: 'categories',
@@ -8,15 +10,17 @@ import { List } from "../util/list";
 })
 
 export class CategoriesComponent implements OnInit {
-    categories: string[] = ["Druid", "Monk", "Warrior"];
+    categories: Category[] = [];
     selectedCategories: string[] = [];
     categoryList: List<string> = new List<string>();
     selectedCategory: string;
     @Output() notify: EventEmitter<string[]> = new EventEmitter<string[]>();
 
-    constructor() { }
+    constructor(private categoryService: CategoryService) { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.categoryService.getCategories().then(categories => this.categories = categories);
+    }
 
     addCategory(): void {
         if (!this.categoryList.contains(this.selectedCategory) && this.selectedCategory != "" && this.selectedCategory != undefined) {

@@ -38,7 +38,9 @@ import { HttpModule } from '@angular/http';
 import { HttpService } from "./services/http.service";
 import { StatusMessageComponent } from "./statusmessage/statusmessage.component";
 import { UserPanelComponent } from "./userpanel/userpanel.component";
-import {UploadWeakauraViewComponent} from './uploadweakauraview/uploadweakauraview.component';
+import { UploadWeakauraViewComponent } from './uploadweakauraview/uploadweakauraview.component';
+import { CategoryService } from "./services/category.service";
+import { CategoriesDisplayComponent } from "./categoriesdisplay/categoriesdisplay.component";
 
 @NgModule({
   declarations: [
@@ -71,6 +73,7 @@ import {UploadWeakauraViewComponent} from './uploadweakauraview/uploadweakauravi
     StatusMessageComponent,
     UserPanelComponent,
     UploadWeakauraViewComponent,
+    CategoriesDisplayComponent
   ],
   imports: [
     BrowserModule,
@@ -85,6 +88,7 @@ import {UploadWeakauraViewComponent} from './uploadweakauraview/uploadweakauravi
     NotificationService,
     CommentService,
     UserService,
+    CategoryService,
     Time,
   ],
   bootstrap: [AppComponent]

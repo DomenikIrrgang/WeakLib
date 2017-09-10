@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Category } from "../../util/category";
 
 @Component({
     selector: 'category',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 
 export class CategoryComponent implements OnInit {
-    @Input() name: string;
+    @Input() category: string;
     @Output() notify: EventEmitter<string> = new EventEmitter<string>();
 
     constructor() { }
@@ -15,6 +16,6 @@ export class CategoryComponent implements OnInit {
     ngOnInit() { }
 
     removeClick(): void {
-        this.notify.emit(this.name);
+        this.notify.emit(this.category);
     }
 }
