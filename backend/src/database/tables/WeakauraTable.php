@@ -4,6 +4,9 @@ require_once 'database/MySQLTable.php';
 require_once "./database/Field.php";
 require_once "./util.php";
 require_once "./database/tables/WeakauraVersionTable.php";
+require_once "./database/tables/WeakauraImageTable.php";
+require_once "./database/tables/WeakauraToCategoriesTable.php";
+require_once "./database/tables/WeakauraCategoriesTable.php";
 
 class WeakauraTable extends MySQLTable
 {
@@ -34,17 +37,37 @@ class WeakauraTable extends MySQLTable
     {
         global $database;
         $weakauraVersionTable = new WeakauraVersionTable();
+        $weakauraImageTable = new WeakauraImageTable();
+        $weakauraToCategoriesTable = new WeakauraToCategoriesTable();
+        $weakauraCategoriesTable = new WeakauraCategoriesTable();
         $userTable = new UserTable();
+        $weakauraImages = $weakauraImageTable->getByField($database, "weakauraId", $weakaura->getValue("id"));
         $weakauraVersions = $weakauraVersionTable->getByField($database, "weakauraId", $weakaura->getValue("id"));
         $user = $userTable->getByFieldWithoutPassword($database, "id", $weakaura->getValue("userId"));
+        $categories = $weakauraToCategoriesTable->getByField($database, "weakauraId", $weakaura->getValue("id"));
         $weakaura->removeKey("userId");
+        $weakaura->removeKey("id");
         $weakaura->setValue("user", $user[0]);
         $tmp = [];
         foreach ($weakauraVersions as $version) {
             $version->removeKey("weakauraId");
+            $version->removeKey("id");
             array_push($tmp, $version);
         }
         $weakaura->setValue("versions", $tmp);
+        $tmp = [];
+        foreach ($weakauraImages as $image) {
+            $image->removeKey("weakauraId");
+            $image->removeKey("id");
+            array_push($tmp, $image);
+        }
+        $weakaura->setValue("images", $tmp);
+        $tmp = [];
+        foreach ($categories as $category) {
+            $categoryName = $weakauraCategoriesTable->getByField($database, "id", $category->getValue("categoryId"));
+            array_push($tmp, $categoryName[0]->getValue("name"));
+        }
+        $weakaura->setValue("categories", $tmp);
     }
 
     public function getByField(Database $database, string $fieldname, $value): array

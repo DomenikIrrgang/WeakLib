@@ -13,6 +13,7 @@ class WeakauraVersionTable extends MySQLTable
         $this->addField((new Field("id", "int"))->primary()->autoIncrement());
         $this->addField((new Field("changes", "TEXT")));
         $this->addField((new Field("string", "TEXT")));
+        $this->addField((new Field("versionnumber", "varchar(20)")));
         $this->addForeignKey(new Field("weakauraId", "int"), "id", "weakauras");
     }
 }

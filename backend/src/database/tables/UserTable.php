@@ -22,6 +22,7 @@ class UserTable extends MySQLTable
         $result = parent::getByField($database, $fieldname, $value);
         foreach ($result as $value) {
             $value->removeKey("password");
+            $value->removeKey("id");
         }
         return $result;
     }
@@ -31,6 +32,7 @@ class UserTable extends MySQLTable
         $result = parent::getAllData($database);
         foreach ($result as $value) {
             $value->removeKey("password");
+            $value->removeKey("id");
         }
         return $result;
     }
