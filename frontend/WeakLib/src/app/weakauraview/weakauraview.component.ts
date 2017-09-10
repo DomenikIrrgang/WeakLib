@@ -26,7 +26,7 @@ export class WeakauraViewComponent implements OnInit {
     }
 
     follow(): void {
-        console.log(this.weakaura.images);
+
     }
 
     openImagePreview(event) {

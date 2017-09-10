@@ -26,7 +26,6 @@ export class LoginViewComponent implements OnInit {
 
     loginClick(): void {
         this.userService.login(this.username, this.password).subscribe(function (data) {
-            console.log(data);
             if (data._body == "SUCCESS") {
                 this.userService.getAuthenticatedUser().then(user => Globals.authenticatedUser = user);
                 this.router.navigate(["/dashboard"]);

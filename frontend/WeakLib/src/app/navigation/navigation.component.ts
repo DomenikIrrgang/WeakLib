@@ -26,8 +26,6 @@ export class NavigationComponent implements OnInit {
 
     logout(event) {
         this.userService.logout().subscribe(function (data) {
-            console.log(data);
-            console.log(Globals.authenticatedUser);
             Globals.authenticatedUser = undefined;
         }.bind(this));
     }

@@ -23,7 +23,6 @@ export class RegisterViewComponent implements OnInit {
     register(): void {
         if (this.password == this.passwordRepeat) {
             this.userService.registerUser(new User(this.username, this.password, this.email)).subscribe(function (data) {
-                console.log(data);
                 if (data._body.indexOf("ERROR") >= 0) {
                     this.statusType = "error";
                     if (data._body.indexOf("name") >= 0 && data._body.indexOf("length") >= 0) {

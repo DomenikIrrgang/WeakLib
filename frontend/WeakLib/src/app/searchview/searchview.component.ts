@@ -12,7 +12,7 @@ import { Time } from "../util/time";
 export class SearchViewComponent implements OnInit {
     name: string = "";
     author: string = "";
-    categories: string[];
+    categories: string[] = [];
     searchResult: Weakaura[] = [];
     @ViewChild('filterPanel') filterPanel;
     @ViewChild('resultPanel') resultPanel;

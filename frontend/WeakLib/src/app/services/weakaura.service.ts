@@ -54,7 +54,22 @@ export class WeakauraService extends WeaklibService {
     }
 
     searchWeakaura(name: string, user: string, categories: string[]): Promise<Weakaura[]> {
-        return this.http.get(this.baseURI + "/api/weakaura")
+        var url: string = "/api/weakaura?";
+        if (name.length > 0) {
+            url += "name=" + name + "&";
+        }
+        if (user.length > 0) {
+            url += "user=" + user + "&";
+        }
+        if (categories.length > 0) {
+            url += "categories=";
+            for (var category of categories) {
+                url += category + ",";
+            }
+            url = url.substring(0, url.length - 1);
+            url += "&";
+        }
+        return this.http.get(this.baseURI + url)
         .toPromise()
         .then(response => {
             return response.json();
