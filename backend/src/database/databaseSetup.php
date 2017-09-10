@@ -80,6 +80,7 @@ $defaultEntries = [
         new MySQLDatabaseEntry([ "name" => "Warrior" ]),
         new MySQLDatabaseEntry([ "name" => "Rogue" ]),
         new MySQLDatabaseEntry([ "name" => "Demon Hunter" ]),
+        new MySQLDatabaseEntry([ "name" => "Mage"]),
     ],
     "weakauratocategories" => [
         new MySQLDatabaseEntry([ "weakauraId" => 1, "categoryId" => 1]),
