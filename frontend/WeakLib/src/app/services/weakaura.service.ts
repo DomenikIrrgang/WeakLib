@@ -45,7 +45,7 @@ export class WeakauraService extends WeaklibService {
     }
 
     getWeakaurasFromUser(username: String): Promise<Weakaura[]> {
-        return this.http.get(this.baseURI + "/api/weakaura")
+        return this.http.get(this.baseURI + "/api/weakaura?user=" + username)
         .toPromise()
         .then(response => {
             return response.json();
