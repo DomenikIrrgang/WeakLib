@@ -35,7 +35,7 @@ $router->post(new Route("new user", "/api/user", new RegisterController()));
 
 $router->get(new Route("get categories", "/api/categories", new CategoriesController()));
 
-$router->post(new Route("upload image", "/api/image/upload", new ImageUploadController()));
+$router->post(new Route("upload image", "/api/imageupload", new ImageUploadController()));
 
 $router->get(new Route("get weakaura(s)", "/api/weakaura", new GetAllWeakauraController()));
 $router->post(new Route("create weakaura", "/api/weakaura", new AddWeakauraController()));

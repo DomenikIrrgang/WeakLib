@@ -14,7 +14,7 @@ class ErrorController implements Controller
     
     public function request(Request $request, array $params): string
     {
-        $request->setResponseCode($errorCode);
+        $request->setResponseCode($this->errorCode);
         return $this->errorMessage;
     }
 }
