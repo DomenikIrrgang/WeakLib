@@ -8,9 +8,6 @@ class ImageUploadController implements Controller
 
     public function request(Request $request, array $params): string
     {
-        global $config;
-
-        //var_dump($_FILES["file"]);
         $uploads = [];
         for ($i = 0; $i < count($_FILES["file"]["name"]); $i++) {
             array_push($uploads, $this->uploadFile($_FILES["file"], $i));
