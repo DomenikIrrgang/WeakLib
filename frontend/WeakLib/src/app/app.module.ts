@@ -42,6 +42,7 @@ import { UploadWeakauraViewComponent } from './uploadweakauraview/uploadweakaura
 import { CategoryService } from "./services/category.service";
 import { CategoriesDisplayComponent } from "./categoriesdisplay/categoriesdisplay.component";
 import { ImageUploadComponent } from "./imageupload/imageupload.component";
+import { ImageUploadService } from "./services/imageupload.service";
 
 @NgModule({
   declarations: [
@@ -91,6 +92,7 @@ import { ImageUploadComponent } from "./imageupload/imageupload.component";
     CommentService,
     UserService,
     CategoryService,
+    ImageUploadService,
     Time,
   ],
   bootstrap: [AppComponent]
