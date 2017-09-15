@@ -43,6 +43,7 @@ import { CategoryService } from "./services/category.service";
 import { CategoriesDisplayComponent } from "./categoriesdisplay/categoriesdisplay.component";
 import { ImageUploadComponent } from "./imageupload/imageupload.component";
 import { ImageUploadService } from "./services/imageupload.service";
+import {ErrorMessageComponent} from "./errormessageview/errormessage.component";
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { ImageUploadService } from "./services/imageupload.service";
     UploadWeakauraViewComponent,
     CategoriesDisplayComponent,
     ImageUploadComponent,
+    ErrorMessageComponent,
   ],
   imports: [
     BrowserModule,

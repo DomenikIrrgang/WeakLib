@@ -30,3 +30,7 @@
     background-color: white;
     grid-area: footer;
 }
+
+.static{
+    position: static;
+}
