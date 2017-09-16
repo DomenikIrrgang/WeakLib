@@ -1,6 +1,6 @@
 <div class="weakaura-view"  *ngIf="weakaura; else noWeakaura">
     <div class="profilepicture">
-        <profilepicture profilePicture="{{ weakaura.profilePicture }}">
+        <profilepicture profilePicture="{{ '/backend/' + weakaura.profilePicture }}">
             <div>
                 <div><h1 class="heading">{{ weakaura.name }}</h1></div>
                 <input type="button" class="btn btn-primary btn-sm follow-button" value="Follow" (click)="follow()"/>

@@ -5,8 +5,7 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './errormessage.component.html',
     styleUrls: ['./errormessage.component.css'],
 })
-
-export class ErrorMessageComponent{
+export class ErrorMessageComponent {
 
     
 }

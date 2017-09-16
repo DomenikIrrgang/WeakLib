@@ -46,7 +46,6 @@ class WeakauraTable extends MySQLTable
         $user = $userTable->getByFieldWithoutPassword($database, "id", $weakaura->getValue("userId"));
         $categories = $weakauraToCategoriesTable->getByField($database, "weakauraId", $weakaura->getValue("id"));
         $weakaura->removeKey("userId");
-        $weakaura->removeKey("id");
         $weakaura->setValue("user", $user[0]);
         $tmp = [];
         foreach ($weakauraVersions as $version) {

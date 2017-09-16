@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ImageUploadService } from "../services/imageupload.service";
 
 @Component({
     selector: 'imageupload',
@@ -11,35 +10,69 @@ export class ImageUploadComponent implements OnInit {
     @Input()
     multiple: boolean = false;
     caption: string = "Upload";
-    uploads: object[] = [];
-    files: string[] = [];
-
-    constructor(private imageUploadService: ImageUploadService) { }
+    public files: any[] = [];
+    paths: any[] = [];
 
     ngOnInit() { }
 
     filesChanged(event: any) {
-        if (event.target.files.length == 1) {
-            this.caption = event.target.files[0].name;
-            this.imageUploadService.uploadImages(event.target.files).subscribe(function (data) {
-                var response = JSON.parse(data._body);
-                for (var entry of response) {
-                    if (entry.url != "") {
-                        this.uploads.push(entry);
-                    }
-                }                
-            }.bind(this));
+        if (this.multiple === true) {
+            for (let file of event.target.files) {
+                this.files.push(file);
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    this.paths.push({
+                        "image": e.target.result,
+                        "file": reader["file"],
+                    });
+                }.bind(this);
+                reader["file"] = file;
+                reader.readAsDataURL(file);
+            }
+        } else {
+            this.files = event.target.files;
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                this.paths = [ {
+                    "image": e.target.result,
+                    "file": reader["file"],
+                } ];
+            }.bind(this);
+            reader["file"] = this.files[0];
+            reader.readAsDataURL(event.target.files[0]);
         }
-        if (event.target.files.length > 1) {
-            this.caption = event.target.files.length + " files selected";
-            this.imageUploadService.uploadImages(event.target.files).subscribe(function (data) {
-                var response = JSON.parse(data._body);
-                for (var entry of response) {
-                    if (entry.url != "") {
-                        this.uploads.push(entry);
-                    }
-                }     
-            }.bind(this));
+        console.log(this.files);
+        console.log(this.paths);
+        this.updateButtonCaption();
+    }
+
+    updateButtonCaption() {
+        if (this.files.length == 1) {
+            this.caption = this.files[0].name;
         }
+        if (this.files.length > 1) {
+            this.caption = this.files.length + " files selected";
+        }
+        if (this.files.length == 0) {
+            this.caption = "Upload";
+        }
+    }
+
+    removeImage(event: any) {
+        if (this.multiple === true) {
+            for (let i = 0; i < this.files.length; i++) {
+                if (this.files[i].name == this.paths[+event.srcElement.id].file.name) {
+                    this.files.splice(i, 1);
+                    this.paths.splice(+event.srcElement.id, 1);
+                    console.log(this.files);
+                    break;
+                }
+            }
+        } else {
+            this.files = [];
+            this.paths = [];
+        }
+        console.log(this.files);
+        this.updateButtonCaption();
     }
 }

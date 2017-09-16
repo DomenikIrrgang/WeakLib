@@ -14,11 +14,6 @@
     }
 }
 
-.content{
-    grid-area: content;
-
-}
-
 @media(min-width:1400px){
     .upload-grid{
 
@@ -36,6 +31,18 @@
         grid-gap: 5px;
     }
 }
+
+.content{
+    grid-area: content;
+
+}
+
+.textarea {
+    height: 25px;
+    resize: none;
+    overflow: hidden;
+}
+
 .upload-button{
 width: 100%;
 }

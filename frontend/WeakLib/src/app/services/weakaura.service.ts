@@ -29,12 +29,6 @@ export class WeakauraService extends WeaklibService {
         .catch(err => err);
     }
 
-    getWeakaurasWithLatency(): Promise<Weakaura[]> {
-        return new Promise(resolve => {
-            setTimeout(() => resolve(this.getWeakauras()), 2000);
-        });
-    }
-
     getWeakauraWithHash(hash: String) {
         return this.http.get(this.baseURI + "/api/weakaura?hash=" + hash)
         .toPromise()
@@ -75,5 +69,12 @@ export class WeakauraService extends WeaklibService {
             return response.json();
         })
         .catch(err => err);
+    }
+
+    uploadWeakaura(weakaura: Weakaura) {
+        let bodyString = JSON.stringify(weakaura);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.post(this.baseURL + this.baseURI + "api/weakaura", bodyString, options);
     }
 }
