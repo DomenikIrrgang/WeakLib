@@ -24,12 +24,10 @@ export class CommentsComponent implements OnInit {
         });
     }
 
-    sendComment(): void {
-
-    }
-
-    textAreaAdjust() {
-        this.comment.nativeElement.style.height = "1px";
-        this.comment.nativeElement.style.height = (1 + this.comment.nativeElement.scrollHeight) + "px";
+    public sendComment(comment: string) {
+        console.log(comment);
+        this.commentService.postComment(this.source.hash, "", comment).subscribe(() => {
+            
+        });
     }
 }

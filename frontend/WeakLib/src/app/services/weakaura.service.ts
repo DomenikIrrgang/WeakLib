@@ -36,8 +36,23 @@ export class WeakauraService extends WeaklibService {
         return this.http.get(this.baseURL + this.baseURI + "/weakauracomment?hash=" + hash);
     }
 
+    postComment(hash: string, id: string, comment: string): Observable<Response>  {
+        let url: string = "/weakauracomment?";
+        console.log(hash, id, comment);
+        if (hash.length > 0) {
+            url += "root=" + hash + "&";
+        }   
+        if (id.length > 0) {
+            url += "id=" + id + "&";
+        }
+        if (comment.length > 0) {
+            url += "comment=" + comment + "&";
+        }
+        return this.http.post(this.baseURL + this.baseURI + url, "", this.options);
+    }
+
     searchWeakaura(name: string, user: string, categories: string[]): Observable<Response> {
-        var url: string = "/weakaura?";
+        let url: string = "/weakaura?";
         if (name.length > 0) {
             url += "name=" + name + "&";
         }   
@@ -46,7 +61,7 @@ export class WeakauraService extends WeaklibService {
         }
         if (categories.length > 0) {
             url += "categories=";
-            for (var category of categories) {
+            for (let category of categories) {
                 url += category + ",";
             }
             url = url.substring(0, url.length - 1);

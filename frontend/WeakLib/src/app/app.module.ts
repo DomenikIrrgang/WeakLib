@@ -45,6 +45,7 @@ import { ImageUploadComponent } from "./imageupload/imageupload.component";
 import { ImageUploadService } from "./services/imageupload.service";
 import { ErrorMessageComponent } from "./errormessageview/errormessage.component";
 import { CommentComponent } from "./weakauraview/comments/comment/comment.component";
+import { CommentInputComponent }from "./weakauraview/comments/commentInput/commentinput.component";
 
 @NgModule({
   declarations: [
@@ -81,6 +82,7 @@ import { CommentComponent } from "./weakauraview/comments/comment/comment.compon
     ImageUploadComponent,
     ErrorMessageComponent,
     CommentComponent,
+    CommentInputComponent,
   ],
   imports: [
     BrowserModule,
