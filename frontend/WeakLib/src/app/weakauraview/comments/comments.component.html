@@ -7,18 +7,7 @@
     <div class="comments-box">
         <div *ngIf="comments; else noComments">
             <div *ngFor="let comment of comments">
-                <div class="comment">
-                    <div class="comment-profile-picture">
-                        <img src="{{ comment.author.profilePicture }}" />
-                    </div>
-                    <div class="comment-title">
-                        <a routerLink="/user/{{ comment.author.name }}">{{ comment.author.name }}</a>
-                        <span class="timestamp">{{ time.difference(comment.timestamp) }}</span>
-                    </div>
-                    <div class="comment-content">
-                        {{ comment.comment }}
-                    </div>
-                </div>
+                <comment [comment]="comment"></comment>
             </div>
         </div>
         <ng-template #noComments>There are no comments for this weakaura yet. Be the first to write one!</ng-template>

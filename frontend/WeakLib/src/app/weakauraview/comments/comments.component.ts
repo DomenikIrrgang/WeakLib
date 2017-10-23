@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Comment } from '../../util/comment';
-import { CommentService } from "../../services/comment.service";
+import { WeakauraService } from "../../services/weakaura.service";
 import { Weakaura } from "../../util/weakaura";
 import { Time } from "../../util/time";
 
@@ -15,10 +15,13 @@ export class CommentsComponent implements OnInit {
     @ViewChild('comment') comment;
     @Input() source: any;
 
-    constructor(private commentService: CommentService, private time: Time) { }
+    constructor(private commentService: WeakauraService, private time: Time) { }
 
     ngOnInit() {
-        this.commentService.getComments(this.source).then(comments => this.comments = comments);
+        this.commentService.getComments(this.source.hash).subscribe((comments) => {
+            this.comments = JSON.parse(comments["_body"]);
+            console.log(this.comments);
+        });
     }
 
     sendComment(): void {

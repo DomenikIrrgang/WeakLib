@@ -1,0 +1,13 @@
+<div class="comment">
+    <div class="comment-title">
+        <a routerLink="/user/{{ comment.user.name }}">{{ comment.user.name }}</a>
+        <span class="timestamp">{{ time.difference(comment.created) }}</span>
+    </div>
+    <div class="comment-content">
+        {{ comment.text }}
+    </div>
+
+    <div class="comments">
+            <comment *ngFor="let nestComment of comment.comments" [comment]="nestComment"></comment>
+    </div>
+</div>

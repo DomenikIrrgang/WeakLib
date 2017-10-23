@@ -32,6 +32,10 @@ export class WeakauraService extends WeaklibService {
         return this.http.get(this.baseURL + this.baseURI + "/weakaura?user=" + username);
     }
 
+    getComments(hash: string) {
+        return this.http.get(this.baseURL + this.baseURI + "/weakauracomment?hash=" + hash);
+    }
+
     searchWeakaura(name: string, user: string, categories: string[]): Observable<Response> {
         var url: string = "/weakaura?";
         if (name.length > 0) {

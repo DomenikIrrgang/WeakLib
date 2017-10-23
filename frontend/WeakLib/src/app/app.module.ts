@@ -43,7 +43,8 @@ import { CategoryService } from "./services/category.service";
 import { CategoriesDisplayComponent } from "./categoriesdisplay/categoriesdisplay.component";
 import { ImageUploadComponent } from "./imageupload/imageupload.component";
 import { ImageUploadService } from "./services/imageupload.service";
-import {ErrorMessageComponent} from "./errormessageview/errormessage.component";
+import { ErrorMessageComponent } from "./errormessageview/errormessage.component";
+import { CommentComponent } from "./weakauraview/comments/comment/comment.component";
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import {ErrorMessageComponent} from "./errormessageview/errormessage.component";
     CategoriesDisplayComponent,
     ImageUploadComponent,
     ErrorMessageComponent,
+    CommentComponent,
   ],
   imports: [
     BrowserModule,
