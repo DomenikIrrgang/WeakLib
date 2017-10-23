@@ -20,35 +20,20 @@ export class WeakauraService extends WeaklibService {
         super();
     }
 
-    getWeakauras(): Promise<Weakaura[]> {
-        return this.http.get(this.baseURI + "/api/weakaura")
-        .toPromise()
-        .then(response => {
-            return response.json();
-        })
-        .catch(err => err);
+    getWeakauras(): Observable<Response> {
+        return this.http.get(this.baseURL + this.baseURI + "/weakaura", this.options);
     }
 
-    getWeakauraWithHash(hash: String) {
-        return this.http.get(this.baseURI + "/api/weakaura?hash=" + hash)
-        .toPromise()
-        .then(response => {
-            return response.json();
-        })
-        .catch(err => err);
+    getWeakauraWithHash(hash: String): Observable<Response> {
+        return this.http.get(this.baseURL + this.baseURI + "/weakaura?hash=" + hash);
     }
 
-    getWeakaurasFromUser(username: String): Promise<Weakaura[]> {
-        return this.http.get(this.baseURI + "/api/weakaura?user=" + username)
-        .toPromise()
-        .then(response => {
-            return response.json();
-        })
-        .catch(err => err);
+    getWeakaurasFromUser(username: String): Observable<Response> {
+        return this.http.get(this.baseURL + this.baseURI + "/weakaura?user=" + username);
     }
 
-    searchWeakaura(name: string, user: string, categories: string[]): Promise<Weakaura[]> {
-        var url: string = "/api/weakaura?";
+    searchWeakaura(name: string, user: string, categories: string[]): Observable<Response> {
+        var url: string = "/weakaura?";
         if (name.length > 0) {
             url += "name=" + name + "&";
         }   
@@ -63,12 +48,7 @@ export class WeakauraService extends WeaklibService {
             url = url.substring(0, url.length - 1);
             url += "&";
         }
-        return this.http.get(this.baseURI + url)
-        .toPromise()
-        .then(response => {
-            return response.json();
-        })
-        .catch(err => err);
+        return this.http.get(this.baseURL + this.baseURI + url, this.options);
     }
 
     uploadWeakaura(weakaura: Weakaura) {

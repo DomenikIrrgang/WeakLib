@@ -25,16 +25,16 @@ export class LoginViewComponent implements OnInit {
     }
 
     loginClick(): void {
-        this.userService.login(this.username, this.password).subscribe(function (data) {
-            if (data._body == "SUCCESS") {
-                this.userService.getAuthenticatedUser().then(user => Globals.authenticatedUser = user);
-                this.router.navigate(["/dashboard"]);
-            }
-
-            if (data._body == "ERROR") {
+        this.userService.login(this.username, this.password).subscribe((data) => {
+            if (data["_body"] === "SUCCESS") {
+                this.userService.getAuthenticatedUser().subscribe((data) => {
+                    Globals.authenticatedUser = JSON.parse(data["_body"]);
+                });
+                //this.router.navigate(["/dashboard"]);
+            } else {
                 this.statusType = "error";
                 this.statusMessage = "Username or password is wrong!";
             }
-        }.bind(this));
+        });
     }
 }

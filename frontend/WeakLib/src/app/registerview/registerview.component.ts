@@ -34,7 +34,7 @@ export class RegisterViewComponent implements OnInit {
                     }
 
                     if (data._body.indexOf("email") >= 0 && data._body.indexOf("taken") >= 0) {
-                        this.statusMessage = "A user with than email already exists!";
+                        this.statusMessage = "A user with that email already exists!";
                     }
 
                     if (data._body.indexOf("email") >= 0 && data._body.indexOf("invalid") >= 0) {

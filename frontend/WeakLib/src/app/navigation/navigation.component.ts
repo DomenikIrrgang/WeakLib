@@ -15,7 +15,11 @@ export class NavigationComponent implements OnInit {
     constructor(private userService: UserService) { }
 
     ngOnInit() {
-        this.userService.getAuthenticatedUser().then(user => Globals.authenticatedUser = user);
+        this.userService.getAuthenticatedUser().subscribe(data => {
+            if (data["_body"] !== "ERROR") {
+                Globals.authenticatedUser = JSON.parse(data["_body"]);
+            }
+        });
     }
 
     navigationElementClick(): void {
@@ -25,8 +29,11 @@ export class NavigationComponent implements OnInit {
     }
 
     logout(event) {
-        this.userService.logout().subscribe(function (data) {
+        this.userService.logout().subscribe((data) => {
             Globals.authenticatedUser = undefined;
-        }.bind(this));
+        },
+        (error) => {
+            console.log(error);
+        });
     }
 } 

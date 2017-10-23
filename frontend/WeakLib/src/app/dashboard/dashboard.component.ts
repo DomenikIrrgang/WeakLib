@@ -15,8 +15,10 @@ export class DashboardComponent implements OnInit {
     constructor(private weakauraService: WeakauraService) {}
 
     ngOnInit(): void {
-        this.weakauraService.getWeakauras().then(weakauras => this.latestWeakauras = weakauras);
-        this.weakauraService.getWeakauras().then(weakauras => this.mostPopularWeakauras = weakauras);
-        this.weakauraService.getWeakauras().then(weakauras => this.bestRatedWeakauras = weakauras);
+        this.weakauraService.getWeakauras().subscribe((result) => {
+            this.latestWeakauras = JSON.parse(result["_body"]);
+            this.bestRatedWeakauras = JSON.parse(result["_body"]);
+            this.mostPopularWeakauras = JSON.parse(result["_body"]);
+        });
     }
 }

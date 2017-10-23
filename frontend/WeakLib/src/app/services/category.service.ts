@@ -18,12 +18,7 @@ export class CategoryService extends WeaklibService {
         super();
     }
 
-    getCategories(): Promise<Category[]> {
-        return this.http.get(this.baseURI + "/api/categories")
-            .toPromise()
-            .then(response => {
-                return response.json();
-            })
-            .catch(err => err);
+    getCategories(): Observable<Response> {
+        return this.http.get(this.baseURL + this.baseURI + "/categories", this.options);
     }
 }

@@ -20,8 +20,12 @@ export class UserViewComponent implements OnInit {
     ngOnInit() {
         this.route.params.subscribe(params => {
             var username: String = params['username'];
-            this.userService.getUser(username).then(user => this.user = user);
-            this.weakauraService.getWeakaurasFromUser(username).then(weakauras => this.weakauras = weakauras);
+            this.userService.getUser(username).subscribe((user) => {
+                console.log(user["_body"]);
+                this.user = JSON.parse(user["_body"])[0];
+                console.log(this.user);
+            });
+            this.weakauraService.getWeakaurasFromUser(username).subscribe(weakauras => this.weakauras = JSON.parse(weakauras["_body"]));
         });
     }
 

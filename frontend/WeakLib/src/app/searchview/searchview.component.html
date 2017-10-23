@@ -47,7 +47,7 @@
                             </div>
 
                             <div class="weakaura-meta">
-                                <img src="assets/img/user.png" class="icon" /><b>Author: </b><a routerLink="/user/{{ weakaura.user.name }}">{{ weakaura.user.name }}</a>
+                                <img src="assets/img/user.png" class="icon" /><b>Author: </b><a routerLink="/user/{{ weakaura.user }}">{{ weakaura.user }}</a>
                                 <img src="assets/img/clock.png" class="icon" /><b>Upload: </b>{{ time.difference(weakaura.created) }}
                                 <img src="assets/img/clock.png" class="icon" /><b>Update: </b>{{ time.difference(weakaura.updated) }}
                             </div>

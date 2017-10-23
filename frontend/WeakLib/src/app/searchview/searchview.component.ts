@@ -22,7 +22,9 @@ export class SearchViewComponent implements OnInit {
     ngOnInit() { }
 
     searchSubmit() {
-        this.weakauraService.searchWeakaura(this.name, this.author, this.categories).then(weakauras => this.searchResult = weakauras);
+        this.weakauraService.searchWeakaura(this.name, this.author, this.categories).subscribe((weakauras) => {
+            this.searchResult = JSON.parse(weakauras["_body"]);
+        });
         this.filterPanel.contentVisible = true;
         this.resultPanel.contentVisible = true;
     }
