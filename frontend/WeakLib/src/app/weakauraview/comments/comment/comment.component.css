@@ -1,5 +1,8 @@
 .comment-profile-picture > img {
-    width: 100%;
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-top: 2px;
 }
 
 .comment-title {
@@ -22,8 +25,12 @@
     font-size: 14px;
 }
 
+.reply {
+    text-align: left;
+}
+
 .comments {
-    margin-left: 20px;
+    margin-left: 50px;
     width: 100%;
     grid-area: comments;
 }
@@ -31,11 +38,12 @@
 @media (min-width: 1080px) {
     .comment {
         display: grid;
-        grid-template-columns: auto;
+        grid-template-columns: 50px auto;
         grid-template-rows: 20px auto auto;
-        grid-template-areas: "title"
-        "comment"
-        "comments";
+        grid-template-areas: "profilePicture title"
+        "profilePicture comment"
+        "profilePicture reply"
+        "comments comments";
         grid-gap: 5px;
         margin-bottom: 5px;
     }
@@ -52,6 +60,7 @@
         grid-template-rows: auto auto auto;
         grid-template-areas: "title"
         "comment"
+        "reply"
         "comments";
         grid-gap: 5px;
         margin-bottom: 5px;
