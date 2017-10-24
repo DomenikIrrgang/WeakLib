@@ -1,9 +1,9 @@
-import { Notification } from '../util/notification';
-import { Weakaura } from '../util/weakaura';
+import { Notification } from "../util/notification";
+import { Weakaura } from "../util/weakaura";
 import { WeakauraService } from "../services/weakaura.service";
-import { NotificationType } from '../util/notificationtypes';
-import { WEAKAURAS } from '../mockdata/weakauras';
-import { USER } from './user';
+import { NotificationType } from "../util/notificationtypes";
+import { WEAKAURAS } from "../mockdata/weakauras";
+import { USER } from "./user";
 
 export const NOTIFICATIONS: Notification[] = [
     { timestamp: Date.now(), actor1: USER[1], actor2: USER[2], weakaura: WEAKAURAS[1], type: NotificationType.WEAKAURA_UPDATE },

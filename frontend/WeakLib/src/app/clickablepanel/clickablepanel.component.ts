@@ -1,20 +1,18 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from "@angular/core";
 
 @Component({
-    selector: 'clickablepanel',
-    templateUrl: 'clickablepanel.component.html',
-    styleUrls: ['clickablepanel.component.css'],
+    selector: "clickablepanel",
+    templateUrl: "clickablepanel.component.html",
+    styleUrls: ["clickablepanel.component.css"],
 })
 
-export class ClickablePanelComponent implements OnInit {
-    @Input() heading: String;
-    @Input() contentVisible: boolean;
+export class ClickablePanelComponent {
+    @Input()
+    public heading: string;
+    @Input()
+    public contentVisible: boolean;
 
-    constructor() { }
-
-    ngOnInit() { }
-
-    panelClick() {
+    public panelClick(): void {
         this.contentVisible = !this.contentVisible;
     }
 }

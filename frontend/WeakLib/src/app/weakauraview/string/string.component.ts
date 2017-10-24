@@ -1,28 +1,26 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from "@angular/core";
 import { WeakauraVersion } from "../../util/weakauraversion";
 
 @Component({
-    selector: 'weakaurastring',
-    templateUrl: 'string.component.html',
-    styleUrls: ['string.component.css'],
+    selector: "weakaurastring",
+    templateUrl: "string.component.html",
+    styleUrls: ["string.component.css"],
 })
 
-export class StringComponent implements OnInit {
-    @Input() weakauraVersion: WeakauraVersion;
+export class StringComponent {
+    @Input()
+    public weakauraVersion: WeakauraVersion;
 
-    constructor() { }
-
-    ngOnInit() { }
-
-    copyClick() {
-        var textArea = document.createElement("textarea");
-        textArea.style.position = 'fixed';
+    public copyClick(): void {
+        let textArea = document.createElement("textarea");
+        textArea.style.position = "fixed";
         textArea.value = String(this.weakauraVersion.string);
         document.body.appendChild(textArea);
         textArea.select();
         try {
-            document.execCommand('copy');
+            document.execCommand("copy");
         } catch (err) {
+            console.log("could not paste to clipboard");
         }
         document.body.removeChild(textArea);
     }

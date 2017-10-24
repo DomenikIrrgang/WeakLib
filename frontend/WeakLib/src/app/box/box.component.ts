@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input } from "@angular/core";
 
 @Component({
-    selector: 'box',
-    templateUrl: './box.component.html',
-    styleUrls: ['./box.component.css'],
+    selector: "box",
+    templateUrl: "./box.component.html",
+    styleUrls: ["./box.component.css"],
 })
 export class BoxComponent {
-    @Input() heading: String;
+    @Input()
+    public heading: string;
 }

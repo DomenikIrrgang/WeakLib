@@ -1,44 +1,44 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from "@angular/core";
 import { Weakaura } from "../util/weakaura";
 import { WeakauraService } from "../services/weakaura.service";
 import { Time } from "../util/time";
 
 @Component({
-    selector: 'searchview',
-    templateUrl: 'searchview.component.html',
-    styleUrls: ['searchview.component.css'],
+    selector: "searchview",
+    templateUrl: "searchview.component.html",
+    styleUrls: ["searchview.component.css"],
 })
 
-export class SearchViewComponent implements OnInit {
-    name: string = "";
-    author: string = "";
-    categories: string[] = [];
-    searchResult: Weakaura[] = [];
-    @ViewChild('filterPanel') filterPanel;
-    @ViewChild('resultPanel') resultPanel;
+export class SearchViewComponent {
+    public name: string = "";
+    public author: string = "";
+    public categories: string[] = [];
+    public searchResult: Weakaura[] = [];
+    @ViewChild("filterPanel")
+    public filterPanel;
+    @ViewChild("resultPanel")
+    public resultPanel;
 
     constructor(private weakauraService: WeakauraService, private time: Time) { }
 
-    ngOnInit() { }
-
-    searchSubmit() {
+    public searchSubmit(): void {
         this.weakauraService.searchWeakaura(this.name, this.author, this.categories).subscribe((weakauras) => {
             this.searchResult = JSON.parse(weakauras["_body"]);
         });
         this.filterPanel.contentVisible = true;
         this.resultPanel.contentVisible = true;
     }
-    
-    categoriesChanged(categories) {
+
+    public categoriesChanged(categories): void {
         this.categories = categories;
     }
 
-    hasResult(): boolean {
+    public hasResult(): boolean {
         return this.searchResult.length > 0;
     }
 
-    checkReturnKey(event) {
-        if (event.key == "Enter") {
+    public checkReturnKey(event): void {
+        if (event.key === "Enter") {
             this.searchSubmit();
         }
     }

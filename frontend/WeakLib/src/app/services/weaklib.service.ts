@@ -1,4 +1,4 @@
-import { RequestOptionsArgs } from '@angular/http';
+import { RequestOptionsArgs } from "@angular/http";
 
 export class WeaklibService {
     protected baseURL: string = "http://localhost:8080";

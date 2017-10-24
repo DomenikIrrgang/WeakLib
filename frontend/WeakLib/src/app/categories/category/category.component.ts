@@ -1,21 +1,19 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Category } from "../../util/category";
 
 @Component({
-    selector: 'category',
-    templateUrl: 'category.component.html',
-    styleUrls: ['category.component.css'],
+    selector: "category",
+    templateUrl: "category.component.html",
+    styleUrls: ["category.component.css"],
 })
 
-export class CategoryComponent implements OnInit {
-    @Input() category: string;
-    @Output() notify: EventEmitter<string> = new EventEmitter<string>();
+export class CategoryComponent {
+    @Input()
+    public category: string;
+    @Output()
+    public notify: EventEmitter<string> = new EventEmitter<string>();
 
-    constructor() { }
-
-    ngOnInit() { }
-
-    removeClick(): void {
+    public removeClick(): void {
         this.notify.emit(this.category);
     }
 }

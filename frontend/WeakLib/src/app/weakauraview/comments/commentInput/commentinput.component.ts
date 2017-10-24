@@ -1,20 +1,22 @@
-import { Component, Output, OnInit, Input, ViewChild, EventEmitter } from '@angular/core';
+import { Component, Output, OnInit, Input, ViewChild, EventEmitter } from "@angular/core";
 
 @Component({
-    selector: 'commentinput',
-    templateUrl: 'commentinput.component.html',
-    styleUrls: ['commentinput.component.css'],
+    selector: "commentinput",
+    templateUrl: "commentinput.component.html",
+    styleUrls: ["commentinput.component.css"],
 })
 export class CommentInputComponent {
 
-    @ViewChild('comment') comment;
-    @Output() commentNotify: EventEmitter<string> = new EventEmitter<string>();
+    @ViewChild("comment")
+    public comment;
+    @Output()
+    public commentNotify: EventEmitter<string> = new EventEmitter<string>();
 
-    sendComment(): void {
+    public sendComment(): void {
         this.commentNotify.emit(this.comment.nativeElement.value);
     }
 
-    textAreaAdjust() {
+    public textAreaAdjust() {
         this.comment.nativeElement.style.height = "1px";
         this.comment.nativeElement.style.height = (1 + this.comment.nativeElement.scrollHeight) + "px";
     }

@@ -1,18 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input } from "@angular/core";
 
 @Component({
-    selector: 'categoriesdisplay',
-    templateUrl: 'categoriesdisplay.component.html',
+    selector: "categoriesdisplay",
+    templateUrl: "categoriesdisplay.component.html",
     styleUrls: ["categoriesdisplay.component.css"],
 })
 
-export class CategoriesDisplayComponent implements OnInit {
+export class CategoriesDisplayComponent {
     @Input()
-    categories: string[];
+    public categories: string[];
     @Input()
-    align: string = "left";
-
-    constructor() { }
-
-    ngOnInit() { }
+    public align: string = "left";
 }

@@ -1,11 +1,11 @@
-import { Weakaura } from './Weakaura';
-import { User } from './User';
-import { NotificationType } from './NotificationTypes';
+import { Weakaura } from "./Weakaura";
+import { User } from "./User";
+import { NotificationType } from "./NotificationTypes";
 
 export class Notification {
-    actor1: User;
-    actor2: User;
-    weakaura: Weakaura;
-    type: NotificationType;
-    timestamp: number;
+    public actor1: User;
+    public actor2: User;
+    public weakaura: Weakaura;
+    public type: NotificationType;
+    public timestamp: number;
 }

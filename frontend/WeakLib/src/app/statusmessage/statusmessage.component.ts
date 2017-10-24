@@ -1,22 +1,18 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from "@angular/core";
 
 @Component({
-    selector: 'statusmessage',
-    templateUrl: 'statusmessage.component.html',
-    styleUrls: ["statusmessage.component.html"]
+    selector: "statusmessage",
+    templateUrl: "statusmessage.component.html",
+    styleUrls: ["statusmessage.component.html"],
 })
 
-export class StatusMessageComponent implements OnInit {
+export class StatusMessageComponent {
     @Input()
-    type: string;
-
-    @Input()
-    message: string;
+    public type: string;
 
     @Input()
-    closeable: boolean;
+    public message: string;
 
-    constructor() { }
-
-    ngOnInit() { }
+    @Input()
+    public closeable: boolean;
 }

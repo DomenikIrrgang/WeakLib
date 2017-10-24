@@ -1,17 +1,17 @@
-import { Injectable } from '@angular/core';
-import { Weakaura } from '../util/weakaura';
-import { WEAKAURAS } from '../mockdata/weakauras';
+import { Injectable } from "@angular/core";
+import { Weakaura } from "../util/weakaura";
+import { WEAKAURAS } from "../mockdata/weakauras";
 import { List } from "../util/list";
 import { WeaklibService } from "./weaklib.service";
 import { HttpService } from "./http.service";
 import { User } from "../util/user";
 
-import { Http, Headers, Response, RequestOptions } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
-import { Observable } from 'rxjs/Rx';
+import { Http, Headers, Response, RequestOptions } from "@angular/http";
+import "rxjs/add/operator/toPromise";
+import { Observable } from "rxjs/Rx";
 
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/catch";
 
 @Injectable()
 export class WeakauraService extends WeaklibService {
@@ -20,28 +20,28 @@ export class WeakauraService extends WeaklibService {
         super();
     }
 
-    getWeakauras(): Observable<Response> {
+    public getWeakauras(): Observable<Response> {
         return this.http.get(this.baseURL + this.baseURI + "/weakaura", this.options);
     }
 
-    getWeakauraWithHash(hash: String): Observable<Response> {
+    public  getWeakauraWithHash(hash: string): Observable<Response> {
         return this.http.get(this.baseURL + this.baseURI + "/weakaura?hash=" + hash);
     }
 
-    getWeakaurasFromUser(username: String): Observable<Response> {
+    public getWeakaurasFromUser(username: string): Observable<Response> {
         return this.http.get(this.baseURL + this.baseURI + "/weakaura?user=" + username);
     }
 
-    getComments(hash: string) {
+    public getComments(hash: string) {
         return this.http.get(this.baseURL + this.baseURI + "/weakauracomment?hash=" + hash);
     }
 
-    postComment(hash: string, id: string, comment: string): Observable<Response>  {
+    public postComment(hash: string, id: string, comment: string): Observable<Response>  {
         let url: string = "/weakauracomment?";
         console.log(hash, id, comment);
         if (hash.length > 0) {
             url += "root=" + hash + "&";
-        }   
+        }
         if (id.length > 0) {
             url += "id=" + id + "&";
         }
@@ -51,11 +51,11 @@ export class WeakauraService extends WeaklibService {
         return this.http.post(this.baseURL + this.baseURI + url, "", this.options);
     }
 
-    searchWeakaura(name: string, user: string, categories: string[]): Observable<Response> {
+    public searchWeakaura(name: string, user: string, categories: string[]): Observable<Response> {
         let url: string = "/weakaura?";
         if (name.length > 0) {
             url += "name=" + name + "&";
-        }   
+        }
         if (user.length > 0) {
             url += "user=" + user + "&";
         }
@@ -70,10 +70,10 @@ export class WeakauraService extends WeaklibService {
         return this.http.get(this.baseURL + this.baseURI + url, this.options);
     }
 
-    uploadWeakaura(weakaura: Weakaura) {
+    public uploadWeakaura(weakaura: Weakaura) {
         let bodyString = JSON.stringify(weakaura);
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
+        let optionHeaders = new Headers({ "Content-Type": "application/json" });
+        let options = new RequestOptions({ headers: optionHeaders });
         return this.http.post(this.baseURL + this.baseURI + "api/weakaura", bodyString, options);
     }
 }
